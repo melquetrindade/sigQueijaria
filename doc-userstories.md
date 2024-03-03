@@ -4,7 +4,7 @@ Documento construído a partido da **Lista de User Stories** que pode ser encont
 
 ## Descrição
 
-Este documento descreve os User Stories criados a partir da Lista de Requisitos no ###. Este documento também pode ser adaptado para descrever Casos de Uso.
+Este documento descreve os User Stories criados a partir da Lista de Requisitos no [Documento 001 - Documento de Visão](doc-visao.md). Este documento também pode ser adaptado para descrever Casos de Uso.
 
 ## Histórico de revisões
 
