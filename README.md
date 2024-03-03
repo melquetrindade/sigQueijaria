@@ -1,2 +1,2 @@
 # sigQueijaria
-Repositório destinado ao Projeto da disciplina de Engenharia de Software II
+Sistema de gerenciamento de uma Queijaria. Projeto utilizado como forma de avaliação na disciplina Engenharia de Software II.
