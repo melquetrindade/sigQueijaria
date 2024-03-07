@@ -10,26 +10,37 @@ Para a modelagem pode se usar o Astah UML ou o BrModelo. Uma ferramenta interess
 
 ```mermaid
 classDiagram
-      Animal <|-- Duck
-      Animal <|-- Fish
-      Animal <|-- Zebra
-      Animal : +int age
-      Animal : +String gender
-      Animal: +isMammal()
-      Animal: +mate()
-      class Duck{
-          +String beakColor
-          +swim()
-          +quack()
-      }
-      class Fish{
-          -int sizeInFeet
-          -canEat()
-      }
-      class Zebra{
-          +bool is_wild
-          +run()
-      }
+  class Pessoa {
+    - nome: char
+    - email: char
+    - numTelefone: char
+    - endereco: Endereco
+    - status: boolean
+    - dataNascimento: char
+    
+    + setNome(value: char): void
+    + setEmail(value: char): void
+    + setNumTelefone(value: char): void
+    + setStatus(value: boolean): void
+    + getNome(): char
+    + getEmail(): char
+    + getNumTelefone(): char
+    + getStatus(): boolean
+    + incluirPessoa(pes: Pessoa): void
+    + alterarPessoa(pes: Pessoa): void
+    + desativarPessoa(pes: Pessoa): void
+  }
+
+  class Endereco {
+    - nome: char
+    - numCasa: int
+    - complemento: char
+    
+    + set(): void
+    + get(): void
+  }
+
+  Pessoa --o Endereco : possui
 ```
 
 ### Descrição das Entidades
