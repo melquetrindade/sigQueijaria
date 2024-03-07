@@ -1,30 +1,30 @@
 ﻿# Documento de Visão
 
-Documento construído a partir do **Documento de Visao** que pode ser encontrado no link: 
+Documento construído a partir do **Documento de Visao** que pode ser encontrado no link: https://docs.google.com/document/d/1KIQy14inIqcfcoBIEikXlnksvtnJw7yplUlvLV9PtQk/edit
 
 ## Equipe e Definição de Papéis
 
 
 Membro     |     Papel   |   E-mail   |
 ---------  | ----------- | ---------- |
-Erick      | Testador     | erickbrtrindade@gmail.com |
-Felipe       | Desenvolvedor | felipesouzabenicio@gmail.com |
-Isa        |  Desenvolvedor     | isakaillany123@gmail.com |
-Manuelly     | Analista     | manuellyvictor2000@gmail.com |
-Melque        | Gerente      | melquetrindade654@gmail.com |
-Thamiris     | Cliente     | thamirisbgrs@gmail.com |
+Erick Bezerra     | Testador     | erickbrtrindade@gmail.com |
+Felipe Souza      | Desenvolvedor | felipesouzabenicio@gmail.com |
+Isa Kaillany       |  Desenvolvedor     | isakaillany123@gmail.com |
+Manuelly Rodrigues    | Analista     | manuellyvictor2000@gmail.com |
+Melque Rodrigues       | Gerente      | melquetrindade654@gmail.com |
+Thamiris Borges    | Cliente     | thamirisbgrs@gmail.com |
 
 
 ### Matriz de Competências
 
 Membro     | Competências |
 ---------  | ----------- |
-Erick |Desenvolvedor Python, Kotlin, Flutter, JavaScript, HTML, CSS, Next.js, React |
-Felipe | Desenvolvedor Python, JavaScript, HTML, CSS, Next.js, Node.js, React, Flutter, Figma, Trello, Scrum|
-Isa | Desenvolvedora Python, JavaScript, HTML, CSS, Dart, Flutter, Next, Figma, Trello |
-Manuelly | Desenvolvedora Python, JavaScript, HTML, CSS, Next, Dart, Figma, Notion |
-Melque | Desenvolvedor JavaScript, HTML, CSS, Python, Dart, Flutter, Next, React, C |
-Thamiris | Desenvolvedora Python, HTML, CSS, JavaScript, Next.js, React, Flutter |
+Erick Bezerra |Desenvolvedor Python, Kotlin, Flutter, JavaScript, HTML, CSS, Next.js, React |
+Felipe Souza | Desenvolvedor Python, JavaScript, HTML, CSS, Next.js, Node.js, React, Flutter, Figma, Trello, Scrum|
+Isa Kaillany| Desenvolvedora Python, JavaScript, HTML, CSS, Dart, Flutter, Next, Figma, Trello |
+Manuelly Rodrigues| Desenvolvedora Python, JavaScript, HTML, CSS, Next, Dart, Figma, Notion |
+Melque Rodrigues| Desenvolvedor JavaScript, HTML, CSS, Python, Dart, Flutter, Next, React, C |
+Thamiris Borges| Desenvolvedora Python, HTML, CSS, JavaScript, Next.js, React, Flutter |
 
 ## Perfis dos Usuários
 
@@ -37,22 +37,30 @@ Funcionário                            | Este usuário é a pessoa responsável
 
 Requisito                                 | Descrição   | Ator |
 ---------                                 | ----------- | ---------- |
-RF01 - Manter Cliente | Um cliente tem código, nome, cpf ou cnpj, email, telefone, endereço. | Gerente |
-RF02 - Manter Funcionário | Um funcionário tem código, nome, cpf, rg, email, telefone, endereço. | Gerente |
-RF03 - Manter Material | Um material tem código, descrição e quantidade em estoque. | Gerente |
-RF04 - Manter Pedido | É a base da lógica de negócio da empresa. Um pedido tem código, cliente, funcionário, produto, opção de fornecer material, observações, status, valor adicional, desconto, forma de pagamento. | Gerente |
-RF05 - Faturar Pedido | Um faturamento de pedido é realizado após a finalização de sua manufatura, o que muda seu status no sistema e o libera para retirada. | Funcionário |
-RF06 - Relatórios de Cliente | O acesso a relatórios de clientes pode se provar útil possibilitando o acesso aos dados gerais de clientes sem a necessidade de utilizar seus identificadores | Gerente |
-RF07 - Relatórios de Funcionário | Um relatório útil para monitorar a carga de pedidos dos funcionários. | Gerente |
-RF08 - Relatórios de Material | Relatórios detalhados com as informações dos materiais utilizados para os bordados. São essenciais para o controle de estoque e garantir que os pedidos poderão ser entregues dentro do prazo. | Gerente |
-RF09 - Relatórios de Pedido | É o mais importante do sistema, pois será fundamental para a gestão das demandas. Com esta funcionalidade, o bordadeiro poderá ver todas as demandas e suas informações. | Gerente |
+RF01 - Manter Produto | Permitir o cadastro de todos os tipos de queijo, a pesquisa, a edição, além da desativação de algum tipo de queijo já cadastrado. | Funcionário e gerente |
+RF02 - Manter Cliente |Permitir o cadastro do cliente, a pesquisa, a edição, além da desativação dele do sistema.  | Funcionário e gerente |
+RF03 - Realizar Entrada de Mercadoria | Controlar a quantidade de produtos que entram no estoque.  | Funcionário e gerente  |
+RF04 - Realizar Vendas | Permitir a transação de venda no sistema, incluindo informações sobre os produtos vendidos, o preço, o método de pagamento e o cliente. | Funcionário e gerente  |
+RF05 - Gerar Relatórios | Fazer a geração de relatórios nos setores de finanças, vendas, estoque e produtos. | Gerente |
+RF06 - Controlar Caixa | Registrar as movimentações financeiras para o devido funcionamento da empresa. | Funcionário e gerente  |
+RF07 - Gerar Conta | Gerar uma conta a receber ou a pagar. | Funcionário e gerente |
+RF08 - Pagar Conta | Permitir a administração das contas a serem pagas geradas pelo sistema. | Funcionário e gerente |
+RF09 - Receber Conta | Permitir a administração do recebimento de contas do cliente. | Funcionário e gerente |
+RF10 - Gerar Nota Fiscal | Após a venda ter sido efetuada e aprovada, a nota fiscal é gerada e concedida ao cliente. | Funcionário e gerente |
+RF11 - Manter Funcionário | Permitir o cadastro de funcionários, a pesquisa, a desativação do sistema, além da edição de algum tipo de informação já cadastrada. | Funcionário e gerente |
+RF12 - Manter Fornecedor | Permitir o cadastro de fornecedores, a pesquisa, a desativação, bem como a edição de algum tipo de informação já cadastrada. | Funcionário e gerente |
 
 ## Lista de Requisitos Não Funcionais
 
 Requisito                                 | Descrição   |
 ---------                                 | ----------- |
-RNF01 - Desenvolvimento de uma interface amigável e intuitiva | Devido ao baixo nível de experiência com tecnologia por parte dos funcionários, é de considerável importância que a interface do sistema possua funcionalidades fáceis de aprender e utilizar. |
-RNF02 - O sistema deve exigir poucos recursos do hardware | Acesso a máquinas mais potentes é um investimento inviável. Por isso, é importante que o sistema não exija uma grande quantidade de processamento, armazenamento e memória. A escolha de uma linguagem de programação mais rápida e eficiente deve ser levada em consideração. |
+RNF01 - Segurança | Prover a segurança das informações com o uso da criptografia, juntamente da autenticação e autorização dos usuários. Além disso, oferece atualizações e patches com correções de segurança mais recentes. |
+RNF02 - Disponibilidade | Garantir que o sistema esteja sempre disponível para atender às necessidades dos usuários, a partir do monitoramento regular do desempenho do sistema e backups, como também um planejamento de contingência para garantir que, se ocorrer uma interrupção no sistema, os usuários ainda possam acessar as informações e os serviços necessários. |
+RNF03 - Usabilidade | Uma interface que seja fácil e de rápido entendimento, provendo acessibilidade e um design centrado e padronizado para que os usuários possam aprender rapidamente a usá-lo e terem fácil acesso às informações necessárias. |
+RNF04 - Confiabilidade | Preservar o ambiente do sistema para manter a confiabilidade das informações que serão registradas nele. Além disso, com uma boa confiabilidade o desempenho é afetado positivamente. Portanto, os backups e instalação de atualizações de software são bem vindos. |
+RNF05 - Performance | O sistema deve ter um desempenho adequado para garantir que as operações sejam realizadas muito mais rápidas que o comum. Aumentando a produtividade e minimizando o tempo das pequenas atividades dentro do sistema.  |
+RNF06 - Interface de usuário | O sistema deve ter uma interface limpa e de fácil entendimento que possa aumentar a rapidez das vendas e organização das mesmas. De maneira que todas as informações presentes na tela, como botões, caixas de texto e lista de tarefas possam trazer organização e produtividade, bem como uma interface bem projetada pode trazer uma grande satisfação para o usuário e uma experiência bem mais agradável. |
+RNF07 - Acessibilidade | O sistema deve permitir apenas o cadastro de pessoas maiores de dezoito anos ou emancipadas. Ademais, o sistema só funcionará no desktop da empresa, ou seja, ele não deverá rodar em dispositivos móveis.|
 
 ## Riscos
 
@@ -60,8 +68,10 @@ Tabela com o mapeamento dos riscos do projeto, as possíveis soluções e os res
 
 Data | Risco | Prioridade | Responsável | Status | Providência/Solução |
 ------ | ------ | ------ | ------ | ------ | ------ |
-04/12/2023 | Não aprendizado das ferramentas utilizadas pelos componentes do grupo | Alta | Gerente | Vigente | Reforçar estudos sobre as ferramentas e aulas com a integrante que conhece a ferramenta |
-04/12/2023 | Divisão de tarefas mal sucedida | Baixa | Gerente | Vigente | Acompanhar de perto o desenvolvimento de cada membro da equipe |
-| 04/12/2023 | Ausência por qualquer motivo do cliente | Média | Gerente | Vigente | Planejar o cronograma tendo em base a agenda do cliente |
-| 04/12/2023 | Implementação de protótipo com as tecnologias | Alto | Todos | Vigente | Encontrar tutorial com a maioria da tecnologia e implementar um caso base do sistema. |
-| 04/12/2023 | Falta de comprometimento por parte da equipe | Média | Todos | Pendente | Realocação e simplificação de tarefas |
+30/11/2023 | Não aprendizado das ferramentas utilizadas pelos componentes do grupo | Alta | Gerente | Vigente | Reforçar estudos sobre as ferramentas e aulas com a integrante que conhece a ferramenta |
+30/11/2023 | Ausência por qualquer motivo do cliente | Média | Gerente | Vigente | Planejar o cronograma tendo em base a agenda do cliente |
+| 30/11/2023 | Divisão de tarefas mal sucedida | Baixa | Gerente | Resolvido | Acompanhar de perto o desenvolvimento de cada membro da equipe |
+| 30/11/2023 | Implementação de protótipo com as tecnologias | Alto | Todos | Vigente | Encontrar tutorial com a maioria da tecnologia e implementar um caso base do sistema. |
+| 30/11/2023 | Implementação de requisitos não funcionais exigidos pelo cliente | Médio | Desenvolvedores | Vigente | Buscar mecanismos que contribuam para a aplicação dos requisitos indicados de forma que não prejudique ambas as partes |
+| 30/11/2023 | Não cumprimento dos prazos pré-estabelecidos | Médio | Todos | Vigente | Procurar estabelecer metas semanais e bem distribuídas entre os membros da equipe. Tal atividade sendo monitorada por alguma ferramenta como Trello/Notion |
+| 30/11/2023 | Mudanças frequentes nos requisitos | Médio | Desenvolvedores | Vigente | Ser conversado com antecedência com as partes envolvidas para o pleno entendimento das necessidades do sistema em questão.  |
