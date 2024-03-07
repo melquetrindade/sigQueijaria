@@ -8,7 +8,29 @@ Para a modelagem pode se usar o Astah UML ou o BrModelo. Uma ferramenta interess
 
 ### Diagrama de Classes usando Mermaid
 
-
+```mermaid
+classDiagram
+      Animal <|-- Duck
+      Animal <|-- Fish
+      Animal <|-- Zebra
+      Animal : +int age
+      Animal : +String gender
+      Animal: +isMammal()
+      Animal: +mate()
+      class Duck{
+          +String beakColor
+          +swim()
+          +quack()
+      }
+      class Fish{
+          -int sizeInFeet
+          -canEat()
+      }
+      class Zebra{
+          +bool is_wild
+          +run()
+      }
+```
 
 ### Descrição das Entidades
 
@@ -25,7 +47,17 @@ Descrição sucinta das entidades presentes no sistema.
 
 Para criar modelos ER é possível usar o BrModelo e gerar uma imagem. Contudo, atualmente é possível criar modelos ER usando a ferramenta **Mermaid**, escrevendo o modelo diretamente em markdown. Acesse a documentação para escrever modelos [ER Diagram Mermaid](https://mermaid-js.github.io/mermaid/#/entityRelationshipDiagram).
 
-
+```mermaid
+erDiagram
+    Departamento ||--o{ Laboratorio : labs
+    Departamento ||--|{ Docente : docentes
+    Docente ||--o| Laboratorio : coordenador
+    Docente ||--o| Laboratorio : vice-coordenador
+    Laboratorio ||--o{ Membro_Docente : membros
+    Docente ||--|{ Membro_Docente : ""
+    Laboratorio ||--o{ Membro_Discente : membros
+    Membro_Discente }|--|| Discente: ""
+```
 
 ### Dicionário de Dados
 
