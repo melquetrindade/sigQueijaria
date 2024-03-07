@@ -8,7 +8,7 @@ Para a modelagem pode se usar o Astah UML ou o BrModelo. Uma ferramenta interess
 
 ### Diagrama de Classes usando Mermaid
 
-```mermaid
+
 classDiagram
       Animal <|-- Duck
       Animal <|-- Fish
@@ -30,7 +30,6 @@ classDiagram
           +bool is_wild
           +run()
       }
-```
 
 ### Descrição das Entidades
 
