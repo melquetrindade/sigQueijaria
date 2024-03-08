@@ -50,8 +50,36 @@ classDiagram
     + get(): void
   }
 
-  Pessoa --o Endereco : possui
-  Pessoa --o Cliente : possui
+  class Bairro {
+    - nome: char
+    - codigo: int
+    
+    + set(): void
+    + get(): void
+  }
+
+  class Cidade {
+    - cep: char
+    - nome: int
+    - codigo: int
+    
+    + set(): void
+    + get(): void
+  }
+
+  class Estado {
+    - nome: int
+    - codigo: int
+    
+    + set(): void
+    + get(): void
+  }
+
+  Pessoa "*" -- "1" Endereco : possui
+  Pessoa <|-- Cliente
+  Endereco "*" -- "1" Bairro : possui
+  Bairro "*" -- "1" Cidade : possui
+  Cidade "*" -- "1" Estado : possui
 ```
 
 ### Descrição das Entidades
