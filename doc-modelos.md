@@ -31,6 +31,16 @@ classDiagram
     + desativarPessoa(pes: Pessoa): void
   }
 
+  class Cliente {
+    - pessoa: Pessoa
+    - cpf: char
+    - rg: char
+    
+    + set(): void
+    + get(): void
+    + consultarCliente(cpf: char): Cliente
+  }
+
   class Endereco {
     - nome: char
     - numCasa: int
@@ -41,6 +51,7 @@ classDiagram
   }
 
   Pessoa --o Endereco : possui
+  Pessoa --o Cliente : possui
 ```
 
 ### Descrição das Entidades
