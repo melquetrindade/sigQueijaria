@@ -75,11 +75,55 @@ classDiagram
     + get(): void
   }
 
+  class NotaFiscal {
+    - DataEmissao: char
+    - quantidade: int
+    - valorProduto: double
+    - impostos: double
+    
+    + set(): void
+    + get(): void
+    + valorTotal(valorBase: double, impostos: double, valorProduto: double): void
+  }
+
+  class EntradaMercadoria {
+    - quantidade: int
+    - tipo: char
+    - codigo: int
+    - fornecedor: Pessoa
+    
+    + sets(): void
+    + gets(): void
+    + incluirEntrada(entrada: EntradaMercadoria): void
+    - gerarConta(entrada: EntradaMercadoria, fornecedor: Pessoa): void
+  }
+
+  class Conta {
+    - codigo: int
+    - venda: Venda
+    - cliente: Pessoa
+    - valor: double
+    - dataVencimento: char
+    - statusRecebido: boolean
+    - entradaMercadoria: EntradaMercadoria
+    
+    + sets(): void
+    + gets(): void
+    + incluirConta(conta: Conta): void
+    + alterarConta(conta: Conta): void
+    + consultarConta(cod: int): Conta
+    + tipoConta(conta: Conta): void
+    + gerarRelatorioLucrosMensais(conta: boolean): ArrayList
+    + gerarRelatorioDespesasMensais(conta: boolean): ArrayList
+  }
+
+
   Pessoa "*" -- "1" Endereco : possui
   Pessoa <|-- Cliente
   Endereco "*" -- "1" Bairro : possui
   Bairro "*" -- "1" Cidade : possui
   Cidade "*" -- "1" Estado : possui
+  Conta "1" -- "1" EntradaMercadoria : possui
 ```
 
 ### Descrição das Entidades
