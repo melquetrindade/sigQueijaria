@@ -154,17 +154,47 @@ class MetodoPagamento {
   + getDescricao(): char
 }
 
+class Venda_Produto {
+- produto: Produto
+- venda: Venda
+- quantidade: int
+- valor: double
+
++ setProduto(produto: Produto): void
++ setVenda(venda: Venda): void
++ setQuantidade(quant: int): void
++ setValor(valor: double): void
++ getProduto(): Produto
++ getVenda(): Venda
++ getQuantidade(): int
++ getValor(): double
+}
+
+class NotaFiscal_Produto {
+- notaFiscal: NotaFiscal
+- produto: Produto
+}
+
+class EntradaMercadoria_Produto {
+- produto: Produto
+- entradaMercadoria: EntradaMercadoria
+}
+
+
   Pessoa "*" -- "1" Endereco : possui
   Pessoa "1" -- "*" Venda : possui
   Venda "1" -- "1" Conta : possui
   Venda "1" -- "1" NotaFiscal : possui
   Venda "1" -- "*" Venda_MetodoPagamento : possui
+  Venda "1" -- "*" Venda_Produto : possui
   Venda_MetodoPagamento "*" -- "1" MetodoPagamento : possui
+  NotaFiscal "1" -- "*" NotaFiscal_Produto : possui
   Pessoa <|-- Cliente
   Endereco "*" -- "1" Bairro : possui
   Bairro "*" -- "1" Cidade : possui
   Cidade "*" -- "1" Estado : possui
   Conta "1" -- "1" EntradaMercadoria : possui
+  EntradaMercadoria "1" -- "*" EntradaMercadoria_Produto : possui
 ```
 
 ### Descrição das Entidades
