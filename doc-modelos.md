@@ -117,8 +117,49 @@ classDiagram
     + gerarRelatorioDespesasMensais(conta: boolean): ArrayList
   }
 
+class Venda {
+  - cliente: Pessoa
+  - codigo: int
+  - data: char
+  - metodoPagamento: Venda_MetodoPagamento
+
+  + setCliente(cliente: Pessoa): void
+  + setCodigo(codigo: int): void
+  + setData(data: char): void
+  + setMetodoPagamento(metodo_pagamento: char): void
+  + getCliente(): Pessoa
+  + getCodigo(): int
+  + getData(): char
+  + getMetodoPagamento(): char
+  + registrarVenda(venda: Venda): void
+  + consultarVenda(venda: Venda): void
+  + calcularValor(venda: Venda): double
+  + gerarNotaFiscal(venda: Venda): void
+  + gerarConta(cliente: Pessoa, venda: Venda): void
+  + gerarRelatorioVendasMensais(venda: Venda, data: char): ArrayList
+}
+
+class Venda_MetodoPagamento {
+  - venda: Venda
+  - metodoPagamento: MetodoPagamento
+}
+
+class MetodoPagamento {
+  - codigo: int
+  - descricao: char
+
+  + setCodigo(codigo: int): void
+  + setDescricao(descricao: char): void
+  + getCodigo(): int
+  + getDescricao(): char
+}
 
   Pessoa "*" -- "1" Endereco : possui
+  Pessoa "1" -- "*" Venda : possui
+  Venda "1" -- "1" Conta : possui
+  Venda "1" -- "1" NotaFiscal : possui
+  Venda "1" -- "*" Venda_MetodoPagamento : possui
+  Venda_MetodoPagamento "*" -- "1" MetodoPagamento : possui
   Pessoa <|-- Cliente
   Endereco "*" -- "1" Bairro : possui
   Bairro "*" -- "1" Cidade : possui
