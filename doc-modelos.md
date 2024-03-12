@@ -40,6 +40,28 @@ classDiagram
     + get(): void
     + consultarCliente(cpf: char): Cliente
   }
+
+    class Fornecedor {
+    - pessoa: Pessoa
+    - cnpj: char
+    
+    + set(): void
+    + get(): void
+    + consultarFornecedor(cnpj: char): Fornecedor
+  }
+    class Funcionario {
+    - pessoa: Pessoa
+    - cpf: char
+    - cargo: char
+    - salario: double
+    - cargaHoraria: double
+    
+    + set(): void
+    + get(): void
+    + consultarFuncionario(cpf: char): Funcionario
+    + selecionarCargo(cargo: char): void
+    + calcularSalario(salario: double, cargaHoraria: double): double
+  }
   
   class Endereco {
     - nome: char
@@ -248,6 +270,8 @@ Conta "1" -- "1" EntradaMercadoria : possui
 EntradaMercadoria "1" -- "*" EntradaMercadoria_Produto : possui
 Pagamento "*" -- "1" Conta : possui
 Pagamento "*" -- "1" Caixa : possui
+Pessoa <|-- Fornecedor
+Pessoa <|-- Funcionario
 
 ```
 
