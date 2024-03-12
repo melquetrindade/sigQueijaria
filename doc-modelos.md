@@ -138,6 +138,27 @@ classDiagram
     + gerarRelatorioLucrosMensais(conta: boolean): ArrayList
     + gerarRelatorioDespesasMensais(conta: boolean): ArrayList
   }
+
+    class Produto {
+    - codigoBarras: char
+    - tipo: char
+    - dataValidade: char
+    - quantMinima: int
+    - valor : double
+    - status: boolean
+    
+    + set(): void
+    + get(): void
+    + incluirProduto(prod: Produto) : void
+    + consultarProduto(codigoBarras: char) : Produto
+    + desativarProduto(prod: Produto) : void
+    + alterarProduto(prod: Produto) : void
+    + gerarRelatorioItensQuantMinima(quantMinima: int) : ArrayList
+    + gerarRelatorioProdutosDisponiveis(status: boolean) : ArrayList
+    + mudarStatus(status: boolean) : void
+
+  }
+
   
   class Venda {
     - cliente: Pessoa
@@ -272,6 +293,10 @@ Pagamento "*" -- "1" Conta : possui
 Pagamento "*" -- "1" Caixa : possui
 Pessoa <|-- Fornecedor
 Pessoa <|-- Funcionario
+Produto "1" -- "*" Venda_Produto : possui
+Produto "1" -- "*" EntradaMercadoria_Produto : possui
+Produto "1" -- "*" NotaFiscal_Produto : possui
+
 
 ```
 
