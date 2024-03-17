@@ -96,7 +96,69 @@ classDiagram
     + set(): void
     + get(): void
   }
+
+class Produto {
+    - codigoBarras: char
+    - tipo: char
+    - dataValidade: char
+    - quantMinima: int
+    - valor : double
+    - status: boolean
+    
+    + set(): void
+    + get(): void
+    + incluirProduto(prod: Produto) : void
+    + consultarProduto(codigoBarras: char) : Produto
+    + desativarProduto(prod: Produto) : void
+    + alterarProduto(prod: Produto) : void
+    + gerarRelatorioItensQuantMinima(quantMinima: int) : ArrayList
+    + gerarRelatorioProdutosDisponiveis(status: boolean) : ArrayList
+    + mudarStatus(status: boolean) : void
+  }
+
+  class Venda_Produto {
+    - produto: Produto
+    - venda: Venda
+    - quantidade: int
+    - valor: double
+    
+    + setProduto(produto: Produto): void
+    + setVenda(venda: Venda): void
+    + setQuantidade(quant: int): void
+    + setValor(valor: double): void
+    + getProduto(): Produto
+    + getVenda(): Venda
+    + getQuantidade(): int
+    + getValor(): double
+  }
+
+  class Venda {
+    - cliente: Pessoa
+    - codigo: int
+    - data: char
+    - metodoPagamento: Venda_MetodoPagamento
   
+    + setCliente(cliente: Pessoa): void
+    + setCodigo(codigo: int): void
+    + setData(data: char): void
+    + setMetodoPagamento(metodo_pagamento: char): void
+    + getCliente(): Pessoa
+    + getCodigo(): int
+    + getData(): char
+    + getMetodoPagamento(): char
+    + registrarVenda(venda: Venda): void
+    + consultarVenda(venda: Venda): void
+    + calcularValor(venda: Venda): double
+    + gerarNotaFiscal(venda: Venda): void
+    + gerarConta(cliente: Pessoa, venda: Venda): void
+    + gerarRelatorioVendasMensais(venda: Venda, data: char): ArrayList
+  }
+
+  class Venda_MetodoPagamento {
+    - venda: Venda
+    - metodoPagamento: MetodoPagamento
+  }
+
   class NotaFiscal {
     - DataEmissao: char
     - quantidade: int
@@ -119,14 +181,33 @@ classDiagram
     + incluirEntrada(entrada: EntradaMercadoria): void
     - gerarConta(entrada: EntradaMercadoria, fornecedor: Pessoa): void
   }
+
+  class EntradaMercadoria_Produto {
+    - produto: Produto
+    - entradaMercadoria: EntradaMercadoria
+  }
+
+  class EntradaMercadoria_MetodoPagamento {
+    - ownerEntradaMercadoria: EntradaMercadoria
+    - ownerMetodoPagamento: MetodoPagamento
+  }
+
+  class MetodoPagamento {
+    - codigo: int
+    - descricao: char
+  
+    + setCodigo(codigo: int): void
+    + setDescricao(descricao: char): void
+    + getCodigo(): int
+    + getDescricao(): char
+  }
   
   class Conta {
     - codigo: int
     - venda: Venda
-    - cliente: Pessoa
     - valor: double
     - dataVencimento: char
-    - statusRecebido: boolean
+    - tipoReceber: boolean
     - entradaMercadoria: EntradaMercadoria
     
     + sets(): void
@@ -139,113 +220,62 @@ classDiagram
     + gerarRelatorioDespesasMensais(conta: boolean): ArrayList
   }
 
-    class Produto {
-    - codigoBarras: char
-    - tipo: char
-    - dataValidade: char
-    - quantMinima: int
-    - valor : double
-    - status: boolean
-    
-    + set(): void
-    + get(): void
-    + incluirProduto(prod: Produto) : void
-    + consultarProduto(codigoBarras: char) : Produto
-    + desativarProduto(prod: Produto) : void
-    + alterarProduto(prod: Produto) : void
-    + gerarRelatorioItensQuantMinima(quantMinima: int) : ArrayList
-    + gerarRelatorioProdutosDisponiveis(status: boolean) : ArrayList
-    + mudarStatus(status: boolean) : void
-
+  class Caixa {
+    - dataHoraAberturaAtual: char
+    - idCaixa: int
+    - valorInicial: double
+    - valorAtual: double
+    - isOpen: boolean
+  
+    + setDataHoraAberturaAtual(value: char): void
+    + setIdCaixa(value: int): void
+    + setValorInicial(value: double): void
+    + setValorAtual(value: double): void
+    + setIsOpen(value: boolean): void
+    + getDataHoraAbertura(): char
+    + getIdCaixa(): int
+    + getValorInicial(): double
+    + getValorAtual(): double
+    + getIsOpen(): boolean
+    + entrada(valor: double): void
+    + saida(valor: double): void
   }
 
-  
-  class Venda {
-    - cliente: Pessoa
-    - codigo: int
-    - data: char
-    - metodoPagamento: Venda_MetodoPagamento
-  
-    + setCliente(cliente: Pessoa): void
-    + setCodigo(codigo: int): void
-    + setData(data: char): void
-    + setMetodoPagamento(metodo_pagamento: char): void
-    + getCliente(): Pessoa
-    + getCodigo(): int
-    + getData(): char
-    + getMetodoPagamento(): char
-    + registrarVenda(venda: Venda): void
-    + consultarVenda(venda: Venda): void
-    + calcularValor(venda: Venda): double
-    + gerarNotaFiscal(venda: Venda): void
-    + gerarConta(cliente: Pessoa, venda: Venda): void
-    + gerarRelatorioVendasMensais(venda: Venda, data: char): ArrayList
+  class Caixa_DiaCaixa {
+    - ownerCaixa: Caixa
+    - ownerDiaCaixa: DiaCaixa
   }
-  
-  class Venda_MetodoPagamento {
-    - venda: Venda
-    - metodoPagamento: MetodoPagamento
-  }
-  
-  class MetodoPagamento {
-    - codigo: int
-    - descricao: char
-  
-    + setCodigo(codigo: int): void
-    + setDescricao(descricao: char): void
-    + getCodigo(): int
-    + getDescricao(): char
-  }
-  
-  class Venda_Produto {
-    - produto: Produto
-    - venda: Venda
-    - quantidade: int
-    - valor: double
-    
-    + setProduto(produto: Produto): void
-    + setVenda(venda: Venda): void
-    + setQuantidade(quant: int): void
-    + setValor(valor: double): void
-    + getProduto(): Produto
-    + getVenda(): Venda
-    + getQuantidade(): int
-    + getValor(): double
-  }
-  
-  class NotaFiscal_Produto {
-    - notaFiscal: NotaFiscal
-    - produto: Produto
-  }
-  
-  class EntradaMercadoria_Produto {
-    - produto: Produto
-    - entradaMercadoria: EntradaMercadoria
+
+  class DiaCaixa {
+    - dataHoraAbertura: char
+    - dataHoraEncerramento: char
+    - valorInicial: double
+    - valorFinal: double
+
+    + setDataHoraAbertura(value: char): void
+    + setDataHoraEncerramento(value: char): void
+    + setValorInicial(value: double): void
+    + setValorFinal(value: double): void
+    + getDataHoraAbertura(): char
+    + getDataHoraEncerramento(): char
+    + getValorInicial(): double
+    + getValorFinal(): double
   }
   
   class Pagamento {
     - conta: Conta
     - caixa: Caixa
-    - cliente: Pessoa
     - valor: double
-    - dataVencimento: char
-    - tipoReceber: boolean
-    - entradaMercadoria: EntradaMercadoria
+    - data: char
   
     + setConta(value: Conta): void
     + setCaixa(value: Caixa): void
-    + setCliente(value: Pessoa): void
     + setValor(value: double): void
-    + setDataVencimento(value: char): void
-    + setTipoReceber(value: boolean): void
-    + setEntradaMercadoria(value: EntradaMercadoria): void
+    + setData(value: char): void
     + getConta(): Conta
     + getCaixa(): Caixa
-    + getCliente(): Pessoa
     + getValor(): double
-    + getDataVencimento(): char
-    + getTipoReceber(): boolean
-    + getEntradaMercadoria(): EntradaMercadoria
+    + getData(): char
     + incluirConta(conta: Conta): void
     + alterarConta(conta: Conta): void
     + consultarConta(cod: int): Conta
@@ -254,26 +284,7 @@ classDiagram
     + gerarRelatorioDespesasMensais(conta: boolean): ArrayList
   }
   
-  class Caixa {
-    - dataHoraAbertura: char
-    - numero: int
-    - dataHoraEncerramento: char
-    - valorInicial: double
-    - valorAtual: double
   
-    + setDataHoraAbertura(value: char): void
-    + setNumero(value: int): void
-    + setDataHoraEncerramento(value: char): void
-    + setValorInicial(value: double): void
-    + setValorAtual(value: double): void
-    + getDataHoraAbertura(): char
-    + getNumero(): int
-    + getDataHoraEncerramento(): char
-    + getValorInicial(): double
-    + getValorAtual(): double
-    + entrada(valor: double): void
-    + saida(valor: double): void
-  }
 
 Pessoa "*" -- "1" Endereco : possui
 Pessoa "1" -- "*" Venda : possui
@@ -282,7 +293,7 @@ Venda "1" -- "1" NotaFiscal : possui
 Venda "1" -- "*" Venda_MetodoPagamento : possui
 Venda "1" -- "*" Venda_Produto : possui
 Venda_MetodoPagamento "*" -- "1" MetodoPagamento : possui
-NotaFiscal "1" -- "*" NotaFiscal_Produto : possui
+NotaFiscal "1" -- "*" Venda_Produto : possui
 Pessoa <|-- Cliente
 Endereco "*" -- "1" Bairro : possui
 Bairro "*" -- "1" Cidade : possui
@@ -295,7 +306,10 @@ Pessoa <|-- Fornecedor
 Pessoa <|-- Funcionario
 Produto "1" -- "*" Venda_Produto : possui
 Produto "1" -- "*" EntradaMercadoria_Produto : possui
-Produto "1" -- "*" NotaFiscal_Produto : possui
+Caixa "1" -- "*" Caixa_DiaCaixa : possui
+DiaCaixa "1" -- "*" Caixa_DiaCaixa : possui
+EntradaMercadoria "1" -- "*" EntradaMercadoria_MetodoPagamento : possui
+MetodoPagamento "1" -- "*" EntradaMercadoria_MetodoPagamento : possui
 
 
 ```
