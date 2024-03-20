@@ -167,9 +167,8 @@ class Produto {
 
   class NotaFiscal {
     - DataEmissao: char
-    - quantidade: int
-    - valorProduto: double
-    - impostos: double
+    - listVendaProduto: char
+    - ownerVenda: char
     
     + set(): void
     + get(): void
