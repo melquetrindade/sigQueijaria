@@ -177,7 +177,6 @@ class Produto {
   
   class EntradaMercadoria {
     - quantidade: int
-    - tipo: char
     - codigo: int
     - fornecedor: Pessoa
     
