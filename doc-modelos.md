@@ -179,6 +179,8 @@ class Produto {
     - quantidade: int
     - codigo: int
     - fornecedor: Pessoa
+    - data: char
+    - valor: double
     
     + sets(): void
     + gets(): void
