@@ -142,6 +142,7 @@ class Produto {
     - codigo: int
     - data: char
     - metodoPagamento: Venda_MetodoPagamento
+    - total: double
   
     + setCliente(cliente: Pessoa): void
     + setCodigo(codigo: int): void
