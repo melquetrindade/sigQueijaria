@@ -1,4 +1,4 @@
-# Documento de Modelos
+ # Documento de Modelos
 
 Neste documento temos o modelo Conceitual (UML) ou de Dados (Entidade-Relacionamento). Temos também a descrição das entidades e o dicionário de dados.
 
@@ -162,6 +162,7 @@ class Produto {
   class Venda_MetodoPagamento {
     - venda: Venda
     - metodoPagamento: MetodoPagamento
+    - valor: double
   }
 
   class NotaFiscal {
