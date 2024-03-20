@@ -108,6 +108,7 @@ class Produto {
     - quantMinima: int
     - valor : double
     - status: boolean
+    - ownerPessoa: char
     
     + set(): void
     + get(): void
