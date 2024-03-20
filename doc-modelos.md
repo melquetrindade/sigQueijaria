@@ -75,6 +75,7 @@ classDiagram
   class Bairro {
     - nome: char
     - codigo: int
+    - ownerCidade: Cidade
     
     + set(): void
     + get(): void
@@ -84,14 +85,17 @@ classDiagram
     - cep: char
     - nome: int
     - codigo: int
+    - ownerEstado: Estado
     
     + set(): void
     + get(): void
   }
   
   class Estado {
-    - nome: int
+    - rua: int
     - codigo: int
+    - ownerPessoa: Pessoa
+    - ownerBairro: Bairro
     
     + set(): void
     + get(): void
