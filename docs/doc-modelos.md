@@ -337,14 +337,10 @@ Para criar modelos ER é possível usar o BrModelo e gerar uma imagem. Contudo, 
 
 ```mermaid
 erDiagram
-    Departamento ||--o{ Laboratorio : labs
-    Departamento ||--|{ Docente : docentes
-    Docente ||--o| Laboratorio : coordenador
-    Docente ||--o| Laboratorio : vice-coordenador
-    Laboratorio ||--o{ Membro_Docente : membros
-    Docente ||--|{ Membro_Docente : ""
-    Laboratorio ||--o{ Membro_Discente : membros
-    Membro_Discente }|--|| Discente: ""
+    Pagamento ||--o{ Conta : possui
+    Pagamento ||--o{ Caixa : possui
+    Caixa ||--o{ Caixa_DiaCaixa : possui
+    DiaCaixa ||--o{ Caixa_DiaCaixa : possui
 ```
 
 ### Dicionário de Dados
