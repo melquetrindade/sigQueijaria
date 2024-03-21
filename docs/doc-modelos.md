@@ -345,21 +345,18 @@ erDiagram
 
 ### Dicionário de Dados
 
-|   Tabela   | Laboratório |
-| ---------- | ----------- |
-| Descrição  | Armazena as informações de um laboratório acadêmico. |
-| Observação | Laboratórios acadêmicos podem ser de Ensino, Pesquisa, Extensão, P&D, etc. |
+* Conta
 
-|  Nome         | Descrição                        | Tipo de Dado | Tamanho | Restrições de Domínio |
+| Tabela     | Conta                                                                      |
+| ---------- | -------------------------------------------------------------------------- |
+| Descrição  | Armazena as informações de uma conta                     .                 |
+| Observação | A conta poderá ser a pagar (Entrada) ou a receber (Venda)                  |
+
+| Nome          | Descrição                        | Tipo de Dado | Tamanho | Restrições de Domínio |
 | ------------- | -------------------------------- | ------------ | ------- | --------------------- |
-| codigo        | identificador gerado pelo SGBD   | SERIAL       | ---     | PK / Identity |
-| sigla         | representação em sigla do lab    | VARCHAR      | 15      | Unique / Not Null |
-| nome          | nome do laboratório              | VARCHAR      | 150     | Not Null |
-| descricao     | detalhes sobre o laboratório     | VARCHAR      | 250     | --- |
-| endereco      | endereço e localização do lab    | VARCHAR      | 150     | --- |
-| data_criacao  | data de criação do lab           | DATE         | ---     | Not Null |
-| portaria      | portaria de criação do lab       | VARCHAR      | 50      | --- |
-| link_portaria | URL para a portaria (PDF)        | VARCHAR      | 150     | --- |
-| site          | URL para o site do laboratório   | VARCHAR      | 150     | --- |
-| e-mail        | e-mail de contato do laboratório | VARCHAR      | 150     | --- |
-| departamento  | departamento vinculado ao lab    | SERIAL       | ---     | FK / Not Null |
+| codigo             | Identificador gerado automatico   | INT          | ---     | PK / Identity    |
+| venda              | Identificador da venda realizada  | Venda      | ---     | FK         |
+| valor              | Valor referente a conta           | DOUBLE     | ---     | Not Null      |
+| dataVencimento     | Data de vencimento da conta       | CHAR       | 55      | Not Null      |
+| tipoReceber        | Campo identificador para saber se é entrada ou saída      | BOOLEAN      | ---     | Not Null    |
+| entradaMercadoria  | Identificador da entradaMercadoria realizada    | EntradaMercadoria      | ---      | FK       |
