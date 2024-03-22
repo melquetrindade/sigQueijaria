@@ -326,7 +326,13 @@ Descrição sucinta das entidades presentes no sistema.
 | Pagamento | Entidade que representa um Pagamento tem as informações: conta, caixa, valor, data, +set's(), +get's(), +incluirConta(), +alterarConta(), +consultarConta(), +tipoConta(), +gerarRelatorioLucrosMensais() +gerarRelatorioDespesasMensais. |
 | Caixa | Entidade que representa um Caixa tem as informações: dataHoraAberturaAtual, idCaixa, valorInicial, valorAtual, isOpen, +set's(), +get's(), +entrada(), +saida() |
 | Caixa_DiaCaixa | Entidade que representa um Caixa_DiaCaixa tem as informações: ownerCaixa, ownerDiaCaixa |
-| DiaCaixa | Entidade que representa um DiaCaixa tem as informações dataHoraAbertura, dataHoraEncerramento, valorInicial, valorFinal, +set's(), +get's() |
+| DiaCaixa | Entidade que representa um DiaCaixa tem as informações: dataHoraAbertura, dataHoraEncerramento, valorInicial, valorFinal, +set's(), +get's() |
+| Bairro | Entidade que representa um Bairro e tem as informações: nome, código, ownerCidade, +set's() e +get's() |
+| NotaFiscal | Entidade que representa uma NotaFiscal no sistema, e tem as seguintes informações: dataEmissao, listVendaProduto, ownerVenda, +set's(), +get's() e +valorTotal() |
+| Venda | Entidade que representa uma Venda no sistema, e tem as seguintes informações: cliente, código, data, total, +set's(), +get's(), +registrarVenda(), +consultarVenda(), +calcularValor(), +gerarNotaFiscal(), +gerarConta() e +gerarRelatorioVendasMensais() |
+| Venda_Produto | Entidade que representa a Venda_Produto e tem como informações: produto, venda, quantidade, valor, +set's() e +get's() |
+| Venda_MetodoPagamento | Entidade que representa o método de pagamento da venda e tem as informações: venda, metodoPagamento e valor |
+| MetodoPagamento | Entidade que representa o MetodoPagamento e tem as seguintes informações: codigo, descricao, +set's() e +get's() |
 
 ## Modelo de Dados (Entidade-Relacionamento)
 
