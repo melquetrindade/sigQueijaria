@@ -357,3 +357,61 @@ erDiagram
 | dataVencimento     | Data de vencimento da conta       | CHAR       | 55      | Not Null      |
 | tipoReceber        | Campo identificador para saber se é entrada ou saída      | BOOLEAN      | ---     | Not Null    |
 | entradaMercadoria  | Identificador da entradaMercadoria realizada    | EntradaMercadoria      | ---      | FK       |
+
+* Pagamento
+
+| Tabela     | Pagamento                                                                      |
+| ---------- | -------------------------------------------------------------------------- |
+| Descrição  | Armazena as informações de um Pagamento                     .                 |
+| Observação | O usuário poderá concretizar o pagamento de uma conta em determinado caixa    |
+
+| Nome          | Descrição                        | Tipo de Dado | Tamanho | Restrições de Domínio |
+| ------------- | -------------------------------- | ------------ | ------- | --------------------- |
+| codigo             | Identificador gerado automatico   | INT          | ---     | PK / Identity    |
+| conta              | Identificador da conta a ser paga  | Conta      | ---     | FK / Not Null     |
+| valor              | Valor referente ao pagamento           | DOUBLE     | ---     | Not Null      |
+| data              | Data referente ao pagamento da conta    | CHAR     | 55     | Not Null         |
+| caixa  | Identificador do caixa que será pago a conta  | Caixa      | ---      | FK / Not Null     |
+
+* Caixa
+
+| Tabela     | Caixa                                                                      |
+| ---------- | -------------------------------------------------------------------------- |
+| Descrição  | Armazena as informações de um Caixa                     .                 |
+| Observação | O usuário autorizado poderá abrir e fechar o caixa, além de administrar a entrada e saída de dinheiro    |
+
+| Nome          | Descrição                        | Tipo de Dado | Tamanho | Restrições de Domínio |
+| ------------- | -------------------------------- | ------------ | ------- | --------------------- |
+| codigo                  | Identificador gerado automatico   | INT          | ---     | PK / Identity    |
+| valorInicial            | Valor inicial que o caixa começou a operar em determinado dia | DOUBLE | --- | Not Null |
+| valorAtual              | Valor atual em que o caixa se encontra em determinado dia     | DOUBLE | --- | Not Null |
+| dataHoraAberturaAtual   | Data referente ao dia e hora que o caixa foi aberto em certo dia | CHAR | 55 | Not Null |
+| isOpen                  | Atributo para identificar se o caixa está aberto ou fechado  | BOOLEAN  | ---   | Not Null  |
+
+* Caixa_DiaCaixa
+
+| Tabela     | Caixa_DiaCaixa                                                                      |
+| ---------- | -------------------------------------------------------------------------- |
+| Descrição  | Armazena as informações de um Caixa_DiaCaixa                     .                   |
+| Observação | Ao fechar o caixa será gerado uma tabela com o histórico do mesmo no dia em questão  |
+
+| Nome          | Descrição                        | Tipo de Dado | Tamanho | Restrições de Domínio |
+| ------------- | -------------------------------- | ------------ | ------- | --------------------- |
+| codigo        | Identificador gerado automatico   | INT          | ---     | PK / Identity    |
+| ownerCaixa    | Identificador do caixa que será gerado o histórico em um dia específico | Caixa | --- | FK / Not Null |
+| ownerDiaCaixa | Identificador do DiaCaixa que será atribuído a um caixa em um dia específico | DiaCaixa | --- |FK / Not Null |
+
+* DiaCaixa
+
+| Tabela     | DiaCaixa                                                                      |
+| ---------- | -------------------------------------------------------------------------- |
+| Descrição  | Armazena as informações de um DiaCaixa                     .                   |
+| Observação | Essa tabela será gerada após o fechamento de um caixa onde será armazenadas as informações do mesmo no dia do fechamento   |
+
+| Nome          | Descrição                        | Tipo de Dado | Tamanho | Restrições de Domínio |
+| ------------- | -------------------------------- | ------------ | ------- | --------------------- |
+| codigo        | Identificador gerado automatico   | INT          | ---     | PK / Identity    |
+| dataHoraAbertura     | Data e hora em que o caixa foi aberto em um dia específico | CHAR | 55 | Not Null |
+| dataHoraEncerramento | Data e hora em que o caixa foi fechado em um dia específico | CHAR | 55 | Not Null |
+| valorInicial    | Valor em que o caixa começou a operar em um dia específico | DOUBLE | --- | Not Null |
+| valorFinal      | Valor em que o caixa terminou de operar em um dia específico | DOUBLE | --- | Not Null |
