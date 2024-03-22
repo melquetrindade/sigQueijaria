@@ -344,6 +344,9 @@ erDiagram
     Pagamento ||--o{ Caixa : possui
     Caixa ||--o{ Caixa_DiaCaixa : possui
     DiaCaixa ||--o{ Caixa_DiaCaixa : possui
+    Produto ||--o{ EntradaMercadoria_Produto : possui
+    EntradaMercadoria ||--o{ EntradaMercadoria_Produto: possui
+    EntradaMercadoria ||--o{ EntradaMercadoria_MetodoPagamento: possui
 ```
 
 ### Dicionário de Dados
