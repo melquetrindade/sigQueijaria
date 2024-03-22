@@ -414,4 +414,4 @@ erDiagram
 | dataHoraAbertura     | Data e hora em que o caixa foi aberto em um dia específico | CHAR | 55 | Not Null |
 | dataHoraEncerramento | Data e hora em que o caixa foi fechado em um dia específico | CHAR | 55 | Not Null |
 | valorInicial    | Valor em que o caixa começou a operar em um dia específico | DOUBLE | --- | Not Null |
-| valorFinal      | Valor em que o caixa terminou de operar em um dia específico | DOUBLE | --- | Not Null |
+| valorFinal        | Valor em que o caixa terminou de operar em um dia específico | DOUBLE | --- | Not Null |
