@@ -334,21 +334,6 @@ Descrição sucinta das entidades presentes no sistema.
 | Venda_MetodoPagamento | Entidade que representa o método de pagamento da venda e tem as informações: venda, metodoPagamento e valor |
 | MetodoPagamento | Entidade que representa o MetodoPagamento e tem as seguintes informações: codigo, descricao, +set's() e +get's() |
 
-## Modelo de Dados (Entidade-Relacionamento)
-
-Para criar modelos ER é possível usar o BrModelo e gerar uma imagem. Contudo, atualmente é possível criar modelos ER usando a ferramenta **Mermaid**, escrevendo o modelo diretamente em markdown. Acesse a documentação para escrever modelos [ER Diagram Mermaid](https://mermaid-js.github.io/mermaid/#/entityRelationshipDiagram).
-
-```mermaid
-erDiagram
-    Pagamento ||--o{ Conta : possui
-    Pagamento ||--o{ Caixa : possui
-    Caixa ||--o{ Caixa_DiaCaixa : possui
-    DiaCaixa ||--o{ Caixa_DiaCaixa : possui
-    Produto ||--o{ EntradaMercadoria_Produto : possui
-    EntradaMercadoria ||--o{ EntradaMercadoria_Produto: possui
-    EntradaMercadoria ||--o{ EntradaMercadoria_MetodoPagamento: possui
-```
-
 ### Dicionário de Dados
 
 * Conta
