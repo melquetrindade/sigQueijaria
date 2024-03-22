@@ -14,7 +14,6 @@ classDiagram
     - nome: char
     - email: char
     - numTelefone: char
-    - endereco: Endereco
     - status: boolean
     - dataNascimento: char
     
@@ -29,10 +28,10 @@ classDiagram
     + incluirPessoa(pes: Pessoa): void
     + alterarPessoa(pes: Pessoa): void
     + desativarPessoa(pes: Pessoa): void
+    + listarPessoa(pes: Pessoa): void
   }
   
   class Cliente {
-    - pessoa: Pessoa
     - cpf: char
     - rg: char
     
@@ -42,7 +41,6 @@ classDiagram
   }
 
     class Fornecedor {
-    - pessoa: Pessoa
     - cnpj: char
     
     + set(): void
@@ -50,7 +48,6 @@ classDiagram
     + consultarFornecedor(cnpj: char): Fornecedor
   }
     class Funcionario {
-    - pessoa: Pessoa
     - cpf: char
     - cargo: char
     - salario: double
