@@ -37,18 +37,30 @@ Funcionário                            | Este usuário é a pessoa responsável
 
 Requisito                                 | Descrição   | Ator |
 ---------                                 | ----------- | ---------- |
-RF01 - Manter Produto | Permitir o cadastro de todos os tipos de queijo, a pesquisa, a edição, além da desativação de algum tipo de queijo já cadastrado. | Funcionário e gerente |
-RF02 - Manter Cliente |Permitir o cadastro do cliente, a pesquisa, a edição, além da desativação dele do sistema.  | Funcionário e gerente |
-RF03 - Realizar Entrada de Mercadoria | Controlar a quantidade de produtos que entram no estoque.  | Funcionário e gerente  |
-RF04 - Realizar Vendas | Permitir a transação de venda no sistema, incluindo informações sobre os produtos vendidos, o preço, o método de pagamento e o cliente. | Funcionário e gerente  |
-RF05 - Gerar Relatórios | Fazer a geração de relatórios nos setores de finanças, vendas, estoque e produtos. | Gerente |
-RF06 - Controlar Caixa | Registrar as movimentações financeiras para o devido funcionamento da empresa. | Funcionário e gerente  |
-RF07 - Gerar Conta | Gerar uma conta a receber ou a pagar. | Funcionário e gerente |
-RF08 - Pagar Conta | Permitir a administração das contas a serem pagas geradas pelo sistema. | Funcionário e gerente |
-RF09 - Receber Conta | Permitir a administração do recebimento de contas do cliente. | Funcionário e gerente |
-RF10 - Gerar Nota Fiscal | Após a venda ter sido efetuada e aprovada, a nota fiscal é gerada e concedida ao cliente. | Funcionário e gerente |
-RF11 - Manter Funcionário | Permitir o cadastro de funcionários, a pesquisa, a desativação do sistema, além da edição de algum tipo de informação já cadastrada. | Funcionário e gerente |
-RF12 - Manter Fornecedor | Permitir o cadastro de fornecedores, a pesquisa, a desativação, bem como a edição de algum tipo de informação já cadastrada. | Funcionário e gerente |
+RF01 - Inserir Produto |Permitir o cadastro de todos os tipos de queijo no sistema.  | Funcionário e gerente |
+RF02 - Alterar Produto | Permitir a edição dos dados do produto no sistema. | Funcionário e gerente |
+RF03 - Consultar Produto | Permitir a pesquisa do produto no sistema. | Funcionário e gerente |
+RF04 - Desativar Produto | Permitir a desativação do produto no sistema. | Funcionário e gerente |
+RF05 - Inserir Cliente |Permitir o cadastro do cliente no sistema.  | Funcionário e gerente |
+RF06 - Alterar Cliente | Permitir a edição dos dados do cliente no sistema. | Funcionário e gerente |
+RF07 - Consultar Cliente | Permitir a pesquisa do cliente no sistema. | Funcionário e gerente |
+RF08 - Desativar Cliente | Permitir a desativação do cliente no sistema. | Funcionário e gerente |
+RF09 - Realizar Entrada de Mercadoria | Controlar a quantidade de produtos que entram no estoque.  | Funcionário e gerente  |
+RF10 - Realizar Vendas | Permitir a transação de venda no sistema, incluindo informações sobre os produtos vendidos, o preço, o método de pagamento e o cliente. | Funcionário e gerente  |
+RF11 - Gerar Relatórios | Fazer a geração de relatórios nos setores de finanças, vendas, estoque e produtos. | Gerente |
+RF12 - Controlar Caixa | Registrar as movimentações financeiras para o devido funcionamento da empresa. | Funcionário e gerente  |
+RF13 - Gerar Conta | Gerar uma conta a receber ou a pagar. | Funcionário e gerente |
+RF14 - Pagar Conta | Permitir a administração das contas a serem pagas geradas pelo sistema. | Funcionário e gerente |
+RF15 - Receber Conta | Permitir a administração do recebimento de contas do cliente. | Funcionário e gerente |
+RF16 - Gerar Nota Fiscal | Após a venda ter sido efetuada e aprovada, a nota fiscal é gerada e concedida ao cliente. | Funcionário e gerente |
+RF17 - Inserir Funcionário |Permitir o cadastro do funcionário no sistema.  | Funcionário e gerente |
+RF18 - Alterar Funcionário | Permitir a edição dos dados do funcionário no sistema. | Funcionário e gerente |
+RF19 - Consultar Funcionário | Permitir a pesquisa do funcionário no sistema. | Funcionário e gerente |
+RF20 - Desativar Funcionário | Permitir a desativação do funcionário no sistema. | Funcionário e gerente |
+RF21 - Inserir Fornecedor |Permitir o cadastro do fornecedor no sistema.  | Funcionário e gerente |
+RF22 - Alterar Fornecedor | Permitir a edição dos dados do fornecedor no sistema. | Funcionário e gerente |
+RF23 - Consultar Fornecedor | Permitir a pesquisa do fornecedor no sistema. | Funcionário e gerente |
+RF24 - Desativar Fornecedor | Permitir a desativação do fornecedor no sistema. | Funcionário e gerente |
 
 ## Lista de Requisitos Não Funcionais
 
