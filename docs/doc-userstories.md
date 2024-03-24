@@ -30,7 +30,7 @@ Este documento descreve os User Stories criados a partir da Lista de Requisitos 
 | RF02          | Alterar Produto | 
 | RF03          | Consultar Produto | 
 | RF04          | Desativar Produto | 
-| RF05          | Pagar Conta |
+| RF14          | Pagar Conta |
 
 |                           |                                     |
 | ------------------------- | ----------------------------------- | 
