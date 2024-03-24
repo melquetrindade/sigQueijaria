@@ -409,3 +409,54 @@ Descrição sucinta das entidades presentes no sistema.
 | dataHoraEncerramento | Data e hora em que o caixa foi fechado em um dia específico | CHAR | 55 | Not Null |
 | valorInicial    | Valor em que o caixa começou a operar em um dia específico | DOUBLE | --- | Not Null |
 | valorFinal      | Valor em que o caixa terminou de operar em um dia específico | DOUBLE | --- | Not Null |
+
+* Estado
+
+| Tabela     | Estado                                                                     |
+| ---------- | -------------------------------------------------------------------------- |
+| Descrição  | Armazena as informações do estado informado                                |
+| Observação | Essa tabela será gerada após o preenchimento dos dados do cliente          |
+
+| Nome         | Descrição                                | Tipo de Dado | Tamanho | Restrições de Domínio |
+| ------------ | ---------------------------------------- | ------------ | ------- | --------------------- |
+| codigo       | Identificador gerado automaticamente     | INT          | ---     | PK / Identity         |
+| nome         | Identificador do nome do estado          | CHAR         | ---     | Not Null              |
+
+* Cidade
+  
+| Tabela     | Cidade                                                                     |
+| ---------- | -------------------------------------------------------------------------- |
+| Descrição  | Armazena as informações da cidade informada                                |
+| Observação | Essa tabela será gerada após o preenchimento dos dados do cliente          |
+
+| Nome         | Descrição                                | Tipo de Dado | Tamanho | Restrições de Domínio |
+| ------------ | ---------------------------------------- | ------------ | ------- | --------------------- |
+| codigo       | Identificador gerado automaticamente     | INT          | ---     | PK / Identity         |
+| nome         | Identificador do nome da cidade          | CHAR         | ---     | Not Null              |
+| cep          | Identificador do CEP da cidade           | CHAR         | ---     | Not Null              |
+
+* Bairro
+  
+| Tabela     | Bairro                                                                     |
+| ---------- | -------------------------------------------------------------------------- |
+| Descrição  | Armazena as informações do bairro informado                                |
+| Observação | Essa tabela será gerada após o preenchimento dos dados do cliente          |
+
+| Nome         | Descrição                                | Tipo de Dado | Tamanho | Restrições de Domínio |
+| ------------ | ---------------------------------------- | ------------ | ------- | --------------------- |
+| codigo       | Identificador gerado automaticamente     | INT          | ---     | PK / Identity         |
+| nome         | Identificador do nome do bairro          | CHAR         | ---     | Not Null              |
+
+* Endereço
+  
+| Tabela     | Endereço                                                                   |
+| ---------- | -------------------------------------------------------------------------- |
+| Descrição  | Armazena as informações do endereço informado                              |
+| Observação | Essa tabela será gerada após o preenchimento dos dados do cliente          |
+
+| Nome         | Descrição                                | Tipo de Dado | Tamanho | Restrições de Domínio |
+| ------------ | ---------------------------------------- | ------------ | ------- | --------------------- |
+| codigo       | Identificador gerado automaticamente     | INT          | ---     | PK / Identity         |
+| nome         | Identificador do nome da rua             | CHAR         | ---     | Not Null              |
+| numCasa      | Identificador do número da casa          | INT          | ---     | Not Null              |
+| complemento  | Identificador de um ponto de referência  | CHAR         | ---     | Not Null              |
