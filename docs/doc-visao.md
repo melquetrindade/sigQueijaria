@@ -61,7 +61,7 @@ RF21 - Inserir Fornecedor |Permitir o cadastro do fornecedor no sistema.  | Func
 RF22 - Alterar Fornecedor | Permitir a edição dos dados do fornecedor no sistema. | Funcionário e gerente |
 RF23 - Consultar Fornecedor | Permitir a pesquisa do fornecedor no sistema. | Funcionário e gerente |
 RF24 - Desativar Fornecedor | Permitir a desativação do fornecedor no sistema. | Funcionário e gerente |
-RF25 - Login  | Permitir a entrada e realização de operações pelo usuário no sistema. O login será feito com email e senha, e terá a possibilidade de recuperar a senha. | Funcionário e gerente |
+RF25 - Login  | Permitir a entrada e realização de operações do usuário no sistema. O login será feito com email e senha, e terá a possibilidade de recuperar a senha. | Funcionário e gerente |
 RF26 - Logout | Permitir a saída do usuário do sistema. O sistema terá um botão para caso o usuário deseje encerrar sua sessão. | Funcionário e gerente |
 
 ## Lista de Requisitos Não Funcionais
