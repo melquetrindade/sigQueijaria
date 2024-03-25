@@ -427,7 +427,7 @@ Descrição sucinta das entidades presentes no sistema.
 | Nome         | Descrição                                | Tipo de Dado | Tamanho | Restrições de Domínio |
 | ------------ | ---------------------------------------- | ------------ | ------- | --------------------- |
 | codigo       | Identificador gerado automaticamente     | INT          | ---     | PK / Identity         |
-| ownerPessoa  | Identificador da Pessoa na qual o estado está vinculado | Pessoa  | ---     | FK / Not Null              |
+| owner        | Identificador da Pessoa na qual o Estado está vinculado | Pessoa  | ---  | FK / Not Null  |
 | nome         | Identificador do nome do estado          | CHAR         | 105     | Not Null              |
 
 * Cidade
@@ -440,6 +440,7 @@ Descrição sucinta das entidades presentes no sistema.
 | Nome         | Descrição                                | Tipo de Dado | Tamanho | Restrições de Domínio |
 | ------------ | ---------------------------------------- | ------------ | ------- | --------------------- |
 | codigo       | Identificador gerado automaticamente     | INT          | ---     | PK / Identity         |
+| owner        | Identificador do Estado na qual a Cidade está vinculado | Estado  | ---  | FK / Not Null  |
 | nome         | Identificador do nome da cidade          | CHAR         | 105     | Not Null              |
 | cep          | Identificador do CEP da cidade           | CHAR         | 105     | Not Null              |
 
@@ -453,6 +454,7 @@ Descrição sucinta das entidades presentes no sistema.
 | Nome         | Descrição                                | Tipo de Dado | Tamanho | Restrições de Domínio |
 | ------------ | ---------------------------------------- | ------------ | ------- | --------------------- |
 | codigo       | Identificador gerado automaticamente     | INT          | ---     | PK / Identity         |
+| owner        | Identificador da Cidade na qual o Bairro está vinculado | Cidade  | ---  | FK / Not Null  |
 | nome         | Identificador do nome do bairro          | CHAR         | 105     | Not Null              |
 
 * Endereço
@@ -465,6 +467,7 @@ Descrição sucinta das entidades presentes no sistema.
 | Nome         | Descrição                                | Tipo de Dado | Tamanho | Restrições de Domínio |
 | ------------ | ---------------------------------------- | ------------ | ------- | --------------------- |
 | codigo       | Identificador gerado automaticamente     | INT          | ---     | PK / Identity         |
+| owner        | Identificador do Bairro na qual o Endereço está vinculado | Pessoa | ---  | FK / Not Null |
 | rua          | Identificador do nome da rua             | CHAR         | 55      | Not Null              |
 | numCasa      | Identificador do número da casa          | INT          | 10      | Not Null              |
 | complemento  | Identificador de um ponto de referência  | CHAR         | 55      | Not Null              |
@@ -479,9 +482,9 @@ Descrição sucinta das entidades presentes no sistema.
 | Nome         | Descrição                                | Tipo de Dado | Tamanho | Restrições de Domínio |
 | ------------ | ---------------------------------------- | ------------ | ------- | --------------------- |
 | codigo       | Identificador gerado automaticamente     | INT          | ---     | PK / Identity         |
+| ownerVenda   | Indentificador da venda                  | Venda        | ---     | FK / Not Null         |
 | dataEmissao  | Data referente a realização da venda     | CHAR         | 55      | Not Null              |
-| listVendaProduto | Identificador lista de produtos      | VendaProduto | ---     | Not Null              |
-| ownerVenda   | Indentificador da venda                  | Venda        | ---     | Not Null              |
+| listVendaProduto | Identificador de VendaProduto        | VendaProduto | ---     | FK / Not Null         |
 
 * MetodoPagamento
   
@@ -493,6 +496,6 @@ Descrição sucinta das entidades presentes no sistema.
 | Nome         | Descrição                                | Tipo de Dado | Tamanho | Restrições de Domínio |
 | ------------ | ---------------------------------------- | ------------ | ------- | --------------------- |
 | codigo       | Identificador gerado automaticamente     | INT          | ---     | PK / Identity         |
-| descricao    | Identificador da descrição               | CHAR         | ---     | Not Null              |
-| valor        | Identificador da descrição               | DOUBLE       | ---     | Not Null              |
+| descricao    | Descrição de qual será a forma de pagamento  | CHAR     | 55      | Not Null              |
+| valor        | Valor atribuído ao método de pagamento   | DOUBLE       | ---     | Not Null              |
 
