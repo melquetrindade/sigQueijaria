@@ -333,12 +333,7 @@ Descrição sucinta das entidades presentes no sistema.
 | Venda_Produto | Entidade que representa a Venda_Produto e tem como informações: produto, venda, quantidade, valor, +set's() e +get's() |
 | Venda_MetodoPagamento | Entidade que representa o método de pagamento da venda e tem as informações: venda, metodoPagamento e valor |
 | MetodoPagamento | Entidade que representa o MetodoPagamento e tem as seguintes informações: codigo, descricao, +set's() e +get's() |
-| Pessoa | Entidade que representa a Pessoa e tem as seguintes informações: nome, email, numTelefone, status, dataNascimento, +set's(), +get's(), +incluirPessoa(), +alterarPessoa(), +desativarPessoa(), +listarPessoa() |
-| Cliente | Entidade que representa a Cliente e tem as seguintes informações: cpf, rg, +set's(), +get's(), +consultarCliente() |
-| Fornecedor | Entidade que representa a Fornecedor e tem as seguintes informações: cnpj, +set's(), +get's(), +consultarFornecedor() |
-| Funcionário | Entidade que representa a Funcionário e tem as seguintes informações: cpf, cargo, cargaHoraria, salario, +set's(), +get's(), +consultarFuncionario(), +selecionarCargo(), +calcularSalario() |
-| Estado | Entidade que representa a Estado e tem as seguintes informações: rua, codigo, ownerPessoa, ownerBairro, +set's(), +get's() |
-| Cidade | Entidade que representa a Cidade e tem as seguintes informações: cep, nome, codigo, ownerEstado, dataNascimento, +set's(), +get's() |
+
 
 ### Dicionário de Dados
 
