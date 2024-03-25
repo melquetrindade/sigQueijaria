@@ -353,11 +353,11 @@ Descrição sucinta das entidades presentes no sistema.
 | Nome          | Descrição                        | Tipo de Dado | Tamanho | Restrições de Domínio |
 | ------------- | -------------------------------- | ------------ | ------- | --------------------- |
 | codigo             | Identificador gerado automatico   | INT          | ---     | PK / Identity    |
-| venda              | Identificador da venda realizada  | Venda      | ---     | FK         |
+| ownerVenda              | Identificador da venda realizada  | Venda      | ---     | FK         |
 | valor              | Valor referente a conta           | DOUBLE     | ---     | Not Null      |
 | dataVencimento     | Data de vencimento da conta       | CHAR       | 55      | Not Null      |
 | tipoReceber        | Campo identificador para saber se é entrada ou saída      | BOOLEAN      | ---     | Not Null    |
-| entradaMercadoria  | Identificador da entradaMercadoria realizada    | EntradaMercadoria      | ---      | FK       |
+| ownerEntradaMercadoria  | Identificador da entradaMercadoria realizada    | EntradaMercadoria      | ---      | FK       |
 
 * Pagamento
 
@@ -369,10 +369,10 @@ Descrição sucinta das entidades presentes no sistema.
 | Nome          | Descrição                        | Tipo de Dado | Tamanho | Restrições de Domínio |
 | ------------- | -------------------------------- | ------------ | ------- | --------------------- |
 | codigo             | Identificador gerado automatico   | INT          | ---     | PK / Identity    |
-| conta              | Identificador da conta a ser paga  | Conta      | ---     | FK / Not Null     |
+| ownerConta              | Identificador da conta a ser paga  | Conta      | ---     | FK / Not Null     |
 | valor              | Valor referente ao pagamento           | DOUBLE     | ---     | Not Null      |
 | data              | Data referente ao pagamento da conta    | CHAR     | 55     | Not Null         |
-| caixa  | Identificador do caixa que será pago a conta  | Caixa      | ---      | FK / Not Null     |
+| ownerCaixa  | Identificador do caixa que será pago a conta  | Caixa      | ---      | FK / Not Null     |
 
 * Caixa
 
@@ -427,7 +427,8 @@ Descrição sucinta das entidades presentes no sistema.
 | Nome         | Descrição                                | Tipo de Dado | Tamanho | Restrições de Domínio |
 | ------------ | ---------------------------------------- | ------------ | ------- | --------------------- |
 | codigo       | Identificador gerado automaticamente     | INT          | ---     | PK / Identity         |
-| nome         | Identificador do nome do estado          | CHAR         | ---     | Not Null              |
+| ownerPessoa  | Identificador da Pessoa na qual o estado está vinculado | Pessoa  | ---     | FK / Not Null              |
+| nome         | Identificador do nome do estado          | CHAR         | 105     | Not Null              |
 
 * Cidade
   
@@ -439,8 +440,8 @@ Descrição sucinta das entidades presentes no sistema.
 | Nome         | Descrição                                | Tipo de Dado | Tamanho | Restrições de Domínio |
 | ------------ | ---------------------------------------- | ------------ | ------- | --------------------- |
 | codigo       | Identificador gerado automaticamente     | INT          | ---     | PK / Identity         |
-| nome         | Identificador do nome da cidade          | CHAR         | ---     | Not Null              |
-| cep          | Identificador do CEP da cidade           | CHAR         | ---     | Not Null              |
+| nome         | Identificador do nome da cidade          | CHAR         | 105     | Not Null              |
+| cep          | Identificador do CEP da cidade           | CHAR         | 105     | Not Null              |
 
 * Bairro
   
@@ -452,7 +453,7 @@ Descrição sucinta das entidades presentes no sistema.
 | Nome         | Descrição                                | Tipo de Dado | Tamanho | Restrições de Domínio |
 | ------------ | ---------------------------------------- | ------------ | ------- | --------------------- |
 | codigo       | Identificador gerado automaticamente     | INT          | ---     | PK / Identity         |
-| nome         | Identificador do nome do bairro          | CHAR         | ---     | Not Null              |
+| nome         | Identificador do nome do bairro          | CHAR         | 105     | Not Null              |
 
 * Endereço
   
@@ -464,48 +465,34 @@ Descrição sucinta das entidades presentes no sistema.
 | Nome         | Descrição                                | Tipo de Dado | Tamanho | Restrições de Domínio |
 | ------------ | ---------------------------------------- | ------------ | ------- | --------------------- |
 | codigo       | Identificador gerado automaticamente     | INT          | ---     | PK / Identity         |
-| nome         | Identificador do nome da rua             | CHAR         | ---     | Not Null              |
-| numCasa      | Identificador do número da casa          | INT          | ---     | Not Null              |
-| complemento  | Identificador de um ponto de referência  | CHAR         | ---     | Not Null              |
+| rua          | Identificador do nome da rua             | CHAR         | 55      | Not Null              |
+| numCasa      | Identificador do número da casa          | INT          | 10      | Not Null              |
+| complemento  | Identificador de um ponto de referência  | CHAR         | 55      | Not Null              |
 
 * NotaFiscal
   
-| Tabela     | Bairro                                                                     |
+| Tabela     | Nota Fiscal                                                                |
 | ---------- | -------------------------------------------------------------------------- |
-| Descrição  | Armazena as informações do bairro informado                                |
-| Observação | Essa tabela será gerada após o preenchimento dos dados do cliente          |
+| Descrição  | Armazena as informações de uma Nota Fiscal                                 |
+| Observação | Essa tabela será gerada após a confirmação de uma Venda                    |
 
 | Nome         | Descrição                                | Tipo de Dado | Tamanho | Restrições de Domínio |
 | ------------ | ---------------------------------------- | ------------ | ------- | --------------------- |
-| dataEmissao  | Identificador gerado automaticamente     | CHAR         | ---     | PK / Identity         |
-| listVendaProduto | Identificador lista de produtos      | CHAR         | ---     | Not Null              |
-| ownerVenda   | Indentificador da venda                  | CHAR         | ---     |                       |
-
-* Conta
-  
-| Tabela     | Bairro                                                                     |
-| ---------- | -------------------------------------------------------------------------- |
-| Descrição  | Armazena as informações do bairro informado                                |
-| Observação | Essa tabela será gerada após o preenchimento dos dados do cliente          |
-
-| Nome         | Descrição                                | Tipo de Dado | Tamanho | Restrições de Domínio |
-| ------------ | ---------------------------------------- | ------------ | ------- | --------------------- |
-| codigo  | Identificador gerado automaticamente          | INT          | ---     | PK / Identity         |
-| venda   | Identificador da venda                        | CHAR         | ---     | Not Null              |
-| valor   | Indentificador do valor da venda              | DOUBLE       | ---     |                       |
-| dataVencimento | Indentificador da data do vencimento   | CHAR         | ---     |                       |
-| tipoReceber | Indentificador do tipo de pagamento a receber | BOOLEAN  | ---     |                       |
-| entradaMercadoria | Indentificador da entrada da mercadoria | BOOLEAN  | ---     |                       |
+| codigo       | Identificador gerado automaticamente     | INT          | ---     | PK / Identity         |
+| dataEmissao  | Data referente a realização da venda     | CHAR         | 55      | Not Null              |
+| listVendaProduto | Identificador lista de produtos      | VendaProduto | ---     | Not Null              |
+| ownerVenda   | Indentificador da venda                  | Venda        | ---     | Not Null              |
 
 * MetodoPagamento
   
-| Tabela     | Bairro                                                                     |
+| Tabela     | Método Pagamento                                                           |
 | ---------- | -------------------------------------------------------------------------- |
-| Descrição  | Armazena as informações do bairro informado                                |
-| Observação | Essa tabela será gerada após o preenchimento dos dados do cliente          |
+| Descrição  | Armazena as informações sobre os métodos de pagamento de uma venda         |
+| Observação | Essa tabela será gerada na sessão de pagamentos de uma venda               |
 
 | Nome         | Descrição                                | Tipo de Dado | Tamanho | Restrições de Domínio |
 | ------------ | ---------------------------------------- | ------------ | ------- | --------------------- |
 | codigo       | Identificador gerado automaticamente     | INT          | ---     | PK / Identity         |
 | descricao    | Identificador da descrição               | CHAR         | ---     | Not Null              |
+| valor        | Identificador da descrição               | DOUBLE       | ---     | Not Null              |
 
