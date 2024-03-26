@@ -182,7 +182,7 @@ class Produto {
     + sets(): void
     + gets(): void
     + incluirEntrada(entrada: EntradaMercadoria): void
-    - gerarConta(entrada: EntradaMercadoria, fornecedor: Pessoa): void
+    + gerarConta(entrada: EntradaMercadoria, fornecedor: Pessoa): void
   }
 
   class EntradaMercadoria_Produto {
@@ -334,11 +334,17 @@ Descrição sucinta das entidades presentes no sistema.
 | Venda_MetodoPagamento | Entidade que representa o método de pagamento da venda e tem as informações: venda, metodoPagamento e valor |
 | MetodoPagamento | Entidade que representa o MetodoPagamento e tem as seguintes informações: codigo, descricao, +set's() e +get's() |
 | Pessoa | Entidade que representa a Pessoa e tem as seguintes informações: nome, email, numTelefone, status, dataNascimento, +set's(), +get's(), +incluirPessoa(), +alterarPessoa(), +desativarPessoa(), +listarPessoa() |
-| Cliente | Entidade que representa a Cliente e tem as seguintes informações: cpf, rg, +set's(), +get's(), +consultarCliente() |
-| Fornecedor | Entidade que representa a Fornecedor e tem as seguintes informações: cnpj, +set's(), +get's(), +consultarFornecedor() |
-| Funcionário | Entidade que representa a Funcionário e tem as seguintes informações: cpf, cargo, cargaHoraria, salario, +set's(), +get's(), +consultarFuncionario(), +selecionarCargo(), +calcularSalario() |
-| Estado | Entidade que representa a Estado e tem as seguintes informações: rua, codigo, ownerPessoa, ownerBairro, +set's(), +get's() |
+| Cliente | Entidade que representa o Cliente e tem as seguintes informações: cpf, rg, +set's(), +get's(), +consultarCliente() |
+| Fornecedor | Entidade que representa o Fornecedor e tem as seguintes informações: cnpj, +set's(), +get's(), +consultarFornecedor() |
+| Funcionário | Entidade que representa o Funcionário e tem as seguintes informações: cpf, cargo, cargaHoraria, salario, +set's(), +get's(), +consultarFuncionario(), +selecionarCargo(), +calcularSalario() |
+| Estado | Entidade que representa o Estado e tem as seguintes informações: rua, codigo, ownerPessoa, ownerBairro, +set's(), +get's() |
 | Cidade | Entidade que representa a Cidade e tem as seguintes informações: cep, nome, codigo, ownerEstado, dataNascimento, +set's(), +get's() |
+| Endereço | Entidade que representa o Endereço e tem as seguintes informações: nome, numCasa, complemento, +set's(), +get's() |
+| EntradaMercadoria | Entidade que representa a EntradaMercadoria e tem as seguintes informações: quantidade, codigo, fornecedor, data, valor, +set's(), +get's(), +incluirEntrada(), +gerarConta() |
+| EntradaMercadoria_Produto | Entidade que representa a EntradaMercadoria_Produto e tem as seguintes informações: produto, entradaMercadoria |
+| EntradaMercadoria_MetodoPagamento | Entidade que representa a EntradaMercadoria_MetodoPagamento e tem as seguintes informações: ownerEntradaMercadoria, ownerMetodoPagamento |
+| Produto | Entidade que representa o Produto e tem as seguintes informações: codigoBarras, tipo, dataValidade, quantMinima, valor, status, ownerPessoa, +set's(), +get's(), +incluirProduto(), +alterarProduto(), +desativarProduto(), +consultarProduto(), +gerarRelatorioItensQuantMinima(), +gerarRelatorioProdutosDisponiveis(), +mudarStatus() |
+| Conta | Entidade que representa a Conta e tem as seguintes informações: codigo, venda, valor, dataVencimento, tipoReceber, entradaMercadoria, +set's(), +get's(), +incluirConta(), +alterarConta(), +consultarConta(), +tipoConta(), +gerarRelatorioLucrosMensais(), +gerarRelatorioDespesasMensais() |
 
 
 ### Dicionário de Dados
