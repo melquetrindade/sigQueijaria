@@ -537,12 +537,11 @@ Descrição sucinta das entidades presentes no sistema.
   
 | Tabela     | Venda_MetodoPagamento                                                      |
 | ---------- | -------------------------------------------------------------------------- |
-| Descrição  | Armazena as informações do método de pagamento de uma venda                    |
+| Descrição  | Armazena as informações do método de pagamento de uma venda                |
 | Observação | Essa tabela será gerada na sessão de realização de uma venda               |
 
 | Nome         | Descrição                                | Tipo de Dado | Tamanho | Restrições de Domínio |
 | ------------ | ---------------------------------------- | ------------ | ------- | --------------------- |
-| venda        | Informações da venda                     | Venda        | ---     | FK / Not Null         |
-| metodoPagamento   | Informação do método de pagamento escolhido                    | MetodoPagamento          | ---     | FK / Not Null              |
-| valor        | Valor da venda                         | DOUBLE       | ---     | Not Null              |
+| ownerVenda        | Informações da venda                     | Venda        | ---     | FK / Not Null         |
+| ownerMetodoPagamento   | Informação do método de pagamento escolhido | MetodoPagamento  | --- | FK / Not Null |
 
