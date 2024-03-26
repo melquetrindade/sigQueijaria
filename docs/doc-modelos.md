@@ -499,3 +499,44 @@ Descrição sucinta das entidades presentes no sistema.
 | descricao    | Descrição de qual será a forma de pagamento  | CHAR     | 55      | Not Null              |
 | valor        | Valor atribuído ao método de pagamento   | DOUBLE       | ---     | Not Null              |
 
+* Venda
+  
+| Tabela     | Venda                                                                      |
+| ---------- | -------------------------------------------------------------------------- |
+| Descrição  | Armazena as informações de uma Venda                                       |
+| Observação | Essa tabela será gerada na sessão de realização de uma venda               |
+
+| Nome         | Descrição                                | Tipo de Dado | Tamanho | Restrições de Domínio |
+| ------------ | ---------------------------------------- | ------------ | ------- | --------------------- |
+| codigo       | Identificador gerado automaticamente     | INT          | ---     | PK / Identity         |
+| cliente      | Informação do cliente                    | Pessoa       | ---     | FK / Not Null         |
+| data         | Data da venda                            | CHAR         | 55      | Not Null              |
+| total        | Total da venda                           | DOUBLE       | ---     | Not Null              |
+
+* Venda_Produto
+  
+| Tabela     | Venda_Produto                                                              |
+| ---------- | -------------------------------------------------------------------------- |
+| Descrição  | Armazena as informações de uma Venda_Produto                               |
+| Observação | Essa tabela será gerada na sessão de realização de uma venda               |
+
+| Nome         | Descrição                                | Tipo de Dado | Tamanho | Restrições de Domínio |
+| ------------ | ---------------------------------------- | ------------ | ------- | --------------------- |
+| produto      | Informações de um produto                   | Produto      | ---     | FK / Not Null         |
+| venda        | Informações de uma venda                     | Venda        | ---     | FK / Not Null         |
+| quantidade   | Quantidade do produto                    | INT          | ---     | Not Null              |
+| valor        | Valor do produto                         | DOUBLE       | ---     | Not Null              |
+
+* Venda_MetodoPagamento
+  
+| Tabela     | Venda_MetodoPagamento                                                      |
+| ---------- | -------------------------------------------------------------------------- |
+| Descrição  | Armazena as informações do método de pagamento de uma venda                    |
+| Observação | Essa tabela será gerada na sessão de realização de uma venda               |
+
+| Nome         | Descrição                                | Tipo de Dado | Tamanho | Restrições de Domínio |
+| ------------ | ---------------------------------------- | ------------ | ------- | --------------------- |
+| venda        | Informações da venda                     | Venda        | ---     | FK / Not Null         |
+| metodoPagamento   | Informação do método de pagamento escolhido                    | MetodoPagamento          | ---     | FK / Not Null              |
+| valor        | Valor da venda                         | DOUBLE       | ---     | Not Null              |
+
