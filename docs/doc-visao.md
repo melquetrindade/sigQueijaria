@@ -65,6 +65,7 @@ RF25 - Login  | Permitir a entrada e realização de operações do usuário no 
 RF26 - Logout | Permitir a saída do usuário do sistema. O sistema terá um botão para caso o usuário deseje encerrar sua sessão. | Funcionário e gerente  |
 RF27 - Cadastro de Conta de Usuário | O sistema deverá ter a possibilidade de cadastrar novos usuários. | Funcionário e gerente |
 RF28 - Remoção de conta de Usuário | O sistema deverá ter a possibilidade de remover usuários já cadastrados. | Funcionário e gerente |
+RF2 - Resgate de conta de Usuário | O sistema deverá ter a possibilidade de resgatar o login de um usuário já cadastrado | Funcionário e gerente |
 
 ## Lista de Requisitos Não Funcionais
 
