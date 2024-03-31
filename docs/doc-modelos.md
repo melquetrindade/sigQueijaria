@@ -600,3 +600,57 @@ Descrição sucinta das entidades presentes no sistema.
 | ------------- | -------------------------------- | ------------ | ------- | --------------------- |
 | ownerEntradaMercadoria            | Informações do produto   | EntradaMercadoria          | ---     | PK / Identity    |
 | ownerMetodoPagamento  | Informações da entrada de mercadoria  | MetodoPagamento | ---   | FK   |
+
+* Pessoa
+
+| Tabela     | Pessoa                                          |
+| ---------- | -------------------------------------------------------------------------- |
+| Descrição  | Armazena as informações comuns dos usuários         |
+| Observação | Poderá ser o cliente, fornecedor ou funcionário.                                                                        |
+
+| Nome          | Descrição                        | Tipo de Dado | Tamanho | Restrições de Domínio |
+| ------------- | -------------------------------- | ------------ | ------- | --------------------- |
+| nome            | Nome do usuário   | char          | ---     | ---    |
+| email  | Email do usuário  | char | ---   | ---   |
+| numTelefone  | Número do telefone do usuário  | char | ---   | ---   |
+| status  | Status sobre o usuário ativo ou desativado  | boolean | ---   | ---   |
+| dataNascimento  | Data de nascimento do usuário  | char | ---   | ---   |
+
+* Cliente
+
+| Tabela     | Cliente                                          |
+| ---------- | -------------------------------------------------------------------------- |
+| Descrição  | Armazena as informações do cliente         |
+| Observação | ---                                                                |
+
+| Nome          | Descrição                        | Tipo de Dado | Tamanho | Restrições de Domínio |
+| ------------- | -------------------------------- | ------------ | ------- | --------------------- |
+| cpf            | Cpf do cliente   | char          | ---     | PK / Identity    |
+| rg  | Rg do cliente  | char | ---   | ---   |
+ 
+* Funcionário
+
+| Tabela     | Funcionário                                          |
+| ---------- | -------------------------------------------------------------------------- |
+| Descrição  | Armazena as informações do funcionário         |
+| Observação | ---                                                                      |
+
+| Nome          | Descrição                        | Tipo de Dado | Tamanho | Restrições de Domínio |
+| ------------- | -------------------------------- | ------------ | ------- | --------------------- |
+| cpf            | Cpf do funcionário   | char          | ---     | PK / Identity    |
+| cargo  | Cargo do funcionário  | char | ---   | ---   |
+| salario  | Salário do funcionário  | double | ---   | ---   |
+| cargaHoraria  | A carga horária de trabalho do funcionário | double | ---   | ---   |
+
+* Fornecedor
+
+| Tabela     | Fornecedor                                          |
+| ---------- | -------------------------------------------------------------------------- |
+| Descrição  | Armazena as informações do fornecedor         |
+| Observação | ---                                                                        |
+
+| Nome          | Descrição                        | Tipo de Dado | Tamanho | Restrições de Domínio |
+| ------------- | -------------------------------- | ------------ | ------- | --------------------- |
+| cnpj            | CNPJ do fornecedor   | char          | ---     | PK / Identity    |
+  
+
