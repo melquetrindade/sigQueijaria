@@ -528,8 +528,9 @@ Descrição sucinta das entidades presentes no sistema.
 
 | Nome         | Descrição                                | Tipo de Dado | Tamanho | Restrições de Domínio |
 | ------------ | ---------------------------------------- | ------------ | ------- | --------------------- |
-| produto      | Informações de um produto                   | Produto      | ---     | FK / Not Null         |
-| venda        | Informações de uma venda                     | Venda        | ---     | FK / Not Null         |
+| codigo       | Identificador gerado automaticamente     | INT          | ---     | PK / Identity         |
+| produto      | Informações de um produto                | Produto      | ---     | FK / Not Null         |
+| venda        | Informações de uma venda                 | Venda        | ---     | FK / Not Null         |
 | quantidade   | Quantidade do produto                    | INT          | ---     | Not Null              |
 | valor        | Valor do produto                         | DOUBLE       | ---     | Not Null              |
 
@@ -542,7 +543,8 @@ Descrição sucinta das entidades presentes no sistema.
 
 | Nome         | Descrição                                | Tipo de Dado | Tamanho | Restrições de Domínio |
 | ------------ | ---------------------------------------- | ------------ | ------- | --------------------- |
-| ownerVenda        | Informações da venda                     | Venda        | ---     | FK / Not Null         |
+| codigo       | Identificador gerado automaticamente     | INT          | ---     | PK / Identity         |
+| ownerVenda   | Informações da venda                     | Venda        | ---     | FK / Not Null         |
 | ownerMetodoPagamento   | Informação do método de pagamento escolhido | MetodoPagamento  | --- | FK / Not Null |
 
 * Produto
@@ -552,15 +554,17 @@ Descrição sucinta das entidades presentes no sistema.
 | Descrição  | Armazena as informações de um produto                                      |
 | Observação | Mais do mesmo produto poderão ser cadastrados na mesma tabela              |
 
-| Nome          | Descrição                        | Tipo de Dado | Tamanho | Restrições de Domínio |
-| ------------- | -------------------------------- | ------------ | ------- | --------------------- |
-| codigo             | Identificador em barras gerado automatico   | char          | 55     | PK / Identity    |
-| tipoProduto              | Identificador do tipo do produto  | char      | 55     | Not Null         |
-| valor              | Valor referente ao produto           | DOUBLE     | ---     | Not Null      |
-| dataValidade     | Data de validade do produto      | CHAR       | 55      | Not Null      |
-| quantidadeMinima        | Identificador de quantos do mesmo produto entrarão no estoque     | int      | ---     | Not Null    |
-| status        | Identificador do status do produto     | BOOLEAN      | ---     | Not Null    |
-| ownerPessoa  | Identificador do fornecedor    | Pessoa      | ---      | FK       |
+| Nome          | Descrição                        | Tipo de Dado | Tamanho | Restrições de Domínio  |
+| ------------- | -------------------------------- | ------------ | ------- | ---------------------  |
+| codigo             | Identificador gerado automatico            | INT     | ---    | PK / Identity |
+| codigoBarras       | Identificador em barras gerado automatico  | INT     | ---    | Not Null      |
+| nome               | Nome do produto                            | CHAR    | 155    | Not Null      |
+| tipoProduto        | Identificador do tipo do produto           | CHAR    | 55     | Not Null      |
+| valor              | Valor referente ao produto                 | DOUBLE  | ---    | Not Null      |
+| dataValidade       | Data de validade do produto                | CHAR    | 55     | Not Null      |
+| quantidade         | Quantidade em estoque de um produto        | INT     | ---    | Not Null      |
+| qtdMinima          | Quantidade mínima que um produto deve ter em estoque | INT    | --- | Not Null|
+| status             | Identificador do status do produto         | BOOLEAN | ---    | Not Null      |
 
 * EntradaMercadoria
 
@@ -571,86 +575,92 @@ Descrição sucinta das entidades presentes no sistema.
 
 | Nome          | Descrição                        | Tipo de Dado | Tamanho | Restrições de Domínio |
 | ------------- | -------------------------------- | ------------ | ------- | --------------------- |
-| codigo             | Identificador gerado automatico   | int          | ---     | PK / Identity    |
-| quantidade         | Identificador de quantos produtos estão entrando no estoque  | int      | ---     | Not Null  |
-| valor              | Valor referente a conta gerada           | DOUBLE     | ---     | Not Null      |
-| data     | Data da entrada de mercadoria      | CHAR       | 55      | Not Null      |
-| ownerPessoa  | Identificador do fornecedor    | Pessoa      | ---      | FK       |
+| codigo        | Identificador gerado automatico  | INT          | ---     | PK / Identity         |
+| ownerFornecedor | Identificador do fornecedor    | Fornecedor   | ---     | FK / Not Null         |
+| quantidade    | Quantidade de produtos que estão entrando no estoque  | INT | ---     | Not Null  |
+| valor         | Valor referente a conta gerada   | DOUBLE       | ---     | Not Null              |
+| data          | Data da entrada de mercadoria    | CHAR         | 55      | Not Null              |
+ 
 
 * EntradaMercadoria_Produto
 
 | Tabela     | EntradaMercadoria_Produto                                                  |
 | ---------- | -------------------------------------------------------------------------- |
 | Descrição  | Armazena as informações da entrada de mercadoria de um produto             |
-| Observação | ---                  |
+| Observação | Essa tabela será gerada na sessão de realização de uma entrada de mercadoria |
 
 | Nome          | Descrição                        | Tipo de Dado | Tamanho | Restrições de Domínio |
 | ------------- | -------------------------------- | ------------ | ------- | --------------------- |
-| produto            | Informações do produto   | Produto          | ---     | PK / Identity    |
-| entradaMercadoria  | Informações da entrada de mercadoria  | EntradaMercadoria | ---   | FK   |
+| codigo        | Identificador gerado automatico  | INT          | ---     | PK / Identity         |
+| produto       | Identificador do produto que está entrando em estoque     | Produto      | ---    | FK / Not Null |
+| entradaMercadoria | Identificador da entrada de mercadoria  | EntradaMercadoria | ---    | FK / Not Null   |
 
 * EntradaMercadoria_MetodoPagamento
 
 | Tabela     | EntradaMercadoria_MetodoPagamento                                          |
 | ---------- | -------------------------------------------------------------------------- |
 | Descrição  | Identifica o método de pagamento efetuado na entrada de mercadoria         |
-| Observação | ---                                                                        |
+| Observação | Essa tabela será gerada na sessão de realização de uma entrada de mercadoria  |
 
 | Nome          | Descrição                        | Tipo de Dado | Tamanho | Restrições de Domínio |
 | ------------- | -------------------------------- | ------------ | ------- | --------------------- |
-| ownerEntradaMercadoria            | Informações do produto   | EntradaMercadoria          | ---     | PK / Identity    |
-| ownerMetodoPagamento  | Informações da entrada de mercadoria  | MetodoPagamento | ---   | FK   |
+| codigo        | Identificador gerado automatico  | INT          | ---     | PK / Identity         |
+| ownerEntradaMercadoria| Identificador de um Entrada de Mercadoria | EntradaMercadoria  | --- | FK / Not Null  |
+| ownerMetodoPagamento  | Identificador de um Método de Pagamento   | MetodoPagamento    | --- | FK / Not Null  |
 
 * Pessoa
 
-| Tabela     | Pessoa                                          |
+| Tabela     | Pessoa                                                                     |
 | ---------- | -------------------------------------------------------------------------- |
-| Descrição  | Armazena as informações comuns dos usuários         |
-| Observação | Poderá ser o cliente, fornecedor ou funcionário.                                                                        |
+| Descrição  | Armazena as informações comuns dos usuários                                |
+| Observação | Poderá ser o cliente, fornecedor ou funcionário.                           |
 
 | Nome          | Descrição                        | Tipo de Dado | Tamanho | Restrições de Domínio |
 | ------------- | -------------------------------- | ------------ | ------- | --------------------- |
-| nome            | Nome do usuário   | char          | ---     | ---    |
-| email  | Email do usuário  | char | ---   | ---   |
-| numTelefone  | Número do telefone do usuário  | char | ---   | ---   |
-| status  | Status sobre o usuário ativo ou desativado  | boolean | ---   | ---   |
-| dataNascimento  | Data de nascimento do usuário  | char | ---   | ---   |
+| nome          | Nome do usuário                  | CHAR         | 255     | Not Null              |
+| email         | Email do usuário                 | CHAR         | 255     | Not Null              |
+| numTelefone   | Número do telefone do usuário    | CHAR         | 11      | Not Null              |
+| status        | Status sobre o usuário ativo ou desativado  | BOOLEAN | ---   | Not Null          |
+| dataNascimento| Data de nascimento do usuário    | CHAR         | 15      | Not Null              |
 
 * Cliente
 
-| Tabela     | Cliente                                          |
+| Tabela     | Cliente                                                                    |
 | ---------- | -------------------------------------------------------------------------- |
-| Descrição  | Armazena as informações do cliente         |
-| Observação | ---                                                                |
+| Descrição  | Armazena as informações do cliente                                         |
+| Observação | Herda da classe Pessoa e irá conter as informações adicionais de um Cliente|
 
 | Nome          | Descrição                        | Tipo de Dado | Tamanho | Restrições de Domínio |
 | ------------- | -------------------------------- | ------------ | ------- | --------------------- |
-| cpf            | Cpf do cliente   | char          | ---     | PK / Identity    |
-| rg  | Rg do cliente  | char | ---   | ---   |
+| codigo        | Identificador gerado automatico  | INT          | ---     | PK / Identity         |
+| cpf           | Cpf do cliente                   | char         | 11      | Not Null              |
+| rg            | Rg do cliente                    | char         | 9       | Not Null              |
  
 * Funcionário
 
-| Tabela     | Funcionário                                          |
+| Tabela     | Funcionário                                                                |
 | ---------- | -------------------------------------------------------------------------- |
-| Descrição  | Armazena as informações do funcionário         |
-| Observação | ---                                                                      |
+| Descrição  | Armazena as informações do funcionário                                     |
+| Observação | Herda da classe Pessoa e irá conter as informações adicionais de um Funcionário|
 
 | Nome          | Descrição                        | Tipo de Dado | Tamanho | Restrições de Domínio |
 | ------------- | -------------------------------- | ------------ | ------- | --------------------- |
-| cpf            | Cpf do funcionário   | char          | ---     | PK / Identity    |
-| cargo  | Cargo do funcionário  | char | ---   | ---   |
-| salario  | Salário do funcionário  | double | ---   | ---   |
-| cargaHoraria  | A carga horária de trabalho do funcionário | double | ---   | ---   |
+| codigo        | Identificador gerado automatico  | INT          | ---     | PK / Identity         |
+| cpf           | Cpf do funcionário               | CHAR         | 11      | Not Null              |
+| cargo         | Cargo do funcionário             | CHAR         | 55      | Not Null              |
+| salario       | Salário do funcionário           | DOUBLE       | ---     | Not Null              |
+| cargaHoraria  | A carga horária de trabalho do funcionário | DOUBLE | --- | Not Null              |
 
 * Fornecedor
 
-| Tabela     | Fornecedor                                          |
+| Tabela     | Fornecedor                                                                 |
 | ---------- | -------------------------------------------------------------------------- |
-| Descrição  | Armazena as informações do fornecedor         |
-| Observação | ---                                                                        |
+| Descrição  | Armazena as informações do fornecedor                                      |
+| Observação | Herda da classe Pessoa e irá conter as informações adicionais de um Fornecedor |
 
 | Nome          | Descrição                        | Tipo de Dado | Tamanho | Restrições de Domínio |
 | ------------- | -------------------------------- | ------------ | ------- | --------------------- |
-| cnpj            | CNPJ do fornecedor   | char          | ---     | PK / Identity    |
+| codigo        | Identificador gerado automatico  | INT          | ---     | PK / Identity         |
+| cnpj          | CNPJ do fornecedor               | CHAR         | 14      | Not Null              |
   
 
