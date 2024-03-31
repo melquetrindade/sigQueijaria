@@ -545,3 +545,58 @@ Descrição sucinta das entidades presentes no sistema.
 | ownerVenda        | Informações da venda                     | Venda        | ---     | FK / Not Null         |
 | ownerMetodoPagamento   | Informação do método de pagamento escolhido | MetodoPagamento  | --- | FK / Not Null |
 
+* Produto
+
+| Tabela     | Produto                                                                    |
+| ---------- | -------------------------------------------------------------------------- |
+| Descrição  | Armazena as informações de um produto                                      |
+| Observação | Mais do mesmo produto poderão ser cadastrados na mesma tabela              |
+
+| Nome          | Descrição                        | Tipo de Dado | Tamanho | Restrições de Domínio |
+| ------------- | -------------------------------- | ------------ | ------- | --------------------- |
+| codigo             | Identificador em barras gerado automatico   | char          | 55     | PK / Identity    |
+| tipoProduto              | Identificador do tipo do produto  | char      | 55     | Not Null         |
+| valor              | Valor referente ao produto           | DOUBLE     | ---     | Not Null      |
+| dataValidade     | Data de validade do produto      | CHAR       | 55      | Not Null      |
+| quantidadeMinima        | Identificador de quantos do mesmo produto entrarão no estoque     | int      | ---     | Not Null    |
+| status        | Identificador do status do produto     | BOOLEAN      | ---     | Not Null    |
+| ownerPessoa  | Identificador do fornecedor    | Pessoa      | ---      | FK       |
+
+* EntradaMercadoria
+
+| Tabela     | EntradaMercadoria                                                          |
+| ---------- | -------------------------------------------------------------------------- |
+| Descrição  | Armazena as informações da entrada de mercadoria                           |
+| Observação | Gera uma conta com o valor total da entrada de mercadoria                  |
+
+| Nome          | Descrição                        | Tipo de Dado | Tamanho | Restrições de Domínio |
+| ------------- | -------------------------------- | ------------ | ------- | --------------------- |
+| codigo             | Identificador gerado automatico   | int          | ---     | PK / Identity    |
+| quantidade         | Identificador de quantos produtos estão entrando no estoque  | int      | ---     | Not Null  |
+| valor              | Valor referente a conta gerada           | DOUBLE     | ---     | Not Null      |
+| data     | Data da entrada de mercadoria      | CHAR       | 55      | Not Null      |
+| ownerPessoa  | Identificador do fornecedor    | Pessoa      | ---      | FK       |
+
+* EntradaMercadoria_Produto
+
+| Tabela     | EntradaMercadoria_Produto                                                  |
+| ---------- | -------------------------------------------------------------------------- |
+| Descrição  | Armazena as informações da entrada de mercadoria de um produto             |
+| Observação | ---                  |
+
+| Nome          | Descrição                        | Tipo de Dado | Tamanho | Restrições de Domínio |
+| ------------- | -------------------------------- | ------------ | ------- | --------------------- |
+| produto            | Informações do produto   | Produto          | ---     | PK / Identity    |
+| entradaMercadoria  | Informações da entrada de mercadoria  | EntradaMercadoria | ---   | FK   |
+
+* EntradaMercadoria_MetodoPagamento
+
+| Tabela     | EntradaMercadoria_MetodoPagamento                                          |
+| ---------- | -------------------------------------------------------------------------- |
+| Descrição  | Identifica o método de pagamento efetuado na entrada de mercadoria         |
+| Observação | ---                                                                        |
+
+| Nome          | Descrição                        | Tipo de Dado | Tamanho | Restrições de Domínio |
+| ------------- | -------------------------------- | ------------ | ------- | --------------------- |
+| ownerEntradaMercadoria            | Informações do produto   | EntradaMercadoria          | ---     | PK / Identity    |
+| ownerMetodoPagamento  | Informações da entrada de mercadoria  | MetodoPagamento | ---   | FK   |
