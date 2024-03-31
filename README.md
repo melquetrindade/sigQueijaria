@@ -19,7 +19,7 @@
   
 
 ## Tecnologias </br>
-`Django`  `Python` `API Rest Framework` `Tailwind` `Next.js` `JavaScript` 
+[`Django`](https://docs.djangoproject.com/en/5.0/intro/)  [`Python`](https://www.python.org/doc/) [`API Rest Framework`](https://www.django-rest-framework.org/) [`Tailwind`](https://v2.tailwindcss.com/docs) [`Next.js`](https://nextjs.org/docs) [`JavaScript`](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript) 
 
 
 ## Autores </br>
