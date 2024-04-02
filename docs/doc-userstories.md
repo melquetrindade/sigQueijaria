@@ -428,3 +428,35 @@ Este documento descreve os User Stories criados a partir da Lista de Requisitos 
 | **TA12.02** | O funcionário/gerente informa todos os dados da movimentação, ao clicar em Salvar ele é notificado com uma mensagem de sucesso. Mensagem: Movimentação realizada com sucesso.   |
 | **TA12.03** | O sistema tenta registrar a movimentação com sucesso. |
 | **TA12.04** | O sistema tenta registrar a movimentação no caixa e tem erro.  |
+
+### User Story US13 - Autenticação de Usuários
+|               |                                                                |
+| ------------- | :------------------------------------------------------------- |
+| **Descrição** | O sistema permite apenas usuários autorizados possam realizar operações para garantir a segurança das informações.  |
+
+| **Requisitos envolvidos** |                                                    |
+| ------------- | :------------------------------------------------------------- | 
+|RF25           | Login |
+|RF26           | Logout |
+|RF27           | Cadastro de Conta de Usuário |
+|RF28           | Remoção de Conta de Usuário |
+|RF29           | Resgate de Conta de Usuário |
+
+|                           |                                     |
+| ------------------------- | ----------------------------------- | 
+| **Prioridade** | Essencial |
+| **Estimativa** | 5min | 
+| **Tempo Gasto (real):**   |         30min                            | 
+| **Tamanho Funcional** | 10 PF (pontos de função) |
+| **Analista**| Erick (responsável por especificar/detalhar). |
+| **Desenvolvedor** | Isa e Melque (responsáveis por implementar e realizar testes de unidade e testes de integração). |
+| **Revisor** | Manuelly (responsável por avaliar a implementação e executar os testes de unidade e testes de integração). |
+| **Testador** | Felipe (responsável por executar os Testes de Aceitação e fazer o relatório de testes). |
+
+| Testes de Aceitação (TA) |  |
+| ----------- | --------- |
+| **Código**      | **Descrição** |
+| **TA12.01** | O funcionário/gerente seleciona na tela de controle de caixa qual movimentação quer registrar, se é entrada ou saída. |
+| **TA12.02** | O funcionário/gerente informa todos os dados da movimentação, ao clicar em Salvar ele é notificado com uma mensagem de sucesso. Mensagem: Movimentação realizada com sucesso.   |
+| **TA12.03** | O sistema tenta registrar a movimentação com sucesso. |
+| **TA12.04** | O sistema tenta registrar a movimentação no caixa e tem erro.  |
