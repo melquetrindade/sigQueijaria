@@ -456,7 +456,12 @@ Este documento descreve os User Stories criados a partir da Lista de Requisitos 
 | Testes de Aceitação (TA) |  |
 | ----------- | --------- |
 | **Código**      | **Descrição** |
-| **TA12.01** | O funcionário/gerente seleciona na tela de controle de caixa qual movimentação quer registrar, se é entrada ou saída. |
-| **TA12.02** | O funcionário/gerente informa todos os dados da movimentação, ao clicar em Salvar ele é notificado com uma mensagem de sucesso. Mensagem: Movimentação realizada com sucesso.   |
-| **TA12.03** | O sistema tenta registrar a movimentação com sucesso. |
-| **TA12.04** | O sistema tenta registrar a movimentação no caixa e tem erro.  |
+| **TA13.01** | Um usuário não autenticado tenta acessar uma funcionalidade restrita e é redirecionado para a tela de login.  |
+| **TA13.02** | Após o login bem-sucedido, o usuário é redirecionado para a página anteriormente acessada.  |
+| **TA13.03** | O sistema exibe uma mensagem de erro ao tentar fazer login com credenciais inválidas.  |
+| **TA13.04** | Ao fazer logout, o usuário é redirecionado para a tela de login e não pode acessar funcionalidades restritas.  |
+| **TA13.05** | Ao cadastrar uma nova conta de usuário, o sistema exige informações obrigatórias como nome, e-mail e senha.  |
+| **TA13.06** | O sistema não permite o cadastro de uma conta com um e-mail já registrado.  |
+| **TA13.07** | Após o cadastro bem-sucedido, o usuário recebe uma mensagem de confirmação.  |
+| **TA13.08** | O sistema exibe uma mensagem de confirmação ao remover uma conta de usuário.  |
+| **TA13.09** | Ao resgatar uma conta de usuário, o sistema envia um e-mail com instruções para redefinir a senha.  |
