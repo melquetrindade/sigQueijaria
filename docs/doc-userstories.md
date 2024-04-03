@@ -35,8 +35,8 @@ Este documento descreve os User Stories criados a partir da Lista de Requisitos 
 |                           |                                     |
 | ------------------------- | ----------------------------------- | 
 | **Prioridade** | Essencial |
-| **Estimativa** | 15min |
-| **Tempo Gasto (real):**   |     10min                                | 
+| **Estimativa** | 3h |
+| **Tempo Gasto (real):**   |       | 
 | **Tamanho Funcional** | 8 PF (pontos de função) |
 | **Analista**| Erick (responsável por especificar/detalhar). |
 | **Desenvolvedor** | Isa e Melque (responsáveis por implementar e realizar testes de unidade e testes de integração). |
@@ -72,9 +72,9 @@ Este documento descreve os User Stories criados a partir da Lista de Requisitos 
 |                           |                                     |
 | ------------------------- | ----------------------------------- | 
 | **Prioridade** | Importante |
-| **Estimativa** | 15min |
-| **Tempo Gasto (real):**   |      10min                               | 
-| **Tamanho Funcional** | 7 PF (pontos de função) |
+| **Estimativa** | 3h |
+| **Tempo Gasto (real):**   |        | 
+| **Tamanho Funcional** | 8 PF (pontos de função) |
 | **Analista**| Erick (responsável por especificar/detalhar). |
 | **Desenvolvedor** | Isa e Melque (responsáveis por implementar e realizar testes de unidade e testes de integração). |
 | **Revisor** | Manuelly (responsável por avaliar a implementação e executar os testes de unidade e testes de integração). |
@@ -110,9 +110,9 @@ Este documento descreve os User Stories criados a partir da Lista de Requisitos 
 |                           |                                     |
 | ------------------------- | ----------------------------------- | 
 | **Prioridade** | Importante |
-| **Estimativa** | 20min | 
-| **Tempo Gasto (real):**   |     15min                                | 
-| **Tamanho Funcional** | 7 PF (pontos de função) |
+| **Estimativa** | 3h | 
+| **Tempo Gasto (real):**   |              | 
+| **Tamanho Funcional** | 8 PF (pontos de função) |
 | **Analista**| Erick (responsável por especificar/detalhar). |
 | **Desenvolvedor** | Isa e Melque (responsáveis por implementar e realizar testes de unidade e testes de integração). |
 | **Revisor** | Manuelly (responsável por avaliar a implementação e executar os testes de unidade e testes de integração). |
@@ -148,9 +148,9 @@ Este documento descreve os User Stories criados a partir da Lista de Requisitos 
 |                           |                                     |
 | ------------------------- | ----------------------------------- | 
 | **Prioridade** | Importante |
-| **Estimativa** | 20min | 
-| **Tempo Gasto (real):**   |         15min                            | 
-| **Tamanho Funcional** | 7 PF (pontos de função) |
+| **Estimativa** | 3h | 
+| **Tempo Gasto (real):**   |                | 
+| **Tamanho Funcional** | 8 PF (pontos de função) |
 | **Analista**| Erick (responsável por especificar/detalhar). |
 | **Desenvolvedor** | Isa e Melque (responsáveis por implementar e realizar testes de unidade e testes de integração). |
 | **Revisor** | Manuelly (responsável por avaliar a implementação e executar os testes de unidade e testes de integração). |
@@ -183,8 +183,8 @@ Este documento descreve os User Stories criados a partir da Lista de Requisitos 
 |                           |                                     |
 | ------------------------- | ----------------------------------- | 
 | **Prioridade** | Desejável |
-| **Estimativa** | 20min | 
-| **Tempo Gasto (real):**   |         15min                            | 
+| **Estimativa** | 8h | 
+| **Tempo Gasto (real):**   |             | 
 | **Tamanho Funcional** | 10 PF (pontos de função) |
 | **Analista**| Erick (responsável por especificar/detalhar). |
 | **Desenvolvedor** | Isa e Melque (responsáveis por implementar e realizar testes de unidade e testes de integração). |
@@ -215,8 +215,8 @@ Este documento descreve os User Stories criados a partir da Lista de Requisitos 
 |                           |                                     |
 | ------------------------- | ----------------------------------- | 
 | **Prioridade** | Desejável |
-| **Estimativa** | 20min | 
-| **Tempo Gasto (real):**   |         15min                            | 
+| **Estimativa** | 8h | 
+| **Tempo Gasto (real):**   |           | 
 | **Tamanho Funcional** | 10 PF (pontos de função) |
 | **Analista**| Erick (responsável por especificar/detalhar). |
 | **Desenvolvedor** | Isa e Melque (responsáveis por implementar e realizar testes de unidade e testes de integração). |
@@ -247,9 +247,9 @@ Este documento descreve os User Stories criados a partir da Lista de Requisitos 
 |                           |                                     |
 | ------------------------- | ----------------------------------- | 
 | **Prioridade** | Desejável |
-| **Estimativa** | 3min | 
-| **Tempo Gasto (real):**   |         2min                            | 
-| **Tamanho Funcional** | 5 PF (pontos de função) |
+| **Estimativa** | 3h | 
+| **Tempo Gasto (real):**   |        | 
+| **Tamanho Funcional** | 6 PF (pontos de função) |
 | **Analista**| Erick (responsável por especificar/detalhar). |
 | **Desenvolvedor** | Isa e Melque (responsáveis por implementar e realizar testes de unidade e testes de integração). |
 | **Revisor** | Manuelly (responsável por avaliar a implementação e executar os testes de unidade e testes de integração). |
@@ -278,8 +278,8 @@ Este documento descreve os User Stories criados a partir da Lista de Requisitos 
 |                           |                                     |
 | ------------------------- | ----------------------------------- | 
 | **Prioridade** | Desejável |
-| **Estimativa** | 1min | 
-| **Tempo Gasto (real):**   |         30s                            | 
+| **Estimativa** | 3h | 
+| **Tempo Gasto (real):**   |          | 
 | **Tamanho Funcional** | 5 PF (pontos de função) |
 | **Analista**| Erick (responsável por especificar/detalhar). |
 | **Desenvolvedor** | Isa e Melque (responsáveis por implementar e realizar testes de unidade e testes de integração). |
@@ -316,9 +316,9 @@ Este documento descreve os User Stories criados a partir da Lista de Requisitos 
 |                           |                                     |
 | ------------------------- | ----------------------------------- | 
 | **Prioridade** | Importante |
-| **Estimativa** | 3min | 
-| **Tempo Gasto (real):**   |         2:30min                            | 
-| **Tamanho Funcional** | 9 PF (pontos de função) |
+| **Estimativa** | 3h | 
+| **Tempo Gasto (real):**   |        | 
+| **Tamanho Funcional** | 10 PF (pontos de função) |
 | **Analista**| Erick (responsável por especificar/detalhar). |
 | **Desenvolvedor** | Isa e Melque (responsáveis por implementar e realizar testes de unidade e testes de integração). |
 | **Revisor** | Manuelly (responsável por avaliar a implementação e executar os testes de unidade e testes de integração). |
@@ -344,9 +344,9 @@ Este documento descreve os User Stories criados a partir da Lista de Requisitos 
 |                           |                                     |
 | ------------------------- | ----------------------------------- | 
 | **Prioridade** | Essencial |
-| **Estimativa** | 10min | 
-| **Tempo Gasto (real):**   |         5min                            | 
-| **Tamanho Funcional** | 8 PF (pontos de função) |
+| **Estimativa** | 4h | 
+| **Tempo Gasto (real):**   |       | 
+| **Tamanho Funcional** | 10 PF (pontos de função) |
 | **Analista**| Erick (responsável por especificar/detalhar). |
 | **Desenvolvedor** | Isa e Melque (responsáveis por implementar e realizar testes de unidade e testes de integração). |
 | **Revisor** | Manuelly (responsável por avaliar a implementação e executar os testes de unidade e testes de integração). |
@@ -377,9 +377,9 @@ Este documento descreve os User Stories criados a partir da Lista de Requisitos 
 |                           |                                     |
 | ------------------------- | ----------------------------------- | 
 | **Prioridade** | Essencial |
-| **Estimativa** | 10min | 
-| **Tempo Gasto (real):**   |         5min                            | 
-| **Tamanho Funcional** | 8 PF (pontos de função) |
+| **Estimativa** | 7h | 
+| **Tempo Gasto (real):**   |         | 
+| **Tamanho Funcional** | 10 PF (pontos de função) |
 | **Analista**| Erick (responsável por especificar/detalhar). |
 | **Desenvolvedor** | Isa e Melque (responsáveis por implementar e realizar testes de unidade e testes de integração). |
 | **Revisor** | Manuelly (responsável por avaliar a implementação e executar os testes de unidade e testes de integração). |
@@ -413,8 +413,8 @@ Este documento descreve os User Stories criados a partir da Lista de Requisitos 
 |                           |                                     |
 | ------------------------- | ----------------------------------- | 
 | **Prioridade** | Essencial |
-| **Estimativa** | 20min | 
-| **Tempo Gasto (real):**   |         15min                            | 
+| **Estimativa** | 7h | 
+| **Tempo Gasto (real):**   |        | 
 | **Tamanho Funcional** | 10 PF (pontos de função) |
 | **Analista**| Erick (responsável por especificar/detalhar). |
 | **Desenvolvedor** | Isa e Melque (responsáveis por implementar e realizar testes de unidade e testes de integração). |
@@ -445,8 +445,8 @@ Este documento descreve os User Stories criados a partir da Lista de Requisitos 
 |                           |                                     |
 | ------------------------- | ----------------------------------- | 
 | **Prioridade** | Essencial |
-| **Estimativa** | 5min | 
-| **Tempo Gasto (real):**   |         30min                            | 
+| **Estimativa** | 4h | 
+| **Tempo Gasto (real):**   |        | 
 | **Tamanho Funcional** | 10 PF (pontos de função) |
 | **Analista**| Erick (responsável por especificar/detalhar). |
 | **Desenvolvedor** | Isa e Melque (responsáveis por implementar e realizar testes de unidade e testes de integração). |
