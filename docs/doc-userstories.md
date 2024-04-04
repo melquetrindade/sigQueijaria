@@ -13,7 +13,7 @@ Este documento descreve os User Stories criados a partir da Lista de Requisitos 
 | 30/11/2023 | 1.0     | Adição das duas primeiras listas | Manuelly |
 | 04/12/2023 | 1.1     | Adição de outras sete listas | Isa, Melque, Erick e Felipe |
 | 05/12/2023 | 1.2     | Adição de outras três listas | Felipe e Thamiris |
-| 10/12/2024 | 1.3     | Adaptação do documento proposto em ESI para a disciplina ESII | Manuelly, Thamiris, Isa, Melque, Erick e Felipe |
+| 10/03/2024 | 1.3     | Adaptação do documento proposto em ESI para a disciplina ESII | Manuelly, Thamiris, Isa, Melque, Erick e Felipe |
 | 20/03/2024 | 1.4     | Alteração de user stories (Cliente e Fornecedor) | Manuelly |
 | 18/03/2024 | 1.5     | Alteração de user stories (Funcionário e Produto) | Thamiris |
 | 03/04/2024 | 1.6     | Adição do user storie (Autenticação de Usuários) | Erick |
