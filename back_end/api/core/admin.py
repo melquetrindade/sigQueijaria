@@ -1,6 +1,10 @@
 from django.contrib import admin
-from .models import Caixa_DiaCaixa, Pagamento
+from .models import Pessoa, Cliente, Fornecedor, Funcionario, Caixa_DiaCaixa, Pagamento
 
 # Register your models here.
+admin.site.register(Pessoa)
+admin.site.register(Cliente)
+admin.site.register(Fornecedor)
+admin.site.register(Funcionario)
 admin.site.register(Caixa_DiaCaixa)
 admin.site.register(Pagamento)
