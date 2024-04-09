@@ -48,3 +48,40 @@ class Pagamento(models.Model):
 
     def __str__(self):
         return self.data
+    
+class NotaFiscal(models.Model):
+    ownerVenda = models.OneToOneField(Venda, on_delete=models.CASCADE)
+    data = models.CharField(max_length=55)
+    listVendaProduto = models.ManyToManyField(VendaProduto)
+
+    def __str__(self):
+        return self.ownerVenda
+
+class Conta(models.Model):
+    ownerVenda = models.OneToOneField(Venda, on_delete=models.SET_NULL, null=True)
+    valor = models.FloatField()
+    dataVencimento = models.CharField(max_length=55)
+    tipoReceber = models.BooleanField()
+    ownerEntradaMercadoria = models.OneToOneField(EntradaMercadoria, on_delete=models.SET_NULL, null=True)
+
+    def __str__(self):
+        return self.dataVencimento
+
+class Caixa(models.Model):
+    valorInicial = models.FloatField()
+    valorAtual = models.FloatField()
+    dataHoraAberturaAtual = models.CharField(max_length=55)
+    isOpen = models.BooleanField(default=False)
+
+    def __str__(self):
+        return self.valorInicial
+
+class DiaCaixa(models.Model):
+    dataHoraAbertura = models.CharField(max_length=55)
+    dataHoraEncerramento = models.CharField(max_length=55)
+    valorInicial = models.FloatField()
+    valorFinal = models.FloatField()
+
+    def __str__(self):
+        return self.valorInicial
+
