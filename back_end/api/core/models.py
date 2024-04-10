@@ -33,6 +33,37 @@ class Funcionario(Pessoa):
     def __str__(self):
         return self.cpf
     
+class EntradaMercadoria_MetodoPagamento(models.Model):
+    ownerEntradaMercadoria = models.OneToOneField(EntradaMercadoria, on_delete=models.CASCADE)
+    ownerMetodoPagamento = models.ManyToManyField(MetodoPagamento)
+
+    def __str__(self):
+        return self.ownerEntradaMercadoria
+    
+class Venda(models.Model):
+    cliente = models.ForeignKey(Cliente, on_delete=models.CASCADE)
+    data = models.CharField(max_length=55)
+    total = models.FloatField()
+
+    def __str__(self):
+        return self.data
+    
+class VendaProduto(models.Model):
+    ownerVenda = models.ForeignKey(Venda, on_delete=models.CASCADE)
+    ownerProduto = models.ForeignKey(Produto, on_delete=models.SET_NULL, null=True)
+    quantidade = models.IntegerField()
+    valor = models.FloatField()
+
+    def __str__(self):
+        return self.valor
+
+class Venda_MetodoPagamento(models.Model):
+    ownerVenda = models.OneToOneField(Venda, on_delete=models.CASCADE)
+    ownerMetodoPagamento = models.ManyToManyField(MetodoPagamento)
+
+    def __str__(self):
+        return self.ownerVenda
+    
 class NotaFiscal(models.Model):
     ownerVenda = models.OneToOneField(Venda, on_delete=models.CASCADE)
     data = models.CharField(max_length=55)

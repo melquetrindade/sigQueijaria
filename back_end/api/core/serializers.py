@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import Cliente, Fornecedor, Funcionario, Caixa_DiaCaixa, Pagamento, NotaFiscal, Caixa, Conta, DiaCaixa
+from .models import Cliente, Fornecedor, Funcionario, Caixa_DiaCaixa, Pagamento, NotaFiscal, Caixa, Conta, DiaCaixa, Venda, VendaProduto, Venda_MetodoPagamento, EntradaMercadoria_MetodoPagamento
 
 class ClienteSerializer(serializers.ModelSerializer):
     class Meta:
@@ -16,6 +16,16 @@ class FuncionarioSerializer(serializers.ModelSerializer):
         model = Funcionario
         fields = ['id', 'cpf', 'cargo', 'salario', 'cargaHoraria', 'nome', 'email', 'numTelefone', 'status', 'dataNascimento']
 
+class VendaSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Venda
+        fields = ['id', 'cliente', 'data', 'total']
+
+class VendaProdutoSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = VendaProduto
+        fields = ['id', 'ownerVenda', 'ownerProduto', 'quantidade', 'valor']
+
 class CaixaDiaCaixaSerializer(serializers.ModelSerializer):
     class Meta:
         model = Caixa_DiaCaixa
@@ -25,6 +35,11 @@ class PagamentoSerializer(serializers.ModelSerializer):
     class Meta:
         model = Pagamento
         fields = ['id', 'ownerCaixa', 'ownerConta', 'data', 'valor']
+
+class VendaMetodoPagamentoSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Venda_MetodoPagamento
+        fields = ['id', 'ownerVenda', 'ownerMetodoPagamento']
 
 class NotaFiscalSerializer(serializers.ModelSerializer):
     class Meta:
@@ -46,3 +61,8 @@ class DiaCaixaSerializer(serializers.ModelSerializer):
     class Meta:
         model = DiaCaixa
         fields = ['id', 'dataHoraAbertura', 'dataHoraEncerramento', 'valorInicial', 'valorFinal']
+
+class EntradaMercadoriaMetodoPagamentoSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = EntradaMercadoria_MetodoPagamento
+        fields = ['id', 'ownerEntradaMercadoria', 'ownerMetodoPagamento']
