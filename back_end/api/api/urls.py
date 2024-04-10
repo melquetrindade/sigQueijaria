@@ -1,7 +1,7 @@
 from django.contrib import admin
 from django.urls import path, include
 from rest_framework import routers
-from core.views import  ClienteViewSet, FornecedorViewSet, FuncionarioViewSet, Caixa_DiaCaixaViewSet, PagamentoViewSet,  NotaFiscalViewSet,  ContaViewSet, CaixaViewSet, DiaCaixaViewSet, VendaViewSet, VendaProdutoViewSet, VendaMetodoPagamentoViewSet, EntradaMercadoriaMetodoPagamentoViewSet
+from core.views import  ClienteViewSet, FornecedorViewSet, FuncionarioViewSet, Caixa_DiaCaixaViewSet, PagamentoViewSet,  NotaFiscalViewSet,  ContaViewSet, CaixaViewSet, DiaCaixaViewSet, VendaViewSet, VendaProdutoViewSet, VendaMetodoPagamentoViewSet, EntradaMercadoriaMetodoPagamentoViewSet, ProdutoViewSet, EntradaMercadoriaViewSet, EntradaMercadoria_ProdutoViewSet, MetodoPagamentoViewSet
 
 router = routers.DefaultRouter()
 router.register(r'clientes', ClienteViewSet)
@@ -17,6 +17,11 @@ router.register(r'contas', ContaViewSet)
 router.register(r'caixas', CaixaViewSet)
 router.register(r'diasCaixas', DiaCaixaViewSet)
 router.register(r'entradasMercadoriasMetodosPagamentos', EntradaMercadoriaMetodoPagamentoViewSet)
+router.register(r'produtos', ProdutoViewSet)
+router.register(r'entradasMercadorias', EntradaMercadoriaViewSet)
+router.register(r'entradasMercadoriasProdutos', EntradaMercadoria_ProdutoViewSet)
+router.register(r'metodosPagamentos', MetodoPagamentoViewSet)
+
 
 urlpatterns = [
     path('', include(router.urls)),
