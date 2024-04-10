@@ -1,6 +1,6 @@
 from rest_framework import viewsets
-from .models import Cliente, Fornecedor, Funcionario, Caixa_DiaCaixa, Pagamento, NotaFiscal, Caixa, Conta, DiaCaixa, Venda, VendaProduto, Venda_MetodoPagamento, EntradaMercadoria_MetodoPagamento
-from .serializers import ClienteSerializer, FornecedorSerializer, FuncionarioSerializer, CaixaDiaCaixaSerializer, PagamentoSerializer, NotaFiscalSerializer, CaixaSerializer, ContaSerializer, DiaCaixaSerializer, VendaSerializer, VendaProdutoSerializer, VendaMetodoPagamentoSerializer, EntradaMercadoriaMetodoPagamentoSerializer
+from .models import Cliente, Fornecedor, Funcionario, Caixa_DiaCaixa, Pagamento, NotaFiscal, Caixa, Conta, DiaCaixa, Venda, VendaProduto, Venda_MetodoPagamento, EntradaMercadoria_MetodoPagamento, Produto, EntradaMercadoria, EntradaMercadoria_Produto, MetodoPagamento
+from .serializers import ClienteSerializer, FornecedorSerializer, FuncionarioSerializer, CaixaDiaCaixaSerializer, PagamentoSerializer, NotaFiscalSerializer, CaixaSerializer, ContaSerializer, DiaCaixaSerializer, VendaSerializer, VendaProdutoSerializer, VendaMetodoPagamentoSerializer, EntradaMercadoriaMetodoPagamentoSerializer, ProdutoSerializer, EntradaMercadoriaSerializer, EntradaMercadoriaProdutoSerializer, MetodoPagamentoSerializer
 
 # Create your views here.
 class ClienteViewSet(viewsets.ModelViewSet):
@@ -54,3 +54,19 @@ class DiaCaixaViewSet(viewsets.ModelViewSet):
 class EntradaMercadoriaMetodoPagamentoViewSet(viewsets.ModelViewSet):
     queryset = EntradaMercadoria_MetodoPagamento.objects.all()
     serializer_class = EntradaMercadoriaMetodoPagamentoSerializer
+
+class ProdutoViewSet(viewsets.ModelViewSet):
+    queryset = Produto.objects.all()
+    serializer_class = ProdutoSerializer
+
+class EntradaMercadoriaViewSet(viewsets.ModelViewSet):
+    queryset = EntradaMercadoria.objects.all()
+    serializer_class = EntradaMercadoriaSerializer
+
+class EntradaMercadoria_ProdutoViewSet(viewsets.ModelViewSet):
+    queryset = EntradaMercadoria_Produto.objects.all()
+    serializer_class = EntradaMercadoriaProdutoSerializer
+
+class MetodoPagamentoViewSet(viewsets.ModelViewSet):
+    queryset = MetodoPagamento.objects.all()
+    serializer_class = MetodoPagamentoSerializer
