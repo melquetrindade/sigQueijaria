@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import Cliente, Fornecedor, Funcionario, Caixa_DiaCaixa, Pagamento, NotaFiscal, Caixa, Conta, DiaCaixa, Venda, VendaProduto, Venda_MetodoPagamento, EntradaMercadoria_MetodoPagamento
+from .models import Cliente, Fornecedor, Funcionario, Caixa_DiaCaixa, Pagamento, NotaFiscal, Caixa, Conta, DiaCaixa, Venda, VendaProduto, Venda_MetodoPagamento, EntradaMercadoria_MetodoPagamento, Produto, EntradaMercadoria, EntradaMercadoria_Produto, MetodoPagamento
 
 class ClienteSerializer(serializers.ModelSerializer):
     class Meta:
@@ -66,3 +66,23 @@ class EntradaMercadoriaMetodoPagamentoSerializer(serializers.ModelSerializer):
     class Meta:
         model = EntradaMercadoria_MetodoPagamento
         fields = ['id', 'ownerEntradaMercadoria', 'ownerMetodoPagamento']
+
+class ProdutoSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Produto
+        fields = ['codigo', 'codigoBarras', 'nome', 'tipoProduto','valor','dataValidade','quantidade','qtdMinima','status']
+
+class EntradaMercadoriaSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = EntradaMercadoria
+        fields = ['codigo', 'ownerFornecedor', 'quantidade', 'valor', 'data']
+
+class EntradaMercadoriaProdutoSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = EntradaMercadoria_Produto
+        fields = ['codigo', 'produto', 'entradaMercadoria']
+
+class MetodoPagamentoSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = MetodoPagamento
+        fields = ['codigo', 'descricao', 'valor']
