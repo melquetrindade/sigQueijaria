@@ -1,4 +1,19 @@
 from django.db import models
+from django.contrib.auth.models import AbstractUser
+# Modelo para autenticação
+
+class CustomUser(AbstractUser):
+    email = models.EmailField(unique=True)
+    username = models.CharField(max_length=150, unique=False)
+    password = models.CharField(max_length=128)
+    password2 = models.CharField(max_length=128)
+
+    USERNAME_FIELD = 'email'
+    REQUIRED_FIELDS = ['username']
+
+    def __str__(self):
+        return self.email
+
 
 # Create your models here.
 class Pessoa(models.Model):
@@ -32,6 +47,37 @@ class Funcionario(Pessoa):
 
     def __str__(self):
         return self.cpf
+    
+class Estado(models.Model):
+    owner = models.OneToOneField(Pessoa, on_delete=models.CASCADE)
+    nome = models.CharField(max_length=105)
+
+    def __str__(self):
+        return self.nome
+    
+class Cidade(models.Model):
+    owner = models.OneToOneField(Estado, on_delete=models.CASCADE)
+    nome = models.CharField(max_length=105)
+    cep = models.CharField(max_length=105)
+
+    def __str__(self):
+        return self.nome
+
+class Bairro(models.Model):
+    owner = models.OneToOneField(Cidade, on_delete=models.CASCADE)
+    nome = models.CharField(max_length=105)
+
+    def __str__(self):
+        return self.nome
+
+class Endereco(models.Model):
+    owner = models.OneToOneField(Bairro, on_delete=models.CASCADE)
+    rua = models.CharField(max_length=55)
+    numCasa = models.CharField(max_length=10)
+    complemento = models.CharField(max_length=55)  
+
+    def __str__(self):
+        return self.rua
 
 class Produto(models.Model):
     codigoBarras = models.CharField(max_length=155)

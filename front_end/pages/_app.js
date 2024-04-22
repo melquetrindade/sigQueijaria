@@ -1,6 +1,10 @@
 import Head from 'next/head'
-import React from "react";
+import React, {useState, useEffect} from "react";
+import Main from '../components/main'
+import {login, updateToken} from '../utils/auth'
 import '../styles/globals.css'
+import { jwtDecode } from "jwt-decode";
+
 
 export const metadata = {
     title: 'Create Next App',
@@ -9,13 +13,88 @@ export const metadata = {
 
 export default function MyApp({ Component, pageProps }) {
 
+  var chave = false
+
+  const [user, setUser] = useState(null)
+  const [authTokens, setAuthTokens] = useState(null)
+  const [clickLogout, setLogout] = useState('noClick')
+  let [loading, setLoading] = useState(true)
+  //const [isLogin, setLogin] = useState(true)
+  
+  if(clickLogout == 'yesClick'){
+    console.log('click == yes')
+    chave = true
+  }
+
+  useEffect(() => {
+    if(chave == true){
+      setUser(null)
+      setAuthTokens(null)
+      setLogout('noClick')
+      localStorage.removeItem('authTokens')
+      chave == false
+    }
+  }, [chave])
+
+  if(authTokens != null){
+    localStorage.setItem('authTokens', authTokens);
+  }
+
+  useEffect(() => {
+    const userSave = localStorage.getItem('authTokens');
+
+    if (userSave != null) {
+      const usuario = jwtDecode(localStorage.getItem('authTokens'))
+      setUser(usuario)
+      setAuthTokens(userSave);
+    }
+  }, []);
+
+  const handlerLogin = async () => {
+    const valueUsername = document.getElementById('username').value
+    const valuePass = document.getElementById('password').value
+    login(valueUsername, valuePass, setUser, setAuthTokens)
+  }
+
+  useEffect(() => {
+    if(loading){
+      updateToken(authTokens, setUser, setAuthTokens, setLogout, setLoading, loading)
+    }
+
+    let minutes = 1000 * 60 * 4
+    let interval = setInterval(() => {
+      if(authTokens){
+        updateToken(authTokens, setUser, setAuthTokens, setLogout, setLoading, loading)
+      }
+    }, minutes)
+    return () => clearInterval(interval)
+  }, [authTokens, loading])
+
+  if(user){
+    return(
+      <div>
+        <Main 
+          user={user}
+          funcSetLogout={setLogout}
+          >
+          <Head>
+            <meta http-equiv="X-UA-Compatible" content="IE=edge"></meta>
+            <meta name="viewport" content="width=device-width, initial-scale=1.0"></meta>
+          </Head>
+          <Component {...pageProps} />
+        </Main>
+      </div>
+    )
+  }
+  
   return(
     <div>
-        <Head>
-          <meta http-equiv="X-UA-Compatible" content="IE=edge"></meta>
-          <meta name="viewport" content="width=device-width, initial-scale=1.0"></meta>
-        </Head>
-        <Component {...pageProps} />
+      <form>
+          <input type="text" id="username" name="username" placeholder="digite seu username"></input>
+          <input type="password" id="password" name="password" placeholder="digite sua senha"></input>
+          <div onClick={handlerLogin}>Entrar</div>
+      </form>
+
     </div>
   )
 
