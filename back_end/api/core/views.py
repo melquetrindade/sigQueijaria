@@ -1,6 +1,45 @@
 from rest_framework import viewsets
-from .models import Cliente, Fornecedor, Funcionario, Caixa_DiaCaixa, Pagamento, NotaFiscal, Caixa, Conta, DiaCaixa, Venda, VendaProduto, Venda_MetodoPagamento, EntradaMercadoria_MetodoPagamento, Produto, EntradaMercadoria, EntradaMercadoria_Produto, MetodoPagamento
-from .serializers import ClienteSerializer, FornecedorSerializer, FuncionarioSerializer, CaixaDiaCaixaSerializer, PagamentoSerializer, NotaFiscalSerializer, CaixaSerializer, ContaSerializer, DiaCaixaSerializer, VendaSerializer, VendaProdutoSerializer, VendaMetodoPagamentoSerializer, EntradaMercadoriaMetodoPagamentoSerializer, ProdutoSerializer, EntradaMercadoriaSerializer, EntradaMercadoriaProdutoSerializer, MetodoPagamentoSerializer
+from .models import Cliente, Fornecedor, Funcionario, Caixa_DiaCaixa, Pagamento, NotaFiscal, Caixa, Conta, DiaCaixa, Venda, VendaProduto, Venda_MetodoPagamento, EntradaMercadoria_MetodoPagamento, Produto, EntradaMercadoria, EntradaMercadoria_Produto, MetodoPagamento, Estado, Cidade, Bairro, Endereco
+from .serializers import ClienteSerializer, FornecedorSerializer, FuncionarioSerializer, CaixaDiaCaixaSerializer, PagamentoSerializer, NotaFiscalSerializer, CaixaSerializer, ContaSerializer, DiaCaixaSerializer, VendaSerializer, VendaProdutoSerializer, VendaMetodoPagamentoSerializer, EntradaMercadoriaMetodoPagamentoSerializer, ProdutoSerializer, EntradaMercadoriaSerializer, EntradaMercadoriaProdutoSerializer, MetodoPagamentoSerializer, EstadoSerializer, CidadeSerializer, BairroSerializer, EnderecoSerializer
+
+
+# views para autenticação
+from rest_framework.response import Response
+from rest_framework.decorators import api_view
+#from .serializers import UserSerializer
+from rest_framework_simplejwt.serializers import TokenObtainPairSerializer
+from rest_framework_simplejwt.views import TokenObtainPairView
+#from rest_framework import status
+#from rest_framework.views import APIView
+from rest_framework import generics
+from .serializers import UserSerializer
+
+
+class MyTokenObtainPairSerializer(TokenObtainPairSerializer):
+    @classmethod
+    def get_token(cls, user):
+        token = super().get_token(user)
+
+        token['email'] = user.username
+        #token['username'] = user.username -> Antes era assim
+
+        return token
+
+class MyTokenObtainPairView(TokenObtainPairView):
+    serializer_class = MyTokenObtainPairSerializer
+
+@api_view(['GET'])
+def getToutes(request):
+    routes = [
+        '/api/token',
+        '/api/token/refresh'
+    ]
+
+    return Response(routes)
+
+class CreateUserView(generics.CreateAPIView):
+    serializer_class = UserSerializer
+
 
 # Create your views here.
 class ClienteViewSet(viewsets.ModelViewSet):
@@ -70,3 +109,19 @@ class EntradaMercadoria_ProdutoViewSet(viewsets.ModelViewSet):
 class MetodoPagamentoViewSet(viewsets.ModelViewSet):
     queryset = MetodoPagamento.objects.all()
     serializer_class = MetodoPagamentoSerializer
+
+class EstadoViewSet(viewsets.ModelViewSet):
+    queryset = Estado.objects.all()
+    serializer_class = EstadoSerializer
+
+class CidadeViewSet(viewsets.ModelViewSet):
+    queryset = Cidade.objects.all()
+    serializer_class = CidadeSerializer
+
+class BairroViewSet(viewsets.ModelViewSet):
+    queryset = Bairro.objects.all()
+    serializer_class = BairroSerializer
+
+class EnderecoViewSet(viewsets.ModelViewSet):
+    queryset = Endereco.objects.all()
+    serializer_class = EnderecoSerializer
