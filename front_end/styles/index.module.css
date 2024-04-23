@@ -1,0 +1,9 @@
+@charset "UTF-8";
+
+.main{
+    width: 100%;
+}
+
+.main > h1{
+    text-align: center;
+}
