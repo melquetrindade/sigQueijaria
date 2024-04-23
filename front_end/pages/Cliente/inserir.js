@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import axios from 'axios';
+import { useRouter } from "next/router";
 
 export default function InserirCliente () {
     const [cliente, setCliente] = useState({
@@ -21,9 +21,18 @@ export default function InserirCliente () {
         e.preventDefault();
         
         try {
-            const response = await axios.post('../../../back_end/api/api/clientes/', cliente); // rota para inserir cliente
-            console.log(response.data); // Log do resultado da inserção
-        // Limpar o formulário após a inserção bem-sucedida
+            const response = await fetch('http://127.0.0.1:8000/clientes/', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(cliente),
+            });
+    
+            const data = await response.json(); // Transforma a resposta em JSON
+            console.log(data); // Log do resultado da inserção
+    
+            // Limpar o formulário após a inserção bem-sucedida
             setCliente({
                 cpf: '',
                 rg: '',
@@ -32,12 +41,12 @@ export default function InserirCliente () {
                 numTelefone: '',
                 status: '',
                 dataNascimento: ''
-        });
+            });
         } catch (error) {
-        console.error('Erro ao inserir cliente:', error);
+            console.error('Erro ao inserir cliente!', error);
         }
-    }
-
+    };
+    
     return (
         <div>
         <h2>Inserir Cliente</h2>
@@ -70,7 +79,7 @@ export default function InserirCliente () {
                 <label>Data de Nascimento:</label>
                 <input type="date" name="dataNascimento" value={cliente.dataNascimento} onChange={handleChange} />
             </div>
-                <button type="submit">Inserir</button>
+                <button type="submit">Salvar</button>
         </form>
         </div>
     );
