@@ -1,11 +1,14 @@
 import React from "react";
 import styles from '../styles/index.module.css'
+import Link from "next/link";
 
 export default function Home(){
     return(
         <main className={styles.main}>
             <h1>SigQueijaria - Página Inicial</h1>
-        </main>
-       
+            <Link href="/Cliente">
+                <button>Inserir Cliente</button>
+            </Link>
+        </main>  
     )
 }
