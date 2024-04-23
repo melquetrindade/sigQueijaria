@@ -5,10 +5,12 @@ import Link from "next/link";
 export default function Home(){
     return(
         <div>
-            <h1>SigQueijaria - Página Inicial</h1>
-            <Link href="/Cliente">
-                <button>Inserir Cliente</button>
-            </Link>
-        </main>  
+            <main className={styles.main}>
+                <h1>SigQueijaria - Página Inicial</h1>
+                <Link href="/Cliente">
+                    <button>Inserir Cliente</button>
+                </Link>
+            </main>
+        </div>
     )
 }
