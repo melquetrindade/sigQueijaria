@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Pessoa, Cliente, Fornecedor, Funcionario, Caixa_DiaCaixa, Pagamento, NotaFiscal, Caixa, Conta, DiaCaixa, Venda, VendaProduto, Venda_MetodoPagamento, EntradaMercadoria_MetodoPagamento, Produto, EntradaMercadoria, EntradaMercadoria_Produto, MetodoPagamento
+from .models import Pessoa, Cliente, Fornecedor, Funcionario, Caixa_DiaCaixa, Pagamento, NotaFiscal, Caixa, Conta, DiaCaixa, Venda, VendaProduto, Venda_MetodoPagamento, EntradaMercadoria_MetodoPagamento, Produto, EntradaMercadoria, EntradaMercadoria_Produto, MetodoPagamento, Estado, Cidade, Bairro, Endereco
 
 # Register your models here.
 admin.site.register(Pessoa)
@@ -20,3 +20,7 @@ admin.site.register(Produto)
 admin.site.register(EntradaMercadoria)
 admin.site.register(EntradaMercadoria_Produto)
 admin.site.register(MetodoPagamento)
+admin.site.register(Estado)
+admin.site.register(Cidade)
+admin.site.register(Bairro)
+admin.site.register(Endereco)
