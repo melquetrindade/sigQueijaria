@@ -5,7 +5,9 @@
 __pycache__
 db.sqlite3
 media
-
+/back_end/sigQueijaria_bd
+/sigQueijaria_bd
+sigQueijaria_bd
 # Backup files # 
 *.bak 
 
