@@ -1,7 +1,7 @@
 import Head from 'next/head'
 import React, {useState, useEffect} from "react";
 import Main from '../components/main'
-import {login, updateToken} from '../utils/auth'
+import {login, updateToken, createConta} from '../utils/auth'
 import '../styles/globals.css'
 import { jwtDecode } from "jwt-decode";
 
@@ -19,7 +19,7 @@ export default function MyApp({ Component, pageProps }) {
   const [authTokens, setAuthTokens] = useState(null)
   const [clickLogout, setLogout] = useState('noClick')
   let [loading, setLoading] = useState(true)
-  //const [isLogin, setLogin] = useState(true)
+  const [isLogin, setLogin] = useState(true)
   
   if(clickLogout == 'yesClick'){
     console.log('click == yes')
@@ -51,8 +51,8 @@ export default function MyApp({ Component, pageProps }) {
   }, []);
 
   const handlerLogin = async () => {
-    const valueUsername = document.getElementById('username').value
-    const valuePass = document.getElementById('password').value
+    const valueUsername = document.getElementById('emailLogin').value
+    const valuePass = document.getElementById('passwordLogin').value
     login(valueUsername, valuePass, setUser, setAuthTokens)
   }
 
@@ -70,6 +70,14 @@ export default function MyApp({ Component, pageProps }) {
     return () => clearInterval(interval)
   }, [authTokens, loading])
 
+  const criarConta = async () => {
+    const valueEmail = document.getElementById('email').value
+    const valueUsername = document.getElementById('username').value
+    const valuePass = document.getElementById('password').value
+    const valuePass2 = document.getElementById('password2').value
+    createConta(valueEmail, valueUsername, valuePass, valuePass2, setLogin)
+  }
+
   if(user){
     return(
       <div>
@@ -86,14 +94,42 @@ export default function MyApp({ Component, pageProps }) {
       </div>
     )
   }
+
+  const toggleLogin = () => {
+    if(isLogin)
+      setLogin(false)
+    else{
+      setLogin(true)
+    }
+  } 
+  
   
   return(
     <div>
-      <form>
-          <input type="text" id="username" name="username" placeholder="digite seu username"></input>
-          <input type="password" id="password" name="password" placeholder="digite sua senha"></input>
-          <div onClick={handlerLogin}>Entrar</div>
-      </form>
+      {
+        isLogin == true
+        ?
+          <div>
+            <h1 style={{color: 'blue', fontWeight: '900'}}>Login:</h1>
+            <form>
+              <input type="text" id="emailLogin" name="emailLogin" placeholder="digite seu email"></input>
+              <input type="password" id="passwordLogin" name="passwordLogin" placeholder="digite sua senha"></input>
+            </form>
+            <button onClick={handlerLogin} style={{color: 'green', fontWeight: '900'}}>Entrar</button>
+          </div>
+        :
+          <div>
+            <h1 style={{color: 'blue', fontWeight: '900'}}>Criar Conta:</h1>
+            <form>
+              <input type="email" id="email" name="email" placeholder="digite seu email"></input>
+              <input type="text" id="username" name="username" placeholder="digite seu username"></input>
+              <input type="password" id="password" name="password" placeholder="digite sua senha"></input>
+              <input type="password" id="password2" name="password2" placeholder="confirme sua senha"></input>
+            </form>
+            <button onClick={criarConta} style={{color: 'green', fontWeight: '900'}}>Criar</button>
+          </div>
+      }
+      {isLogin == true ? <button onClick={toggleLogin} style={{fontWeight: '900'}}>Criar Conta</button> : <button onClick={toggleLogin} style={{fontWeight: '900'}}>Fazer Login</button>}
 
     </div>
   )
