@@ -7,7 +7,7 @@ export default function Home(){
         <div>
             <main className={styles.main}>
                 <h1>SigQueijaria - Página Inicial</h1>
-                <Link href="/Cliente">
+                <Link href="/Cliente/create">
                     <button>Inserir Cliente</button>
                 </Link>
             </main>
