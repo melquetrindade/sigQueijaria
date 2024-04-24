@@ -42,3 +42,35 @@ export async function updateToken(tokenRefresh, funSetUser, funcSetAuth, funcSet
         funcSetLoading(false)
     }
 }
+
+export async function createConta(email, username, password, password2, funcSetLogin){
+    console.log('entrou no create')
+    console.log(`email: ${email}\n username: ${username}\n password: ${password}\n password2: ${password2}\n`)
+    const objData = {
+        email: email,
+        username: username,
+        password: password,
+        password2: password2,
+    }
+
+    let response = await fetch('http://127.0.0.1:8000/register/', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(objData)
+    })
+    let data = await response.json()
+    if(response.status === 201){
+        alert('conta criada com sucesso!')
+        funcSetLogin(true)
+        console.log('conta criada com sucesso')
+    }
+    else{
+        if(data.email[0] == 'user with this email already exists.'){
+            alert('O email informado já existe, tente outro email!')
+            console.log('email já existe')
+        }
+    }
+
+}
