@@ -30,3 +30,7 @@
 ## Licença </br>
 
 Este projeto é licenciado sob a licença [MIT](LICENSE).
+
+## Tutorial
+
+- [Link do tutorial para executar o projeto sigQueijaria](docs/doc-tutorial.md)
