@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useRouter } from "next/router";
 
-export default function InserirCliente () {
+export default function InserirCliente () {//mudar o nome aqui tbm "CreateUser"
     const [cliente, setCliente] = useState({
         cpf: '',
         rg: '',
@@ -39,7 +39,7 @@ export default function InserirCliente () {
                 nome: '',
                 email: '',
                 numTelefone: '',
-                status: '',
+                status: '', // o status tem que ser um botão onde o administrador diz se o cliente tá ativo: select 
                 dataNascimento: ''
             });
         } catch (error) {
