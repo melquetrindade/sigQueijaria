@@ -1,14 +1,14 @@
 import React, { useState } from 'react';
-import { useRouter } from "next/router";
+// import { useRouter } from "next/router";
 
-export default function InserirCliente () {//mudar o nome aqui tbm "CreateUser"
+export default function AddClient () {
     const [cliente, setCliente] = useState({
         cpf: '',
         rg: '',
         nome: '',
         email: '',
         numTelefone: '',
-        status: '',
+        status: 'ativo', 
         dataNascimento: ''
     });
 
@@ -17,7 +17,7 @@ export default function InserirCliente () {//mudar o nome aqui tbm "CreateUser"
         setCliente({ ...cliente, [name]: value });
     };
 
-    const handleSubmit = async (e) => {
+    const handleSubmit = async (e) => { // a função handleSubmit envia os dados do cliente para o backend usando POST    
         e.preventDefault();
         
         try {
@@ -29,17 +29,16 @@ export default function InserirCliente () {//mudar o nome aqui tbm "CreateUser"
                 body: JSON.stringify(cliente),
             });
     
-            const data = await response.json(); // Transforma a resposta em JSON
-            console.log(data); // Log do resultado da inserção
+            const data = await response.json(); // transforma a resposta em JSON
+            console.log(data); 
     
-            // Limpar o formulário após a inserção bem-sucedida
             setCliente({
                 cpf: '',
                 rg: '',
                 nome: '',
                 email: '',
                 numTelefone: '',
-                status: '', // o status tem que ser um botão onde o administrador diz se o cliente tá ativo: select 
+                status: 'ativo', 
                 dataNascimento: ''
             });
         } catch (error) {
@@ -73,7 +72,10 @@ export default function InserirCliente () {//mudar o nome aqui tbm "CreateUser"
             </div>
             <div>
                 <label>Status:</label>
-                <input type="text" name="status" value={cliente.status} onChange={handleChange} />
+                <select name="status" value={cliente.status} onChange={handleChange}>
+                    <option value="ativo">Ativo</option>
+                    <option value="inativo">Inativo</option>
+                </select>
             </div>
             <div>
                 <label>Data de Nascimento:</label>
@@ -84,4 +86,3 @@ export default function InserirCliente () {//mudar o nome aqui tbm "CreateUser"
         </div>
     );
 };
-
