@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-// import { useRouter } from "next/router";
+import { useRouter } from "next/router";
 
 export default function AddClient () {
     const [cliente, setCliente] = useState({
@@ -8,7 +8,6 @@ export default function AddClient () {
         nome: '',
         email: '',
         numTelefone: '',
-        status: 'ativo', 
         dataNascimento: ''
     });
 
@@ -38,7 +37,6 @@ export default function AddClient () {
                 nome: '',
                 email: '',
                 numTelefone: '',
-                status: 'ativo', 
                 dataNascimento: ''
             });
         } catch (error) {
@@ -69,13 +67,6 @@ export default function AddClient () {
             <div>
                 <label>Número de Telefone:</label>
                 <input type="text" name="numTelefone" value={cliente.numTelefone} onChange={handleChange} />
-            </div>
-            <div>
-                <label>Status:</label>
-                <select name="status" value={cliente.status} onChange={handleChange}>
-                    <option value="ativo">Ativo</option>
-                    <option value="inativo">Inativo</option>
-                </select>
             </div>
             <div>
                 <label>Data de Nascimento:</label>
