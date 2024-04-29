@@ -8,7 +8,6 @@ export default function InserirCliente () {
         nome: '',
         email: '',
         numTelefone: '',
-        status: '',
         dataNascimento: ''
     });
 
@@ -18,6 +17,7 @@ export default function InserirCliente () {
     };
 
     const handleSubmit = async (e) => {
+        console.log(cliente)
         e.preventDefault();
         
         try {
@@ -39,7 +39,6 @@ export default function InserirCliente () {
                 nome: '',
                 email: '',
                 numTelefone: '',
-                status: '',
                 dataNascimento: ''
             });
         } catch (error) {
@@ -70,10 +69,6 @@ export default function InserirCliente () {
             <div>
                 <label>Número de Telefone:</label>
                 <input type="text" name="numTelefone" value={cliente.numTelefone} onChange={handleChange} />
-            </div>
-            <div>
-                <label>Status:</label>
-                <input type="text" name="status" value={cliente.status} onChange={handleChange} />
             </div>
             <div>
                 <label>Data de Nascimento:</label>
