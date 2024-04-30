@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { useRouter } from "next/router";
 
 export default function AddClient () {
     const [cliente, setCliente] = useState({
@@ -16,7 +15,7 @@ export default function AddClient () {
         setCliente({ ...cliente, [name]: value });
     };
 
-    const handleSubmit = async (e) => { // a função handleSubmit envia os dados do cliente para o backend usando POST    
+    const handleSubmit = async (e) => { // esta função envia os dados do cliente para o back usando o método POST    
         e.preventDefault();
         
         try {
