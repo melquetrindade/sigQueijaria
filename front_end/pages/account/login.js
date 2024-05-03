@@ -72,13 +72,13 @@ export default function Login({ loginButton, toggleButton }) {
                                 />
                             )}
                         </div>
-                        <button
-                            className="w-full py-2 px-4 bg-[#09173E]/80 hover:bg-[#09173E]/50 rounded-md shadow-lg text-white font-semibold transition duration-200"
-                            onClick={loginButton}
-                        >
-                            Conectar
-                        </button>
                     </form>
+                    <button
+                        className="w-full py-2 px-4 bg-[#09173E]/80 hover:bg-[#09173E]/50 rounded-md shadow-lg text-white font-semibold transition duration-200 mt-7"
+                        onClick={loginButton}
+                    >
+                        Conectar
+                    </button>
                     <div className="mt-4 text-sm text-center text-white flex items-center justify-center">
                         Ainda não tem uma conta?
                         <div

@@ -36,9 +36,7 @@ export default function Register({ createAccount, toggleButton }) {
                                 name="email"
                                 type="email"
                             />
-                            <label
-                                className="absolute left-0 -top-3.5 text-gray-400 text-sm transition-all peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-300 peer-placeholder-shown:top-2 peer-focus:-top-3.5 peer-focus:text-[#ffffff] peer-focus:text-sm"
-                            >
+                            <label className="absolute left-0 -top-3.5 text-gray-400 text-sm transition-all peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-300 peer-placeholder-shown:top-2 peer-focus:-top-3.5 peer-focus:text-[#ffffff] peer-focus:text-sm">
                                 Email
                             </label>
                         </div>
@@ -51,9 +49,7 @@ export default function Register({ createAccount, toggleButton }) {
                                 name="username"
                                 type="text"
                             />
-                            <label
-                                className="absolute left-0 -top-3.5 text-gray-400 text-sm transition-all peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-300 peer-placeholder-shown:top-2 peer-focus:-top-3.5 peer-focus:text-[#ffffff] peer-focus:text-sm"
-                            >
+                            <label className="absolute left-0 -top-3.5 text-gray-400 text-sm transition-all peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-300 peer-placeholder-shown:top-2 peer-focus:-top-3.5 peer-focus:text-[#ffffff] peer-focus:text-sm">
                                 Usuário
                             </label>
                         </div>
@@ -66,12 +62,10 @@ export default function Register({ createAccount, toggleButton }) {
                                 name="password"
                                 type="password"
                             />
-                            <label
-                                className="absolute left-0 -top-3.5 text-gray-400 text-sm transition-all peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-300 peer-placeholder-shown:top-2 peer-focus:-top-3.5 peer-focus:text-[#ffffff] peer-focus:text-sm"
-                            >
+                            <label className="absolute left-0 -top-3.5 text-gray-400 text-sm transition-all peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-300 peer-placeholder-shown:top-2 peer-focus:-top-3.5 peer-focus:text-[#ffffff] peer-focus:text-sm">
                                 Senha
                             </label>
-                            
+
                             {/* Mostra e esconde a senha */}
                             {show ? (
                                 <IoEyeOutline
@@ -94,21 +88,17 @@ export default function Register({ createAccount, toggleButton }) {
                                 name="password2"
                                 type="password"
                             />
-                            <label
-                                className="absolute left-0 -top-3.5 text-gray-400 text-sm transition-all peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-300 peer-placeholder-shown:top-2 peer-focus:-top-3.5 peer-focus:text-[#ffffff] peer-focus:text-sm"
-                            >
+                            <label className="absolute left-0 -top-3.5 text-gray-400 text-sm transition-all peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-300 peer-placeholder-shown:top-2 peer-focus:-top-3.5 peer-focus:text-[#ffffff] peer-focus:text-sm">
                                 Confirme sua senha
                             </label>
                         </div>
-
-                        <button
-                            className="w-full py-2 px-4 bg-[#09173E]/80 hover:bg-[#09173E]/50 rounded-md shadow-lg text-white font-semibold transition duration-200"
-                            type="submit"
-                            onClick={createAccount}
-                        >
-                            Registrar
-                        </button>
                     </form>
+                    <button
+                        className="w-full py-2 px-4 bg-[#09173E]/80 hover:bg-[#09173E]/50 rounded-md shadow-lg text-white font-semibold transition duration-200 mt-7"
+                        onClick={createAccount}
+                    >
+                        Registrar
+                    </button>
                     <div className="mt-4 text-sm text-center text-white flex items-center justify-center">
                         Já tem uma conta?
                         <div
@@ -121,5 +111,5 @@ export default function Register({ createAccount, toggleButton }) {
                 </div>
             </div>
         </div>
-    )
+    );
 }
