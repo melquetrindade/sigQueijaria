@@ -100,6 +100,8 @@ export default function MyApp({ Component, pageProps }) {
                             name="viewport"
                             content="width=device-width, initial-scale=1.0"
                         ></meta>
+                        <title>SigQueijaria</title>
+                        <link rel="icon" href="/queijo.png" />
                     </Head>
                     <Component {...pageProps} />
                 </Main>
