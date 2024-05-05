@@ -1,5 +1,4 @@
 import Header from './header'
-import styles from '../styles/main.module.css'
 
 export let usuario = null
 export let setClickLogout = undefined
@@ -12,7 +11,7 @@ export default function MainContainer({children, user, funcSetLogout}){
     return(
         <div>
             <Header/>
-            <div className={styles.mainContainer}>
+            <div className="py-0 px-0 max-w-full min-h-screen-8.8vh flex justify-center">
                 {children}
             </div>
         </div>
