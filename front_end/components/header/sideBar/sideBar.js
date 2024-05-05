@@ -10,6 +10,7 @@ import {
     HiOutlineClipboardDocumentList,
 } from "react-icons/hi2";
 import ThemeToggle from "./themeToggle";
+import Link from "next/link";
 
 export default function SideBar() {
     function openSideBar() {
@@ -52,12 +53,16 @@ export default function SideBar() {
                 </div>
 
                 <ul className="text-xl flex flex-col gap-4 justify-center pt-20 p-5">
-                    <li className="flex gap-2 cursor-pointer">
-                        <AiOutlineHome className="size-7" /> Página Inicial
-                    </li>
-                    <li className="flex gap-2 cursor-pointer">
-                        <BsPerson className="size-7" /> Clientes
-                    </li>
+                    <Link href={"/"}>
+                        <li className="flex gap-2 cursor-pointer">
+                            <AiOutlineHome className="size-7" /> Página Inicial
+                        </li>
+                    </Link>
+                    <Link href={"/Client/nav"}>
+                        <li className="flex gap-2 cursor-pointer">
+                            <BsPerson className="size-7" /> Clientes
+                        </li>
+                    </Link>
                     <li className="flex gap-2 cursor-pointer">
                         <BsPeople className="size-7" /> Funcionários
                     </li>
