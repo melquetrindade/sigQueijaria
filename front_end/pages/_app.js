@@ -2,7 +2,7 @@ import Head from "next/head";
 import React, { useState, useEffect } from "react";
 import Main from "../components/main";
 import { login, updateToken, createConta } from "../utils/auth";
-import "../styles/globals.css";
+import "./styles/globals.css";
 import { jwtDecode } from "jwt-decode";
 import Login from "./account/login";
 import Register from "./account/register";
@@ -100,6 +100,8 @@ export default function MyApp({ Component, pageProps }) {
                             name="viewport"
                             content="width=device-width, initial-scale=1.0"
                         ></meta>
+                        <title>SigQueijaria</title>
+                        <link rel="icon" href="/queijo.png" />
                     </Head>
                     <Component {...pageProps} />
                 </Main>

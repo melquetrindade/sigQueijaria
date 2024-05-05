@@ -1,20 +1,18 @@
-import Header from './header'
-import styles from '../styles/main.module.css'
+import Header from "./header/header";
 
-export let usuario = null
-export let setClickLogout = undefined
+export let usuario = null;
+export let setClickLogout = undefined;
 
-export default function MainContainer({children, user, funcSetLogout}){
+export default function MainContainer({ children, user, funcSetLogout }) {
+    usuario = user;
+    setClickLogout = funcSetLogout;
 
-    usuario = user
-    setClickLogout = funcSetLogout
-
-    return(
+    return (
         <div>
-            <Header/>
-            <div className={styles.mainContainer}>
+            <Header />
+            <div className="py-0 px-0 max-w-full min-h-screen flex justify-center bg-slate-100">
                 {children}
             </div>
         </div>
-    )
+    );
 }
