@@ -69,10 +69,11 @@ export default function SideBar() {
                     <li className="flex gap-2 cursor-pointer">
                         <GoPackageDependents className="size-7" /> Fornecedores
                     </li>
-                    <li className="flex gap-2 cursor-pointer">
-                        <LiaCheeseSolid className="size-7" />
-                        Produtos
-                    </li>
+                    <Link href={"/product/nav"}>
+                        <li className="flex gap-2 cursor-pointer">
+                            <LiaCheeseSolid className="size-7" /> Produtos
+                        </li>
+                    </Link>
                     <li className="flex gap-2 cursor-pointer">
                         <IoCartOutline className="size-7" />
                         Vendas
