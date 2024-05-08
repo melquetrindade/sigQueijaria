@@ -17,7 +17,7 @@ export default function AddProduto () {
         setProduto({ ...produto, [name]: value });
     };
 
-    const handleSubmit = async (e) => { // esta função envia os dados do cliente para o back usando o método POST    
+    const handleSubmit = async (e) => { // esta função envia os dados do produto para o back usando o método POST    
         e.preventDefault();
         
         try {
