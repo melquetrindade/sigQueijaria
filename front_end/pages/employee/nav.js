@@ -10,11 +10,11 @@ export default function NavEmployee() {
                     Inserir Funcionário
                 </Link>
             </div>
-            {/* <div>
+            <div>
                 <Link href="read" passHref>
-                    Consultar Cliente
+                    Consultar Funcionário
                 </Link>
-            </div> */}
+            </div>
         </nav>
     );
 }
