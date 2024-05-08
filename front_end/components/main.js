@@ -10,7 +10,7 @@ export default function MainContainer({ children, user, funcSetLogout }) {
     return (
         <div>
             <Header />
-            <div className="py-0 px-0 max-w-full min-h-screen flex justify-center bg-slate-100">
+            <div className="p-0 max-w-full min-h-screen flex justify-center bg-slate-100">
                 {children}
             </div>
         </div>
