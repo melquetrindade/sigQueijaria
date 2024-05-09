@@ -78,7 +78,7 @@ export default function AddEmployee () {
             </div>
             <div>
                 <label>Número de Telefone: </label>
-                <input type="text" name="numTelefone" value={employee.numTelefone} onChange={handleChange} />
+                <input type="tel" name="numTelefone" value={employee.numTelefone} onChange={handleChange} />
             </div>
             <div>
                 <label>Data de Nascimento: </label>
