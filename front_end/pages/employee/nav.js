@@ -20,6 +20,11 @@ export default function NavEmployee() {
                     Atualizar Funcionário
                 </Link>
             </div>
+            <div>
+                <Link href="deleteEmployee" passHref>
+                    Deletar Funcionário
+                </Link>
+            </div>
         </nav>
     );
 }
