@@ -15,6 +15,11 @@ export default function NavEmployee() {
                     Consultar Funcionário
                 </Link>
             </div>
+            <div>
+                <Link href="updateEmployee" passHref>
+                    Atualizar Funcionário
+                </Link>
+            </div>
         </nav>
     );
 }
