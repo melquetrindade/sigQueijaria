@@ -1,22 +1,29 @@
 import React, { useState, useEffect } from 'react';
 
 export default function UpdateEmployee () {
-    const [employee, setEmployee] = useState([]);
-    const [employeeCpf, setEmployeeCpf] = useState('');
+    const [key, setKey] = useState('');
+    const [employee, setEmployee] = useState({
+        cargo: '',
+        salario: '',
+        cargaHoraria: '',
+        nome: '',
+        email: '',
+        numTelefone: '',
+    });
+    // useEffect(() => { // carregamento inicial dos employee
+    //     async function fetchData() {
+    //         try {
+    //             const response = await fetch('http://127.0.0.1:8000/funcionarios/');
+    //             const data = await response.json();
+    //             setEmployee(data);
+    //         } catch (error) {
+    //             console.error('Erro ao carregar:', error);
+    //         }
+    //     }
 
-    useEffect(() => { // carregamento inicial dos employee
-        async function fetchData() {
-            try {
-                const response = await fetch('http://127.0.0.1:8000/funcionarios/');
-                const data = await response.json();
-                setEmployee(data);
-            } catch (error) {
-                console.error('Erro ao carregar:', error);
-            }
-        }
-
-        fetchData();
-    }, []);
+    //     fetchData();
+    // }, []);
+    
 
     const handleChange = (e) => {
         const { name, value } = e.target;
@@ -28,23 +35,24 @@ export default function UpdateEmployee () {
     
         try {
             // Realiza uma busca pelo funcionário com o CPF fornecido
-            const response = await fetch(`http://127.0.0.1:8000/funcionarios/?cpf=${employeeCpf}`);
+            console.log(key, "aqui");
+            const response = await fetch(`http://127.0.0.1:8000/funcionarios/${key}`);
             const data = await response.json();
-    
+            console.log(data);
             if (data.length === 0) {
                 console.error('Funcionário não encontrado.');
                 return;
             }
-    
-            const employeeToUpdate = data[0]; // Supondo que apenas um funcionário corresponde ao CPF fornecido
-    
+            
+            // const employeeToUpdate = data; // Supondo que apenas um funcionário corresponde ao CPF fornecido
+            
             // Atualiza apenas os campos do funcionário que foram alterados
             const updatedEmployee = {
-                ...employeeToUpdate,
+                ...data,
                 ...employee
             };
     
-            const updateResponse = await fetch(`http://127.0.0.1:8000/funcionarios/${employeeToUpdate.id}/`, {
+            const updateResponse = await fetch(`http://127.0.0.1:8000/funcionarios/${data.id}/`, {
                 method: 'PUT',
                 headers: {
                     'Content-Type': 'application/json',
@@ -56,7 +64,6 @@ export default function UpdateEmployee () {
             console.log(responseData);
     
             // Limpa os campos após a atualização
-            setEmployeeCpf('');
             setEmployee({
                 cargo: '',
                 salario: '',
@@ -75,8 +82,8 @@ export default function UpdateEmployee () {
         <div>
             <h1>Atualizar Funcionário</h1>
             <div>
-                <label>CPF: </label>
-                <input type="text" name="cpf" onChange={(e) => setEmployeeCpf(e.target.value)} placeholder='Digite o CPF do funcionário'/>
+                <label>ID: </label>
+                <input type="text" name="id" onChange={(e) => setKey(e.target.value)} placeholder='Digite o ID do funcionário'/>
             </div>
             <form onSubmit={handleSubmit} className="flex flex-col gap-2">
                 <div>
