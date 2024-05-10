@@ -7,20 +7,6 @@ export default function UpdateEmployee () {
     const router = useRouter();
     const [showConfirmation, setShowConfirmation] = useState(false);
     const [employee, setEmployee] = useState({});
-    // useEffect(() => { // carregamento inicial dos employee
-    //     async function fetchData() {
-    //         try {
-    //             const response = await fetch('http://127.0.0.1:8000/funcionarios/');
-    //             const data = await response.json();
-    //             setEmployee(data);
-    //         } catch (error) {
-    //             console.error('Erro ao carregar:', error);
-    //         }
-    //     }
-
-    //     fetchData();
-    // }, []);
-    
 
     const handleChange = (e) => {
         const { name, value } = e.target;
