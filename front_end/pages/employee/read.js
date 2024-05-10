@@ -21,8 +21,8 @@ export default function ReadEmployee() {
 
     useEffect(() => {  // atualização dinâmica dos resultados com base no searchTerm
         const results = employee.filter(employee =>
-                employee.nome.toLowerCase().includes(searchTerm.toLowerCase()) ||
-                employee.cpf.includes(searchTerm)
+                (employee.nome.toLowerCase().includes(searchTerm.toLowerCase()) ||
+                employee.cpf.includes(searchTerm)) && (employee.status == true)
         );
         setSearchResults(results);
     }, [searchTerm, employee]);
@@ -44,6 +44,7 @@ export default function ReadEmployee() {
                 <ul>
                     {searchResults.map(employee => (
                         <li key={employee.id}>
+                            <p>ID: {employee.id}</p>
                             <p>Nome: {employee.nome}</p>
                             <p>CPF: {employee.cpf}</p>
                         </li>
