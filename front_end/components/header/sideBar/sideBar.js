@@ -63,9 +63,11 @@ export default function SideBar() {
                             <BsPerson className="size-7" /> Clientes
                         </li>
                     </Link>
-                    <li className="flex gap-2 cursor-pointer">
-                        <BsPeople className="size-7" /> Funcionários
-                    </li>
+                    <Link href={"/employee/nav"}>
+                        <li className="flex gap-2 cursor-pointer">
+                            <BsPeople className="size-7" /> Funcionários
+                        </li>
+                    </Link>
                     <li className="flex gap-2 cursor-pointer">
                         <GoPackageDependents className="size-7" /> Fornecedores
                     </li>
