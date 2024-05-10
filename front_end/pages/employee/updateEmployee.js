@@ -1,15 +1,12 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
+import { useRouter } from 'next/router';
 
 export default function UpdateEmployee () {
     const [key, setKey] = useState('');
-    const [employee, setEmployee] = useState({
-        cargo: '',
-        salario: '',
-        cargaHoraria: '',
-        nome: '',
-        email: '',
-        numTelefone: '',
-    });
+    const [opc, setOpc] = useState('');
+    const router = useRouter();
+    const [showConfirmation, setShowConfirmation] = useState(false);
+    const [employee, setEmployee] = useState({});
     // useEffect(() => { // carregamento inicial dos employee
     //     async function fetchData() {
     //         try {
@@ -51,7 +48,7 @@ export default function UpdateEmployee () {
                 ...data,
                 ...employee
             };
-    
+            
             const updateResponse = await fetch(`http://127.0.0.1:8000/funcionarios/${data.id}/`, {
                 method: 'PUT',
                 headers: {
@@ -64,20 +61,34 @@ export default function UpdateEmployee () {
             console.log(responseData);
     
             // Limpa os campos após a atualização
-            setEmployee({
-                cargo: '',
-                salario: '',
-                cargaHoraria: '',
-                nome: '',
-                email: '',
-                numTelefone: '',
-            });
+            // setEmployee({
+            //     cargo: '',
+            //     salario: '',
+            //     cargaHoraria: '',
+            //     nome: '',
+            //     email: '',
+            //     numTelefone: '',
+            // });
         } catch (error) {
             console.error('Erro ao atualizar funcionário:', error);
         }
+        router.push('/employee/nav');
     };
-    
 
+    
+    const Decision = () =>{
+        return(
+            <form onSubmit={handleSubmit} className="flex flex-col gap-2">
+                <div>
+                    <label>Cargo: </label>
+                    <input type="text" name={opc} value={employee[opc]} onChange={handleChange} placeholder='Digite o novo dado'/>
+                </div>
+                <button type="submit" className="bg-slate-800 text-white p-2 rounded-md">Salvar</button>
+            </form>
+        );
+    }
+
+    
     return (
         <div>
             <h1>Atualizar Funcionário</h1>
@@ -85,7 +96,22 @@ export default function UpdateEmployee () {
                 <label>ID: </label>
                 <input type="text" name="id" onChange={(e) => setKey(e.target.value)} placeholder='Digite o ID do funcionário'/>
             </div>
-            <form onSubmit={handleSubmit} className="flex flex-col gap-2">
+            <div>
+                <label>Atualizar: </label>
+                <select id='meuSelect' onChange={(e) => setOpc(e.target.value)}>
+                    <option value="cargo">Cargo</option>
+                    <option value="salario">Salário</option>
+                    <option value="nome">Nome</option>
+                    <option value="cargaHoraria">Carga Horária</option>
+                    <option value="email">E-mail</option>
+                    <option value="numTelefone">Número de Telefone</option>
+                </select>
+            </div>
+            {showConfirmation ? <Decision /> : <button onClick={() => setShowConfirmation(true)} className='p-2 rounded-md bg-gray-950 text-white'>Continuar</button>}
+                {/* {decision && showConfirmation} */}
+            {/* <div>
+
+            </div>
                 <div>
                     <label>Cargo: </label>
                     <input type="text" name="cargo" value={employee.cargo} onChange={handleChange} />
@@ -110,8 +136,7 @@ export default function UpdateEmployee () {
                     <label>Número de Telefone: </label>
                     <input type="tel" name="numTelefone" value={employee.numTelefone} onChange={handleChange} />
                 </div>
-                    <button type="submit" className="bg-slate-800 text-white p-2 rounded-md">Salvar</button>
-            </form>
+                    <button type="submit" className="bg-slate-800 text-white p-2 rounded-md">Salvar</button> */}
         </div>
     );
 
