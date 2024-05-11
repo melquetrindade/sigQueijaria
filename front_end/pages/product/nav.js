@@ -15,6 +15,16 @@ export default function Nav() {
                     Consultar Produto
                 </Link>
             </div>
+            <div>
+                <Link href="update" passHref>
+                    Atualizar Produto
+                </Link>
+            </div>
+            <div>
+                <Link href="delete" passHref>
+                    Excluir Produto
+                </Link>
+            </div>
         </nav>
     );
 }
