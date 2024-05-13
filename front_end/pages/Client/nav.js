@@ -15,6 +15,11 @@ export default function Nav() {
                     Consultar Cliente
                 </Link>
             </div>
+            <div>
+                <Link href="update" passHref>
+                    Alterar Cliente
+                </Link>
+            </div>
         </nav>
     );
 }

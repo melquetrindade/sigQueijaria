@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 
-export default function ReadClient() {
+export default function ReadClient () {
     const [clientes, setClientes] = useState([]); // armazena todos os clientes obtidos da API
     const [searchTerm, setSearchTerm] = useState(''); // armazena o termo de pesquisa inserido pelo adm
     const [searchResults, setSearchResults] = useState([]); // armazena os resultados da pesquisa
@@ -44,9 +44,10 @@ export default function ReadClient() {
                 <ul>
                     {searchResults.map(cliente => (
                         <li key={cliente.id}>
-                            <p>Nome: {cliente.nome}</p>
-                            <p>CPF: {cliente.cpf}</p>
-                        </li>
+                        <p>ID: {cliente.id}</p>
+                        <p>Nome: {cliente.nome}</p>
+                        <p>CPF: {cliente.cpf}</p>
+                    </li>
                     ))}
                 </ul>
             )}
