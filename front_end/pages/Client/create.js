@@ -1,13 +1,13 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
 
-export default function AddClient () {
+export default function AddClient() {
     const [cliente, setCliente] = useState({
-        cpf: '',
-        rg: '',
-        nome: '',
-        email: '',
-        numTelefone: '',
-        dataNascimento: ''
+        cpf: "",
+        rg: "",
+        nome: "",
+        email: "",
+        numTelefone: "",
+        dataNascimento: "",
     });
 
     const handleChange = (e) => {
@@ -15,64 +15,129 @@ export default function AddClient () {
         setCliente({ ...cliente, [name]: value });
     };
 
-    const handleSubmit = async (e) => { // esta função envia os dados do cliente para o back usando o método POST    
+    const handleSubmit = async (e) => {
+        // esta função envia os dados do cliente para o back usando o método POST
         e.preventDefault();
-        
+
         try {
-            const response = await fetch('http://127.0.0.1:8000/clientes/', {
-                method: 'POST',
+            const response = await fetch("http://127.0.0.1:8000/clientes/", {
+                method: "POST",
                 headers: {
-                    'Content-Type': 'application/json',
+                    "Content-Type": "application/json",
                 },
                 body: JSON.stringify(cliente),
             });
-    
+
             const data = await response.json(); // transforma a resposta em JSON
-            console.log(data); 
-    
+            console.log(data);
+
             setCliente({
-                cpf: '',
-                rg: '',
-                nome: '',
-                email: '',
-                numTelefone: '',
-                dataNascimento: ''
+                cpf: "",
+                rg: "",
+                nome: "",
+                email: "",
+                numTelefone: "",
+                dataNascimento: "",
             });
         } catch (error) {
-            console.error('Erro ao inserir cliente!', error);
+            console.error("Erro ao inserir cliente!", error);
         }
     };
-    
+
     return (
-        <div>
-        <h2>Inserir Cliente</h2>
-        <form onSubmit={handleSubmit}>
-            <div>
-                <label>CPF:</label>
-                <input type="text" name="cpf" value={cliente.cpf} onChange={handleChange} />
+        <div className="flex flex-col justify-center items-center h-2/4 my-4 max-w-full p-3">
+            <div className="shadow-lg shadow-slate-400 max-w-full">
+                <h1 className="w-full text-center p-[10px] bg-gradient-to-bl from-[#09173E] via-[#03475B] to-[#084D6E]/75 text-white font-bold text-2xl">
+                    Cadastrar Cliente
+                </h1>
+                <form
+                    onSubmit={handleSubmit}
+                    className="bg-white px-6 py-5 flex flex-col w-[470px] max-w-full gap-2"
+                >
+                    <div className="flex flex-col justify-center gap-1">
+                        <label className="font-semibold">CPF:</label>
+                        <input
+                            className="border-0 border-b-2 shadow-sm shadow-slate-400"
+                            placeholder="Ex: 12345678909"
+                            type="text"
+                            name="cpf"
+                            value={cliente.cpf}
+                            onChange={handleChange}
+                            required
+                        />
+                    </div>
+                    <div className="flex flex-col justify-center gap-1">
+                        <label className="font-semibold">RG:</label>
+                        <input
+                            className="border-0 border-b-2 shadow-sm shadow-slate-400"
+                            placeholder="Ex: 123456789"
+                            type="text"
+                            name="rg"
+                            value={cliente.rg}
+                            onChange={handleChange}
+                            required
+                        />
+                    </div>
+                    <div className="flex flex-col justify-center gap-1">
+                        <label className="font-semibold">Nome:</label>
+                        <input
+                            className="border-0 border-b-2 shadow-sm shadow-slate-400"
+                            placeholder="Ex: Josh Dun"
+                            type="text"
+                            name="nome"
+                            value={cliente.nome}
+                            onChange={handleChange}
+                            required
+                        />
+                    </div>
+                    <div className="flex flex-col justify-center gap-1">
+                        <label className="font-semibold">Email:</label>
+                        <input
+                            className="border-0 border-b-2 shadow-sm shadow-slate-400"
+                            placeholder="Ex: josh@gmail.com"
+                            type="email"
+                            name="email"
+                            value={cliente.email}
+                            onChange={handleChange}
+                            required
+                        />
+                    </div>
+                    <div className="flex flex-col justify-center gap-1">
+                        <label className="font-semibold">
+                            Número de Telefone:
+                        </label>
+                        <input
+                            className="border-0 border-b-2 shadow-sm shadow-slate-400"
+                            placeholder="Ex: 99123456789"
+                            type="tel"
+                            pattern="[0-9]{11}"
+                            name="numTelefone"
+                            value={cliente.numTelefone}
+                            onChange={handleChange}
+                            required
+                        />
+                    </div>
+                    <div className="flex flex-col justify-center gap-1">
+                        <label className="font-semibold">
+                            Data de Nascimento:
+                        </label>
+                        <input
+                            className="border-0 border-b-2 shadow-sm shadow-slate-400"
+                            required
+                            type="date"
+                            name="dataNascimento"
+                            value={cliente.dataNascimento}
+                            onChange={handleChange}
+                        />
+                    </div>
+                    <button
+                        type="submit"
+                        className="w-full py-2 px-4 bg-[#03475B] hover:bg-[#084D6E]/95 rounded-md shadow-lg text-white font-semibold transition duration-200 mt-5"
+                    >
+                        Salvar
+                    </button>
+                </form>
             </div>
-            <div>
-                <label>RG:</label>
-                <input type="text" name="rg" value={cliente.rg} onChange={handleChange} />
-            </div>
-            <div>
-                <label>Nome:</label>
-                <input type="text" name="nome" value={cliente.nome} onChange={handleChange} />
-            </div>
-            <div>
-                <label>Email:</label>
-                <input type="email" name="email" value={cliente.email} onChange={handleChange} />
-            </div>
-            <div>
-                <label>Número de Telefone:</label>
-                <input type="tel" name="numTelefone" value={cliente.numTelefone} onChange={handleChange} />
-            </div>
-            <div>
-                <label>Data de Nascimento:</label>
-                <input type="date" name="dataNascimento" value={cliente.dataNascimento} onChange={handleChange} />
-            </div>
-                <button type="submit">Salvar</button>
-        </form>
         </div>
     );
-};
+}
