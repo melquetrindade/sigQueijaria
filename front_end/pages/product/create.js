@@ -59,7 +59,7 @@ export default function AddProduto() {
                     className="bg-white px-6 py-5 flex flex-col w-[470px] max-w-full gap-2"
                 >
                     <div className="flex flex-col justify-center gap-1">
-                        <label className="font-semibold">CPF:</label>
+                        <label className="font-semibold">Código de Barras:</label>
                         <input
                             className="border-0 border-b-2 shadow-sm shadow-slate-400"
                             type="text"
@@ -70,7 +70,7 @@ export default function AddProduto() {
                         />
                     </div>
                     <div className="flex flex-col justify-center gap-1">
-                        <label className="font-semibold">RG:</label>
+                        <label className="font-semibold">Nome:</label>
                         <input
                             className="border-0 border-b-2 shadow-sm shadow-slate-400"
                             type="text"
@@ -81,7 +81,7 @@ export default function AddProduto() {
                         />
                     </div>
                     <div className="flex flex-col justify-center gap-1">
-                        <label className="font-semibold">Nome:</label>
+                        <label className="font-semibold">Tipo:</label>
                         <input
                             className="border-0 border-b-2 shadow-sm shadow-slate-400"
                             type="text"
@@ -92,7 +92,7 @@ export default function AddProduto() {
                         />
                     </div>
                     <div className="flex flex-col justify-center gap-1">
-                        <label className="font-semibold">Email:</label>
+                        <label className="font-semibold">Data de Validade:</label>
                         <input
                             className="border-0 border-b-2 shadow-sm shadow-slate-400"
                             type="text"
@@ -104,7 +104,7 @@ export default function AddProduto() {
                     </div>
                     <div className="flex flex-col justify-center gap-1">
                         <label className="font-semibold">
-                            Número de Telefone:
+                            Quantidade Mínima:
                         </label>
                         <input
                             className="border-0 border-b-2 shadow-sm shadow-slate-400"
@@ -133,17 +133,6 @@ export default function AddProduto() {
                             type="text"
                             name="valor"
                             value={produto.valor}
-                            onChange={handleChange}
-                            required
-                        />
-                    </div>
-                    <div className="flex flex-col justify-center gap-1">
-                        <label className="font-semibold">Status:</label>
-                        <input
-                            className="border-0 border-b-2 shadow-sm shadow-slate-400"
-                            type="text"
-                            name="status"
-                            value={produto.status}
                             onChange={handleChange}
                             required
                         />
