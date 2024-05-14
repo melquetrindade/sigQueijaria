@@ -69,7 +69,7 @@ export default function UpdateFornecedor () {
             <form onSubmit={handleSubmit} className="flex flex-col gap-2">
                 <div>
                     <label>{label}: </label>
-                    <input type="text" name={opc} value={fornecedores[opc]} onChange={handleChange} placeholder="Digite o novo dado"/>
+                    <input type="text" name={opc} value={fornecedores[opc]} onBlur={handleChange} placeholder="Digite o novo dado"/>
                 </div>
                 <button type="submit" className="bg-slate-800 text-white p-2 rounded-md">Salvar</button>
             </form>
@@ -81,7 +81,7 @@ export default function UpdateFornecedor () {
             <h1>Atualizar Fornecedor</h1>
             <div>
                 <label>ID: </label>
-                <input type="text" name="id" onChange={(e) => setKey(e.target.value)} placeholder='Digite o ID do Fornecedor'/>
+                <input type="text" name="id" onChange={(e) => setKey(e.target.value)} placeholder='Digite o ID do Fornecedor' />
             </div>
             <div>
                 <label>Atualizar: </label>
