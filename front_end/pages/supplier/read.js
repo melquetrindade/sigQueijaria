@@ -15,7 +15,7 @@ export default function ReadClient () {
                 console.error('Erro ao carregar:', error);
             }
         }
-
+        
         fetchData();
     }, []);
 
