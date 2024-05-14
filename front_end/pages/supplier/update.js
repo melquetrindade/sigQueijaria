@@ -8,10 +8,15 @@ export default function UpdateFornecedor () {
     const [showConfirmation, setShowConfirmation] = useState(false);
     const [fornecedores, setFornecedores] = useState({});
 
-    const handleChange = (e) => {
-        const { name, value } = e.target;
-        setFornecedores({ ...fornecedores, [opc]: value }); 
+    const handleChange = (event) => {
+        const { name, value } = event.target;
+        setFornecedores(prevState => ({
+            ...prevState,
+            [name]: value
+        }));
+        
     };
+    
 
     const handleSubmit = async (e) => {
         e.preventDefault();
