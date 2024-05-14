@@ -68,9 +68,11 @@ export default function SideBar() {
                             <BsPeople className="size-7" /> Funcionários
                         </li>
                     </Link>
+                    <Link href={"/supplier/nav"}>
                     <li className="flex gap-2 cursor-pointer">
                         <GoPackageDependents className="size-7" /> Fornecedores
                     </li>
+                    </Link>
                     <Link href={"/product/nav"}>
                         <li className="flex gap-2 cursor-pointer">
                             <LiaCheeseSolid className="size-7" /> Produtos
