@@ -65,7 +65,7 @@ export default function UpdateClient () {
             <form onSubmit={handleSubmit} className="flex flex-col gap-2">
                 <div>
                     <label>{label}: </label>
-                    <input type="text" name={opc} value={cliente[opc]} onChange={handleChange} placeholder="Digite o novo dado"/>
+                    <input type="text" name={opc} value={cliente[opc]} onBlur={handleChange} placeholder="Digite o novo dado"/>
                 </div>
                 <button type="submit" className="bg-slate-800 text-white p-2 rounded-md">Salvar</button>
             </form>
