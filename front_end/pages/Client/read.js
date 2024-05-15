@@ -20,9 +20,9 @@ export default function ReadClient () {
     }, []);
 
     useEffect(() => {  // atualização dinâmica dos resultados com base no searchTerm
-        const results = clientes.filter(cliente =>
-            cliente.nome.toLowerCase().includes(searchTerm.toLowerCase()) ||
-            cliente.cpf.includes(searchTerm)
+        const results = clientes.filter(clientes =>
+                (clientes.nome.toLowerCase().includes(searchTerm.toLowerCase()) ||
+                clientes.cpf.includes(searchTerm)) && (clientes.status == true)
         );
         setSearchResults(results);
     }, [searchTerm, clientes]);
