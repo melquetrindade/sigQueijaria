@@ -20,6 +20,11 @@ export default function Nav() {
                     Alterar Cliente
                 </Link>
             </div>
+            <div>
+                <Link href="delete" passHref>
+                    Desativar Cliente
+                </Link>
+            </div>
         </nav>
     );
 }
