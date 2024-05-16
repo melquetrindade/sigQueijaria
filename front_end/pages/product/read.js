@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 
-export default function ReadProduto() {
+export default function ReadProduct() {
     const [produtos, setProdutos] = useState([]); // armazena todos os produtos obtidos da API
     const [searchTerm, setSearchTerm] = useState(''); // armazena o termo de pesquisa inserido pelo adm
     const [searchResults, setSearchResults] = useState([]); // armazena os resultados da pesquisa
@@ -51,7 +51,7 @@ export default function ReadProduto() {
                             <p>Quantidade Mínima: {produto.qntMinima}</p>
                             <p>Quantidade: {produto.quantidade}</p>
                             <p>Valor: {produto.valor}</p>
-                            
+
                         </li>
                     ))}
                 </ul>
