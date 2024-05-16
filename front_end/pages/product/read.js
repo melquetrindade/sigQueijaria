@@ -51,6 +51,7 @@ export default function ReadProduto() {
                             <p>Quantidade Mínima: {produto.qntMinima}</p>
                             <p>Quantidade: {produto.quantidade}</p>
                             <p>Valor: {produto.valor}</p>
+                            
                         </li>
                     ))}
                 </ul>
