@@ -46,7 +46,7 @@ export default function UpdateProduct () {
         } catch (error) {
             console.error('Erro ao atualizar produto:', error);
         }
-        router.push('/Client/nav');
+        router.push('/product/nav');
     };
 
     const fieldNames = { // define os nomes dos campos para exibição
