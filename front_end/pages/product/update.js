@@ -1,64 +1,65 @@
 import React, { useState } from 'react';
 import { useRouter } from 'next/router';
 
-export default function UpdateClient () {
+export default function UpdateProduct () {
     const [key, setKey] = useState('');
     const [opc, setOpc] = useState('');
     const router = useRouter();
     const [showConfirmation, setShowConfirmation] = useState(false);
-    const [cliente, setClient] = useState({});
+    const [produto, setProduct] = useState({});
 
     const handleChange = (e) => {
         const { name, value } = e.target;
-        setClient({ ...cliente, [opc]: value }); 
+        setProduct({ ...produto, [opc]: value }); 
     };
 
     const handleSubmit = async (e) => {
         e.preventDefault();
 
         try {
-            // busca pelo cliente com o CPF fornecido
+            // busca pelo produto com o código de barras fornecido
             console.log(key, "aqui");
-            const response = await fetch(`http://127.0.0.1:8000/clientes/${key}`);
+            const response = await fetch(`http://127.0.0.1:8000/produtos/${key}`);
             const data = await response.json();
             console.log(data);
             if (data.length === 0) {
-                console.error('Cliente não encontrado.');
+                console.error('Produto não encontrado.');
                 return;
             }
 
-            // atualiza apenas os campos do cliente que foram alterados
-            const updatedClient = {
+            // atualiza apenas os campos do produto que foram alterados
+            const updatedProduct = {
                 ...data,
-                ...cliente
+                ...produto
             };
 
-            const updateResponse = await fetch(`http://127.0.0.1:8000/clientes/${data.id}/`, {
+            const updateResponse = await fetch(`http://127.0.0.1:8000/produtos/${data.id}/`, {
                 method: 'PUT',
                 headers: {
                     'Content-Type': 'application/json',
                 },
-                body: JSON.stringify(updatedClient),
+                body: JSON.stringify(updatedProduct),
             });
 
             const responseData = await updateResponse.json();
             console.log(responseData);
         } catch (error) {
-            console.error('Erro ao atualizar cliente:', error);
+            console.error('Erro ao atualizar produto:', error);
         }
         router.push('/Client/nav');
     };
 
     const fieldNames = { // define os nomes dos campos para exibição
-        cpf: 'CPF',
-        rg: 'RG',
+        codigoBarras: 'Código de Barras',
         nome: 'Nome',
-        email: 'E-mail',
-        numTelefone: 'Número de Telefone',
-        dataNascimento: 'Data de Nascimento',
+        tipo: 'Tipo',
+        dataValidade: 'Data de Validade',
+        qntMinima: 'Quantidade Mínima',
+        quantidade: 'Quantidade',
+        valor: 'Valor',
     };
 
-    const label = opc === 'cpf' || opc === 'rg' ? opc.toUpperCase() : fieldNames[opc]; // label para exibição baseado na opção selecionada
+    const label = opc === 'codigoBarras' || opc === 'nome' ? opc.toUpperCase() : fieldNames[opc]; // label para exibição baseado na opção selecionada
 
     const Decision = () => {
         return (
@@ -74,7 +75,7 @@ export default function UpdateClient () {
 
     return (
         <div>
-            <h1>Atualizar Cliente</h1>
+            <h1>Atualizar Produto</h1>
             <div>
                 <label>ID: </label>
                 <input type="text" name="id" onChange={(e) => setKey(e.target.value)} placeholder='Digite o ID do cliente'/>
