@@ -66,7 +66,7 @@ export default function UpdateProduct () {
             <form onSubmit={handleSubmit} className="flex flex-col gap-2">
                 <div>
                     <label>{label}: </label>
-                    <input type="text" name={opc} value={cliente[opc]} onChange={handleChange} placeholder="Digite o novo dado"/>
+                    <input type="text" name={opc} value={produto[opc]} onChange={handleChange} placeholder="Digite o novo dado"/>
                 </div>
                 <button type="submit" className="bg-slate-800 text-white p-2 rounded-md">Salvar</button>
             </form>
@@ -78,17 +78,18 @@ export default function UpdateProduct () {
             <h1>Atualizar Produto</h1>
             <div>
                 <label>ID: </label>
-                <input type="text" name="id" onChange={(e) => setKey(e.target.value)} placeholder='Digite o ID do cliente'/>
+                <input type="text" name="id" onChange={(e) => setKey(e.target.value)} placeholder='Digite o nome ou Código de Barras'/>
             </div>
             <div>
                 <label>Atualizar: </label>
                 <select id='meuSelect' onChange={(e) => setOpc(e.target.value)}>
-                    <option value="cpf">CPF</option>
-                    <option value="rg">RG</option>
+                    <option value="codigoBarras">Código de Barras</option>
+                    <option value="tipo">Tipo</option>
                     <option value="nome">Nome</option>
-                    <option value="email">E-mail</option>
-                    <option value="numTelefone">Número de Telefone</option>
-                    <option value="dataNascimento">Data de Nascimento</option>
+                    <option value="dataValidade">Data de Validade</option>
+                    <option value="qntMinima">Quantidade Mínima</option>
+                    <option value="quantidade">Quantidade</option>
+                    <option value="valor">Valor</option>
                 </select>
             </div>
 
