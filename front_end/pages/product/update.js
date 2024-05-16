@@ -34,6 +34,7 @@ export default function UpdateProduct () {
             };
 
             const updateResponse = await fetch(`http://127.0.0.1:8000/produtos/${data.id}/`, {
+                
                 method: 'PUT',
                 headers: {
                     'Content-Type': 'application/json',
