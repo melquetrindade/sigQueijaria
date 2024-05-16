@@ -41,6 +41,7 @@ export default function AddProduto() {
                 quantidade: "",
                 valor: "",
             });
+            
         } catch (error) {
             console.error("Erro ao inserir produto!", error);
         }
