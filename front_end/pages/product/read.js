@@ -45,7 +45,12 @@ export default function ReadProduto() {
                     {searchResults.map(produto => (
                         <li key={produto.id}>
                             <p>Nome: {produto.nome}</p>
-                            <p>CB: {produto.codigoBarras}</p>
+                            <p>Código de Barras: {produto.codigoBarras}</p>
+                            <p>Tipo: {produto.tipo}</p>
+                            <p>Data de Validade: {produto.dataValidade}</p>
+                            <p>Quantidade Mínima: {produto.qntMinima}</p>
+                            <p>Quantidade: {produto.quantidade}</p>
+                            <p>Valor: {produto.valor}</p>
                         </li>
                     ))}
                 </ul>
