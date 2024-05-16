@@ -4,27 +4,28 @@ import Link from 'next/link';
 export default function Nav() {
     return (
         <nav>
-            <h2>Navegação temporária até aplicar a estilização do CRUD - Cliente</h2>
+            <h2>Navegação temporária até aplicar a estilização do CRUD - Fornecedor</h2>
             <div>
                 <Link href="create" passHref>
-                    Inserir Cliente
+                    Inserir Fornecedor
                 </Link>
             </div>
             <div>
                 <Link href="read" passHref>
-                    Consultar Cliente
+                    Consultar Fornecedor
                 </Link>
             </div>
             <div>
                 <Link href="update" passHref>
-                    Alterar Cliente
+                    Alterar Fornecedor
                 </Link>
             </div>
             <div>
                 <Link href="delete" passHref>
-                    Desativar Cliente
+                    Deletar Fornecedor
                 </Link>
             </div>
+
         </nav>
     );
 }
