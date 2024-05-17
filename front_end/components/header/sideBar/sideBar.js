@@ -90,6 +90,11 @@ export default function SideBar() {
                         <HiOutlineClipboardDocumentList className="size-7" />
                         Relatórios
                     </li>
+                    <Link href={"/merchandise/navMerchandise"}>
+                        <li className="flex gap-2 cursor-pointer">
+                            <LiaCheeseSolid className="size-7" /> Estoque
+                        </li>
+                    </Link>
                 </ul>
 
                 <ThemeToggle />
