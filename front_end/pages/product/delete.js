@@ -4,6 +4,7 @@ import ReadProduct from './read';
 
 
 export default function UpdateProduct () {
+    
     const [key, setKey] = useState('');
     const router = useRouter();
     const [showConfirmation, setShowConfirmation] = useState(false);
