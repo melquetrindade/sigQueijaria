@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useRouter } from 'next/router';
 
 export default function UpdateProduct () {
+    
     const [key, setKey] = useState('');
     const [opc, setOpc] = useState('');
     const router = useRouter();
