@@ -9,6 +9,7 @@ export default function AddProduto() {
         qtdMinima: "",
         quantidade: "",
         valor: "",
+        
     });
 
     const handleChange = (e) => {
