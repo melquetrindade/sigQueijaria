@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 
-export default function ReadClient () {
+export default function ReadSupplier () {
     const [fornecedores, setFornecedores] = useState([]); // armazena todos os fornecedores obtidos da API
     const [searchTerm, setSearchTerm] = useState(''); // armazena o termo de pesquisa inserido pelo adm
     const [searchResults, setSearchResults] = useState([]); // armazena os resultados da pesquisa
