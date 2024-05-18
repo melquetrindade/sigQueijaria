@@ -9,7 +9,6 @@ export default function AddProduto() {
         qtdMinima: "",
         quantidade: "",
         valor: "",
-        status: "",
     });
 
     const handleChange = (e) => {
@@ -41,7 +40,6 @@ export default function AddProduto() {
                 qtdMinima: "",
                 quantidade: "",
                 valor: "",
-                status: "",
             });
         } catch (error) {
             console.error("Erro ao inserir produto!", error);
