@@ -51,7 +51,7 @@ export default function UpdateEmployee () {
     };
     
 
-    const checkSubmission = () => {
+    const CheckSubmission = () => {
         return(
             <div>
                 <h1>Tem certeza de que quer excluir este funcionário?</h1>
@@ -70,7 +70,7 @@ export default function UpdateEmployee () {
                 <input type="text" name="id" onChange={(e) => setKey(e.target.value)} placeholder='Digite o ID do funcionário'/>
             </div>
             <div>
-            {showConfirmation ? checkSubmission() : <button onClick={() => setShowConfirmation(true)} className='p-2 rounded-md bg-gray-950 text-white'>Deletar</button>}
+            {showConfirmation ? <CheckSubmission /> : <button onClick={() => setShowConfirmation(true)} className='p-2 rounded-md bg-gray-950 text-white'>Deletar</button>}
         </div>
         </div>
     );
