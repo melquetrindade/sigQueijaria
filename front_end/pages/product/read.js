@@ -21,8 +21,8 @@ export default function ReadProduto() {
 
     useEffect(() => {  // atualização dinâmica dos resultados com base no searchTerm
         const results = produtos.filter(produto =>
-            produto.nome.toLowerCase().includes(searchTerm.toLowerCase()) ||
-            produto.codigoBarras.includes(searchTerm)
+            (produto.nome.toLowerCase().includes(searchTerm.toLowerCase()) ||
+            produto.codigoBarras.includes(searchTerm)) && (produto.status == true)
         );
         setSearchResults(results);
     }, [searchTerm, produtos]);
