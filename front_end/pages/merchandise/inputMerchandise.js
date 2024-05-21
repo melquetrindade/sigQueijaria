@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 
-export default function InputMerchandise() {
+export default function InputMerchandise({productId}) {
     const [supplier, setSupplier] = useState([]);
     // const [opc, setOpc] = useState("");
     const [inputMerchandise, setInputMerchandise] = useState({
@@ -30,6 +30,48 @@ export default function InputMerchandise() {
 
         fetchData();
     }, []);
+
+    // const changeQuantity = async (e) => {
+    //     e.preventDefault();
+    
+    //     try {
+    //         // Realiza uma busca pelo funcionário com o ID fornecido
+    //         const response = await fetch(`http://127.0.0.1:8000/produtos/${key}`);
+    //         const data = await response.json();
+    //         console.log(data);
+    
+    //         if (!data) {
+    //             console.error('Funcionário não encontrado.');
+    //             return;
+    //         }
+    
+    //         // Atualiza apenas o status do funcionário para false
+    //         const updatedEmployee = {
+    //             ...data,
+    //             status: false // atualiza o status para false
+    //         };
+    
+    //         const updateResponse = await fetch(`http://127.0.0.1:8000/produtos/${data.id}/`, {
+    //             method: 'PUT',
+    //             headers: {
+    //                 'Content-Type': 'application/json',
+    //             },
+    //             body: JSON.stringify(updatedEmployee),
+    //         });
+    
+    //         if (!updateResponse.ok) {
+    //             throw new Error('Erro ao atualizar status do funcionário');
+    //         }
+    
+    //         const responseData = await updateResponse.json();
+    //         console.log(responseData);
+    
+    //         // Limpa os campos após a atualização
+    //         router.push('/employee/nav');
+    //     } catch (error) {
+    //         console.error('Erro ao atualizar status do funcionário:', error);
+    //     }
+    // };
 
     const handleSubmit = async (e) => {
         // esta função envia os dados do inputMerchandise para o back usando o método POST
