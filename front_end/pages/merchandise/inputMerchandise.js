@@ -66,6 +66,7 @@ export default function InputMerchandise({ productId }) {
             );
             
             // console.log(inputMerchandise.quantidade);
+            // newQuantity vai somar a quantidade já existente no banco de dados com a nova quantidade a ser inserida
             const newQuantity = parseInt(productData.quantidade) + parseInt(inputMerchandise.quantidade);
             const updatedProductQuantity = {
                 ...productData,
@@ -123,18 +124,6 @@ export default function InputMerchandise({ productId }) {
                             required
                         />
                     </div>
-                    {/* <div className="flex flex-col justify-center gap-1">    NÃO SERIA MELHOR GERAR O CODIGO AUTOMATICAMENTE?
-                        Definir os cargos existentes e trocar por um select
-                        <label className="font-semibold">Codigo: </label>
-                        <input
-                            className="border-0 border-b-2 shadow-sm shadow-slate-400"
-                            type="text"
-                            name="codigo"
-                            value={inputMerchandise.codigo}
-                            onChange={handleChange}
-                            required
-                        />
-                    </div> */}
                     <div className="flex flex-col justify-center gap-1">
                         <label className="font-semibold">Fornecedor: </label>
                         <select
@@ -152,15 +141,6 @@ export default function InputMerchandise({ productId }) {
                                 </option>
                             ))}
                         </select>
-                        {/* <input
-                            className="border-0 border-b-2 shadow-sm shadow-slate-400"
-                            placeholder="Ex: 25000"
-                            type="text"
-                            name="salario"
-                            value={inputMerchandise.fornecedor}
-                            onChange={handleChange}
-                            required
-                        /> */}
                     </div>
                     <div className="flex flex-col justify-center gap-1">
                         <label className="font-semibold">Data: </label>
