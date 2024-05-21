@@ -46,31 +46,42 @@ export async function updateToken(tokenRefresh, funSetUser, funcSetAuth, funcSet
 export async function createConta(email, username, password, password2, funcSetLogin){
     console.log('entrou no create')
     console.log(`email: ${email}\n username: ${username}\n password: ${password}\n password2: ${password2}\n`)
-    const objData = {
-        email: email,
-        username: username,
-        password: password,
-        password2: password2,
-    }
-
-    let response = await fetch('http://127.0.0.1:8000/register/', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(objData)
-    })
-    let data = await response.json()
-    if(response.status === 201){
-        alert('conta criada com sucesso!')
-        funcSetLogin(true)
-        console.log('conta criada com sucesso')
-    }
-    else{
-        if(data.email[0] == 'user with this email already exists.'){
-            alert('O email informado já existe, tente outro email!')
-            console.log('email já existe')
+    if(password == password2 && (password.length >= 8 && password2.length >= 8)){
+        const objData = {
+            email: email,
+            username: username,
+            password: password,
+            password2: password2,
+        }
+    
+        let response = await fetch('http://127.0.0.1:8000/register/', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(objData)
+        })
+        let data = await response.json()
+        if(response.status === 201){
+            alert('conta criada com sucesso!')
+            funcSetLogin(true)
+            console.log('conta criada com sucesso')
+        }
+        else{
+            if(data.email[0] == 'user with this email already exists.'){
+                alert('O email informado já existe, tente outro email!')
+                console.log('email já existe')
+            }
         }
     }
-
+    else{
+        if(password != password2){
+            console.log('senhas não deram match')
+            alert('As senhas digitadas não coincidem, tente novamente!')
+        }else{
+            console.log('senhas não tem o mínimo de 8 caracteres')
+            alert('As senhas precisam ter no mínimo 8 caracteres, tente novamente!')
+        }
+        
+    }
 }
