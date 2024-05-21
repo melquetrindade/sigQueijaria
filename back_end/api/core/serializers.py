@@ -26,7 +26,7 @@ class UserSerializer(serializers.ModelSerializer):
 class ClienteSerializer(serializers.ModelSerializer):
     class Meta:
         model = Cliente
-        fields = ['id', 'cpf', 'rg', 'nome', 'email', 'numTelefone', 'status', 'dataNascimento']
+        fields = ['id', 'cpf', 'rg', 'nome', 'email', 'numTelefone', 'status', 'dataNascimento', 'dataDoDesativo']
 
 class FornecedorSerializer(serializers.ModelSerializer):
     class Meta:
@@ -46,7 +46,7 @@ class VendaSerializer(serializers.ModelSerializer):
 class VendaProdutoSerializer(serializers.ModelSerializer):
     class Meta:
         model = VendaProduto
-        fields = ['id', 'ownerVenda', 'ownerProduto', 'quantidade', 'valor']
+        fields = ['id', 'ownerVenda', 'ownerProduto', 'quantidade', 'valor', 'status', 'dataDoDesativo']
 
 class CaixaDiaCaixaSerializer(serializers.ModelSerializer):
     class Meta:

@@ -22,7 +22,7 @@ class Pessoa(models.Model):
     email = models.CharField(max_length=255, unique=True)
     numTelefone = models.CharField(max_length=11, unique=True)
     status = models.BooleanField(default=True)
-    dataDoDesativ0 = models.CharField(max_length=50, default=True)
+    dataDoDesativo = models.CharField(blank=True, null=True, max_length=15)
     dataNascimento = models.CharField(max_length=15)
 
     def __str__(self):
@@ -137,6 +137,8 @@ class VendaProduto(models.Model):
     ownerProduto = models.ForeignKey(Produto, on_delete=models.SET_NULL, null=True)
     quantidade = models.IntegerField()
     valor = models.FloatField()
+    status = models.BooleanField(default=True)
+    dataDoDesativo = models.CharField(blank=True, null=True, max_length=15)
 
     def __str__(self):
         return self.valor
