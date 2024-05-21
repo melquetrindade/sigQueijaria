@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
 
-export default function InputMerchandise({productId}) {
+export default function InputMerchandise({ productId }) {
     const [supplier, setSupplier] = useState([]);
-    // const [opc, setOpc] = useState("");
+    const [productData, setProductData] = useState("");
     const [inputMerchandise, setInputMerchandise] = useState({
         quantidade: "",
         codigo: "",
@@ -31,41 +31,49 @@ export default function InputMerchandise({productId}) {
         fetchData();
     }, []);
 
+    useEffect(() => {
+        // carregamento inicial dos employee
+        async function fetchDataProduct() {
+            try {
+                const getProductDataById = await fetch(
+                    `http://127.0.0.1:8000/produtos/${productId}/`
+                );
+                const productDataById = await getProductDataById.json();
+                setProductData(productDataById);
+            } catch (error) {
+                console.error("Erro ao carregar:", error);
+            }
+        }
+
+        fetchDataProduct();
+    }, []);
+    // console.log(productData);
+    // console.log(supplier);
     // const changeQuantity = async (e) => {
     //     e.preventDefault();
-    
+
     //     try {
     //         // Realiza uma busca pelo funcionário com o ID fornecido
-    //         const response = await fetch(`http://127.0.0.1:8000/produtos/${key}`);
+    //         const response = await fetch(`http://127.0.0.1:8000/produtos/${productId}`);
     //         const data = await response.json();
     //         console.log(data);
-    
-    //         if (!data) {
-    //             console.error('Funcionário não encontrado.');
-    //             return;
-    //         }
-    
+    //
     //         // Atualiza apenas o status do funcionário para false
-    //         const updatedEmployee = {
-    //             ...data,
-    //             status: false // atualiza o status para false
+    //         const updatedProductQuantity = {
+    //             ...inputMerchandise,
+    //             inputMerchandise[quantidade]
     //         };
-    
-    //         const updateResponse = await fetch(`http://127.0.0.1:8000/produtos/${data.id}/`, {
+
+    //         const updateResponse = await fetch(`http://127.0.0.1:8000/produtos/${productId}/`, {
     //             method: 'PUT',
     //             headers: {
     //                 'Content-Type': 'application/json',
     //             },
-    //             body: JSON.stringify(updatedEmployee),
+    //             body: JSON.stringify(updatedProductQuantity),
     //         });
-    
-    //         if (!updateResponse.ok) {
-    //             throw new Error('Erro ao atualizar status do funcionário');
-    //         }
-    
-    //         const responseData = await updateResponse.json();
-    //         console.log(responseData);
-    
+    //
+    //
+
     //         // Limpa os campos após a atualização
     //         router.push('/employee/nav');
     //     } catch (error) {
@@ -88,9 +96,27 @@ export default function InputMerchandise({productId}) {
                     body: JSON.stringify(inputMerchandise),
                 }
             );
+            console.log(inputMerchandise.quantidade);
+            const updatedProductQuantity = {
+                ...productData,
+                quantidade: inputMerchandise.quantidade,
+            };
+
+            const updateResponse = await fetch(
+                `http://127.0.0.1:8000/produtos/${productId}/`,
+                {
+                    method: "PUT",
+                    headers: {
+                        "Content-Type": "application/json",
+                    },
+                    body: JSON.stringify(updatedProductQuantity),
+                }
+            );
 
             const data = await response.json(); // transforma a resposta em JSON
+            const dataUpdated = await updateResponse.json();
             console.log(data);
+            console.log(dataUpdated);
 
             setInputMerchandise({
                 quantidade: "",
@@ -146,7 +172,9 @@ export default function InputMerchandise({productId}) {
                             value={inputMerchandise.ownerFornecedor}
                             onChange={handleChange}
                         >
-                            <option value="" disabled>Escolha o Fornecedor</option>
+                            <option value="" disabled>
+                                Escolha o Fornecedor
+                            </option>
                             {supplier.map((supplier) => (
                                 <option key={supplier.id} value={supplier.id}>
                                     {supplier.nome}
