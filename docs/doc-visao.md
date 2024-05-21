@@ -66,6 +66,7 @@ RF26 - Logout | Permitir a saída do usuário do sistema. O sistema terá um bot
 RF27 - Cadastro de Conta de Usuário | O sistema deverá ter a possibilidade de cadastrar novos usuários. | Funcionário e gerente |
 RF28 - Remoção de conta de Usuário | O sistema deverá ter a possibilidade de remover usuários já cadastrados. | Funcionário e gerente |
 RF29 - Resgate de conta de Usuário | O sistema deverá ter a possibilidade de resgatar o login de um usuário já cadastrado | Funcionário e gerente |
+RF30 - Relatório de Clientes Ativos no Sistema | Fazer a geração de relatórios sobre a quantidade clientes ativos no sistema que possam ser visualizados em determinados intervalos de tempo | Gerente |
 
 ## Lista de Requisitos Não Funcionais
 
