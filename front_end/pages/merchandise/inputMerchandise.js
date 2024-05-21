@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
 
-export default function InputMerchandise() {
+export default function InputMerchandise({ productId }) {
     const [supplier, setSupplier] = useState([]);
-    // const [opc, setOpc] = useState("");
+    const [productData, setProductData] = useState("");
     const [inputMerchandise, setInputMerchandise] = useState({
         quantidade: "",
         codigo: "",
@@ -11,13 +11,14 @@ export default function InputMerchandise() {
         valor: "",
     });
 
+    // Pegando os valores "name" e "value" para formar o JSON
     const handleChange = (e) => {
         const { name, value } = e.target;
         setInputMerchandise({ ...inputMerchandise, [name]: value });
     };
 
     useEffect(() => {
-        // carregamento inicial dos employee
+        // Carregando os dados dos fornecedores
         async function fetchData() {
             try {
                 const data = await fetch("http://127.0.0.1:8000/fornecedores/");
@@ -31,8 +32,25 @@ export default function InputMerchandise() {
         fetchData();
     }, []);
 
+    useEffect(() => {
+        // Carregando os dados dos produtos pelo ID para atualizar a quantidade
+        async function fetchDataProduct() {
+            try {
+                const getProductDataById = await fetch(
+                    `http://127.0.0.1:8000/produtos/${productId}/`
+                );
+                const productDataById = await getProductDataById.json();
+                setProductData(productDataById);
+            } catch (error) {
+                console.error("Erro ao carregar:", error);
+            }
+        }
+
+        fetchDataProduct();
+    }, []);
+
     const handleSubmit = async (e) => {
-        // esta função envia os dados do inputMerchandise para o back usando o método POST
+        // Esta função envia os dados do inputMerchandise para o back usando o método POST
         e.preventDefault();
 
         try {
@@ -46,9 +64,31 @@ export default function InputMerchandise() {
                     body: JSON.stringify(inputMerchandise),
                 }
             );
+            
+            // console.log(inputMerchandise.quantidade);
+            // newQuantity vai somar a quantidade já existente no banco de dados com a nova quantidade a ser inserida
+            const newQuantity = parseInt(productData.quantidade) + parseInt(inputMerchandise.quantidade);
+            const updatedProductQuantity = {
+                ...productData,
+                quantidade: newQuantity,
+            };
+
+            // Essa parte atualiza na tabela de Produtos o atributo "quantidade"
+            const updateResponse = await fetch(
+                `http://127.0.0.1:8000/produtos/${productId}/`,
+                {
+                    method: "PUT",
+                    headers: {
+                        "Content-Type": "application/json",
+                    },
+                    body: JSON.stringify(updatedProductQuantity),
+                }
+            );
 
             const data = await response.json(); // transforma a resposta em JSON
+            const dataUpdated = await updateResponse.json();
             console.log(data);
+            console.log(dataUpdated);
 
             setInputMerchandise({
                 quantidade: "",
@@ -84,18 +124,6 @@ export default function InputMerchandise() {
                             required
                         />
                     </div>
-                    {/* <div className="flex flex-col justify-center gap-1">    NÃO SERIA MELHOR GERAR O CODIGO AUTOMATICAMENTE?
-                        Definir os cargos existentes e trocar por um select
-                        <label className="font-semibold">Codigo: </label>
-                        <input
-                            className="border-0 border-b-2 shadow-sm shadow-slate-400"
-                            type="text"
-                            name="codigo"
-                            value={inputMerchandise.codigo}
-                            onChange={handleChange}
-                            required
-                        />
-                    </div> */}
                     <div className="flex flex-col justify-center gap-1">
                         <label className="font-semibold">Fornecedor: </label>
                         <select
@@ -104,22 +132,15 @@ export default function InputMerchandise() {
                             value={inputMerchandise.ownerFornecedor}
                             onChange={handleChange}
                         >
-                            <option value="" disabled>Escolha o Fornecedor</option>
+                            <option value="" disabled>
+                                Escolha o Fornecedor
+                            </option>
                             {supplier.map((supplier) => (
                                 <option key={supplier.id} value={supplier.id}>
                                     {supplier.nome}
                                 </option>
                             ))}
                         </select>
-                        {/* <input
-                            className="border-0 border-b-2 shadow-sm shadow-slate-400"
-                            placeholder="Ex: 25000"
-                            type="text"
-                            name="salario"
-                            value={inputMerchandise.fornecedor}
-                            onChange={handleChange}
-                            required
-                        /> */}
                     </div>
                     <div className="flex flex-col justify-center gap-1">
                         <label className="font-semibold">Data: </label>
