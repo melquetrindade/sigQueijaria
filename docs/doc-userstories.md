@@ -469,3 +469,31 @@ Este documento descreve os User Stories criados a partir da Lista de Requisitos 
 | **TA13.07** | Após o cadastro bem-sucedido, o usuário recebe uma mensagem de confirmação.  |
 | **TA13.08** | O sistema exibe uma mensagem de confirmação ao remover uma conta de usuário.  |
 | **TA13.09** | Ao resgatar uma conta de usuário, o sistema envia um e-mail com instruções para redefinir a senha.  |
+
+
+### User Story US14 - Gerar Relatórios de Clientes Ativos
+|               |                                                                |
+| ------------- | :------------------------------------------------------------- |
+| **Descrição** | Fazer a geração de relatórios sobre a quantidade clientes ativos no sistema que possam ser visualizados em determinados intervalos de tempo. |
+
+| **Requisitos envolvidos** |                                                    |
+| ------------- | :------------------------------------------------------------- | 
+|RF07           | Consultar Cliente |
+
+|                           |                                     |
+| ------------------------- | ----------------------------------- | 
+| **Prioridade** | Desejável |
+| **Estimativa** | 3h | 
+| **Tempo Gasto (real):**   |          | 
+| **Tamanho Funcional** | 5 PF (pontos de função) |
+| **Analista**| Erick (responsável por especificar/detalhar). |
+| **Desenvolvedor** | Isa e Melque (responsáveis por implementar e realizar testes de unidade e testes de integração). |
+| **Revisor** | Manuelly (responsável por avaliar a implementação e executar os testes de unidade e testes de integração). |
+| **Testador** | Felipe (responsável por executar os Testes de Aceitação e fazer o relatório de testes). |
+
+| Testes de Aceitação (TA) |  |
+| ----------- | --------- |
+| **Código**      | **Descrição** |
+| **TA08.01** | O gerente informa ao sistema o intervalo de tempo na qual quer que seja o recorte dos clientes inativos, exemplo: "Nos últimos 3 meses".  |
+| **TA08.02** | O sistema gera um relatório dos clientes inativos dentro do intervalo selecionado. |
+| **TA08.03** | Se o gerente não informar o intervalo, o sistema automaticamente gera um relatório com todos os clientes inativos do sistema.  |
