@@ -11,13 +11,14 @@ export default function InputMerchandise({ productId }) {
         valor: "",
     });
 
+    // Pegando os valores "name" e "value" para formar o JSON
     const handleChange = (e) => {
         const { name, value } = e.target;
         setInputMerchandise({ ...inputMerchandise, [name]: value });
     };
 
     useEffect(() => {
-        // carregamento inicial dos employee
+        // Carregando os dados dos fornecedores
         async function fetchData() {
             try {
                 const data = await fetch("http://127.0.0.1:8000/fornecedores/");
@@ -32,7 +33,7 @@ export default function InputMerchandise({ productId }) {
     }, []);
 
     useEffect(() => {
-        // carregamento inicial dos employee
+        // Carregando os dados dos produtos pelo ID para atualizar a quantidade
         async function fetchDataProduct() {
             try {
                 const getProductDataById = await fetch(
@@ -47,42 +48,9 @@ export default function InputMerchandise({ productId }) {
 
         fetchDataProduct();
     }, []);
-    // console.log(productData);
-    // console.log(supplier);
-    // const changeQuantity = async (e) => {
-    //     e.preventDefault();
-
-    //     try {
-    //         // Realiza uma busca pelo funcionário com o ID fornecido
-    //         const response = await fetch(`http://127.0.0.1:8000/produtos/${productId}`);
-    //         const data = await response.json();
-    //         console.log(data);
-    //
-    //         // Atualiza apenas o status do funcionário para false
-    //         const updatedProductQuantity = {
-    //             ...inputMerchandise,
-    //             inputMerchandise[quantidade]
-    //         };
-
-    //         const updateResponse = await fetch(`http://127.0.0.1:8000/produtos/${productId}/`, {
-    //             method: 'PUT',
-    //             headers: {
-    //                 'Content-Type': 'application/json',
-    //             },
-    //             body: JSON.stringify(updatedProductQuantity),
-    //         });
-    //
-    //
-
-    //         // Limpa os campos após a atualização
-    //         router.push('/employee/nav');
-    //     } catch (error) {
-    //         console.error('Erro ao atualizar status do funcionário:', error);
-    //     }
-    // };
 
     const handleSubmit = async (e) => {
-        // esta função envia os dados do inputMerchandise para o back usando o método POST
+        // Esta função envia os dados do inputMerchandise para o back usando o método POST
         e.preventDefault();
 
         try {
@@ -96,12 +64,15 @@ export default function InputMerchandise({ productId }) {
                     body: JSON.stringify(inputMerchandise),
                 }
             );
-            console.log(inputMerchandise.quantidade);
+            
+            // console.log(inputMerchandise.quantidade);
+            const newQuantity = parseInt(productData.quantidade) + parseInt(inputMerchandise.quantidade);
             const updatedProductQuantity = {
                 ...productData,
-                quantidade: inputMerchandise.quantidade,
+                quantidade: newQuantity,
             };
 
+            // Essa parte atualiza na tabela de Produtos o atributo "quantidade"
             const updateResponse = await fetch(
                 `http://127.0.0.1:8000/produtos/${productId}/`,
                 {
