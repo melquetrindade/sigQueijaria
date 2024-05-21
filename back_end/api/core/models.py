@@ -1,12 +1,13 @@
 from django.db import models
 from django.contrib.auth.models import AbstractUser
+from django.core.validators import MinLengthValidator
 # Modelo para autenticação
 
 class CustomUser(AbstractUser):
     email = models.EmailField(unique=True)
     username = models.CharField(max_length=150, unique=False)
-    password = models.CharField(max_length=128)
-    password2 = models.CharField(max_length=128)
+    password = models.CharField(max_length=50, validators=[MinLengthValidator(8)])
+    password2 = models.CharField(max_length=50, validators=[MinLengthValidator(8)])
 
     USERNAME_FIELD = 'email'
     REQUIRED_FIELDS = ['username']
@@ -21,6 +22,7 @@ class Pessoa(models.Model):
     email = models.CharField(max_length=255, unique=True)
     numTelefone = models.CharField(max_length=11, unique=True)
     status = models.BooleanField(default=True)
+    dataDoDesativ0 = models.CharField(max_length=50, default=True)
     dataNascimento = models.CharField(max_length=15)
 
     def __str__(self):
