@@ -47,19 +47,17 @@ export default function DeleteClient () {
         } catch (error) {
             console.error('Erro ao atualizar status do cliente:', error);
         }
-    };
-    
+    };  
 
     const checkSubmission = () => {
         return(
             <div>
-                <h1>Tem certeza que desativar este cliente do sistema?</h1>
+                <h1>Tem certeza que deseja desativar este cliente do sistema?</h1>
                 <button type='submit' onClick={handleSubmit} className='p-2 rounded-md bg-gray-950 text-white'>Sim, desativar!</button>
             </div>
         );
     }
     
-
     return (
         <div>
             <ReadClient />
