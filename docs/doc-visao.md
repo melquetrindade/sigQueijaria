@@ -67,6 +67,7 @@ RF27 - Cadastro de Conta de Usuário | O sistema deverá ter a possibilidade de 
 RF28 - Remoção de conta de Usuário | O sistema deverá ter a possibilidade de remover usuários já cadastrados. | Funcionário e gerente |
 RF29 - Resgate de conta de Usuário | O sistema deverá ter a possibilidade de resgatar o login de um usuário já cadastrado | Funcionário e gerente |
 RF30 - Relatório de Clientes Ativos no Sistema | Fazer a geração de relatórios sobre a quantidade clientes ativos no sistema que possam ser visualizados em determinados intervalos de tempo | Gerente |
+RF31 - Relatório de Produtos Disponíveis | Fazer a geração de relatórios acerca dos produtos que estão disponíveis no sistema naquela data em questão | Gerente |
 
 ## Lista de Requisitos Não Funcionais
 
