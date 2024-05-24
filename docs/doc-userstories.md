@@ -534,7 +534,7 @@ Este documento descreve os User Stories criados a partir da Lista de Requisitos 
 
 | **Requisitos envolvidos** |                                                    |
 | ------------- | :------------------------------------------------------------- | 
-|RF07           | Consultar Funcionário |
+|RF19           | Consultar Funcionário |
 
 |                           |                                     |
 | ------------------------- | ----------------------------------- | 
@@ -550,6 +550,6 @@ Este documento descreve os User Stories criados a partir da Lista de Requisitos 
 | Testes de Aceitação (TA) |  |
 | ----------- | --------- |
 | **Código**      | **Descrição** |
-| **TA14.01** | O gerente informa ao sistema o intervalo de tempo na qual quer que seja o recorte dos funcionários inativos, exemplo: "Nos últimos 3 meses".  |
-| **TA14.02** | O sistema gera um relatório dos funcionários inativos dentro do intervalo selecionado. |
-| **TA14.03** | Se o gerente não informar o intervalo, o sistema automaticamente gera um relatório com todos os funcionários inativos do sistema.  |
+| **TA16.01** | O gerente informa ao sistema o intervalo de tempo na qual quer que seja o recorte dos funcionários inativos, exemplo: "Nos últimos 3 meses".  |
+| **TA16.02** | O sistema gera um relatório dos funcionários inativos dentro do intervalo selecionado. |
+| **TA16.03** | Se o gerente não informar o intervalo, o sistema automaticamente gera um relatório com todos os funcionários inativos do sistema.  |
