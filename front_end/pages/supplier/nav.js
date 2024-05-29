@@ -1,31 +1,17 @@
-import React from 'react';
-import Link from 'next/link';
+import { FaPlus } from "react-icons/fa";
+import { RxUpdate } from "react-icons/rx";
+import { RiDeleteBin6Line } from "react-icons/ri";
+import { IoIosList } from "react-icons/io";
+import CrudNav from "../crudNav";
 
-export default function Nav() {
-    return (
-        <nav>
-            <h2>Navegação temporária até aplicar a estilização do CRUD - Fornecedor</h2>
-            <div>
-                <Link href="create" passHref>
-                    Inserir Fornecedor
-                </Link>
-            </div>
-            <div>
-                <Link href="read" passHref>
-                    Consultar Fornecedor
-                </Link>
-            </div>
-            <div>
-                <Link href="update" passHref>
-                    Alterar Fornecedor
-                </Link>
-            </div>
-            <div>
-                <Link href="delete" passHref>
-                    Deletar Fornecedor
-                </Link>
-            </div>
+export default function SupplierCrud() {
+    const actions = [
+        { icon: FaPlus, label: "Novo Fornecedor", color: "text-sky-400", onClick: () => window.location.href = "/supplier/create"},
+        { icon: IoIosList, label: "Consultar Dados", color: "text-[#01CBBF]", onClick: () => window.location.href = "/supplier/read" },
+        { icon: RxUpdate, label: "Atualizar Dados", color: "text-[#01CBBF]", onClick: () => window.location.href = "/supplier/update" },
+        { icon: RiDeleteBin6Line, label: "Excluir Fornecedor", color: "text-red-500", onClick: () => window.location.href = "/supplier/delete" },
+    ];
 
-        </nav>
-    );
-}
+    return <CrudNav actions={actions} placeholder="Digite o nome ou CNPJ..." />;
+};
+
