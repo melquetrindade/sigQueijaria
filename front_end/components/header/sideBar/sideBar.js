@@ -5,6 +5,7 @@ import { BsPerson, BsPeople } from "react-icons/bs";
 import { LiaCheeseSolid } from "react-icons/lia";
 import { GoPackageDependents } from "react-icons/go";
 import { IoCartOutline } from "react-icons/io5";
+import { BsBoxes } from "react-icons/bs";
 import {
     HiOutlineCurrencyDollar,
     HiOutlineClipboardDocumentList,
@@ -58,7 +59,7 @@ export default function SideBar() {
                             <AiOutlineHome className="size-7" /> Página Inicial
                         </li>
                     </Link>
-                    <Link href={"/Client/nav"}>
+                    <Link href={"/client/nav"}>
                         <li className="flex gap-2 cursor-pointer">
                             <BsPerson className="size-7" /> Clientes
                         </li>
@@ -92,7 +93,7 @@ export default function SideBar() {
                     </li>
                     <Link href={"/merchandise/navMerchandise"}>
                         <li className="flex gap-2 cursor-pointer">
-                            <LiaCheeseSolid className="size-7" /> Estoque
+                            <BsBoxes className="size-7" /> Estoque
                         </li>
                     </Link>
                 </ul>
