@@ -56,6 +56,7 @@ export default function AddProduto() {
                     onSubmit={handleSubmit}
                     className="bg-white px-6 py-5 flex flex-col w-[470px] max-w-full gap-2"
                 >
+                    {/* É gerado automaticamente */}
                     <div className="flex flex-col justify-center gap-1">
                         <label className="font-semibold">Código de Barras:</label>
                         <input
@@ -71,6 +72,7 @@ export default function AddProduto() {
                         <label className="font-semibold">Nome:</label>
                         <input
                             className="border-0 border-b-2 shadow-sm shadow-slate-400"
+                            placeholder="Ex: Mussarela"
                             type="text"
                             name="nome"
                             value={produto.nome}
@@ -82,6 +84,7 @@ export default function AddProduto() {
                         <label className="font-semibold">Tipo:</label>
                         <input
                             className="border-0 border-b-2 shadow-sm shadow-slate-400"
+                            placeholder="Ex: Branco"
                             type="text"
                             name="tipo"
                             value={produto.tipo}
@@ -93,13 +96,14 @@ export default function AddProduto() {
                         <label className="font-semibold">Data de Validade:</label>
                         <input
                             className="border-0 border-b-2 shadow-sm shadow-slate-400"
-                            type="text"
+                            type="date"
                             name="dataValidade"
                             value={produto.dataValidade}
                             onChange={handleChange}
                             required
                         />
                     </div>
+                    {/* Deixar pré definido */}
                     <div className="flex flex-col justify-center gap-1">
                         <label className="font-semibold">
                             Quantidade Mínima:
@@ -117,6 +121,7 @@ export default function AddProduto() {
                         <label className="font-semibold">Quantidade:</label>
                         <input
                             className="border-0 border-b-2 shadow-sm shadow-slate-400"
+                            placeholder="Ex: 15"
                             type="text"
                             name="quantidade"
                             value={produto.quantidade}
@@ -128,6 +133,7 @@ export default function AddProduto() {
                         <label className="font-semibold">Valor:</label>
                         <input
                             className="border-0 border-b-2 shadow-sm shadow-slate-400"
+                            placeholder="Ex: 20.50"
                             type="text"
                             name="valor"
                             value={produto.valor}
