@@ -537,3 +537,34 @@ Este documento descreve os User Stories criados a partir da Lista de Requisitos 
 | **TA15.04** | O sistema registra a conta como paga e atualiza o relatório de despesas do mês corrente. |
 | **TA15.05** | Se o gerente não especificar o mês desejado, o sistema gera automaticamente um relatório do mês corrente. |
 
+### User Story US16 - Relatório de Vendas do Mês
+|               |                                                                |
+| ------------- | :------------------------------------------------------------- |
+| **Descrição** | O sistema deve ser capaz de gerar relatórios nos setores de vendas |
+
+| **Requisitos envolvidos** |                                                    |
+| ------------- | :------------------------------------------------------------- | 
+|RF03           | Consultar Produto |
+|RF07           | Consultar Cliente |
+|RF19           | Consultar Funcionário |
+|RF14           | Pagar Conta |
+|RF15           | Receber Conta |
+|RF10           | Realizar Vendas |
+
+|                           |                                     |
+| ------------------------- | ----------------------------------- | 
+| **Prioridade** | Desejável |
+| **Estimativa** | 3h | 
+| **Tempo Gasto (real):**   |          | 
+| **Tamanho Funcional** | 5 PF (pontos de função) |
+| **Analista**| Erick (responsável por especificar/detalhar). |
+| **Desenvolvedor** | Isa e Melque (responsáveis por implementar e realizar testes de unidade e testes de integração). |
+| **Revisor** | Manuelly (responsável por avaliar a implementação e executar os testes de unidade e testes de integração). |
+| **Testador** | Felipe (responsável por executar os Testes de Aceitação e fazer o relatório de testes). |
+
+| Testes de Aceitação (TA) |  |
+| ----------- | --------- |
+| **Código**      | **Descrição** |
+| **TA16.01** | O gerente seleciona no sistema a opção de relatório "Vendas do mês" | 
+| **TA16.02** | O sistema elabora um relatório detalhado das vendas no mês corrente. |
+| **TA16.03** | Se o gerente não especificar o mês desejado, o sistema gera automaticamente um relatório do mês corrente. |
