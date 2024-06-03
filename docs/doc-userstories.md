@@ -469,3 +469,40 @@ Este documento descreve os User Stories criados a partir da Lista de Requisitos 
 | **TA13.07** | Após o cadastro bem-sucedido, o usuário recebe uma mensagem de confirmação.  |
 | **TA13.08** | O sistema exibe uma mensagem de confirmação ao remover uma conta de usuário.  |
 | **TA13.09** | Ao resgatar uma conta de usuário, o sistema envia um e-mail com instruções para redefinir a senha.  |
+
+### User Story US14 - Relatório de Lucros Mensais
+|               |                                                                |
+| ------------- | :------------------------------------------------------------- |
+| **Descrição** | O sistema deve ser capaz de gerar relatórios no setor financeiro baseado no lucro da empresa daquele mês |
+
+| **Requisitos envolvidos** |                                                    |
+| ------------- | :------------------------------------------------------------- | 
+|RF13           | Gerar Conta |
+|RF14           | Pagar Conta |
+
+|                           |                                     |
+| ------------------------- | ----------------------------------- | 
+| **Prioridade** | Desejável |
+| **Estimativa** | 3h | 
+| **Tempo Gasto (real):**   |          | 
+| **Tamanho Funcional** | 5 PF (pontos de função) |
+| **Analista**| Erick (responsável por especificar/detalhar). |
+| **Desenvolvedor** | Isa e Melque (responsáveis por implementar e realizar testes de unidade e testes de integração). |
+| **Revisor** | Manuelly (responsável por avaliar a implementação e executar os testes de unidade e testes de integração). |
+| **Testador** | Felipe (responsável por executar os Testes de Aceitação e fazer o relatório de testes). |
+
+| Testes de Aceitação (TA) |  |
+| ----------- | --------- |
+| **Código**      | **Descrição** |
+| **TA08.01** | O gerente seleciona no sistema a opção de relatório “Lucros Mensais” | 
+| **TA08.02** | O sistema elabora um relatório detalhado dos lucros obtidos com as vendas realizadas no mês corrente. |
+| **TA08.03** | O gerente seleciona no sistema a opção de relatório “Despesas Mensais”. |
+| **TA08.04** | O sistema compila um relatório contendo todas as despesas a serem pagas referentes ao mês corrente. |
+| **TA08.05** | O gerente seleciona no sistema a opção de relatório “Relatório de Vendas”. |
+| **TA08.06** | O gerente especifica ao sistema o mês desejado para a geração do relatório.  |
+| **TA08.07** | O sistema elabora um relatório das vendas realizadas no mês especificado. |
+| **TA08.08** | O gerente seleciona no sistema a opção de relatório “Estoque Disponível”. |
+| **TA08.09** | O sistema elabora um relatório detalhado de todos os produtos disponíveis para venda no estoque. |
+| **TA08.10** | O gerente seleciona no sistema a opção de relatório “Produtos em Quantidade Crítica”. |
+| **TA08.11** | O sistema gera um relatório dos produtos no estoque que estão abaixo da quantidade mínima definida no cadastro. |
+| **TA08.12** | Se o gerente não especificar o mês desejado, o sistema gera automaticamente um relatório do mês corrente.  |
