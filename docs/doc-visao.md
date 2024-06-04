@@ -69,6 +69,7 @@ RF29 - Resgate de conta de Usuário | O sistema deverá ter a possibilidade de r
 RF30 - Relatório de Clientes Ativos no Sistema | Fazer a geração de relatórios sobre a quantidade clientes ativos no sistema que possam ser visualizados em determinados intervalos de tempo | Gerente |
 RF31 - Relatório de Produtos Disponíveis | Fazer a geração de relatórios acerca dos produtos que estão disponíveis no sistema naquela data em questão | Gerente |
 RF32 - Relatório de Produtos  Mais Vendidos no Mês | Fazer relatório sobre os produtos que mais foram vendidos no mês | Gerente |
+RF33 - Relatório de Produtos Abaixo da Quantidade Mínima | Fazer relatório sobre os produtos que estão abaixo da quantidade mínima no estoque | Gerente |
 
 
 ## Lista de Requisitos Não Funcionais
