@@ -580,5 +580,34 @@ Este documento descreve os User Stories criados a partir da Lista de Requisitos 
 | Testes de Aceitação (TA) |  |
 | ----------- | --------- |
 | **Código**      | **Descrição** |
-| **TA16.01** | O gerente informa ao sistema o número mínimo de cada produto no sistema.  |
-| **TA16.02** | O sistema gera automaticamente um relatório dos produtos que estiverem abaixo do número mínimo. |
+| **TA17.01** | O gerente informa ao sistema o número mínimo de cada produto no sistema.  |
+| **TA17.02** | O sistema gera automaticamente um relatório dos produtos que estiverem abaixo do número mínimo. |
+
+### User Story US15 - Gerar Relatórios de Produtos Mais Vendidos no Mês
+|               |                                                                |
+| ------------- | :------------------------------------------------------------- |
+| **Descrição** | Fazer a geração de relatórios sobre os produtos que mais foram vendidos em cada mês. |
+
+| **Requisitos envolvidos** |                                                    |
+| ------------- | :------------------------------------------------------------- | 
+|RF03           | Consultar Produto |
+|RF10           | RF10 - Realizar Vendas	 |
+
+
+|                           |                                     |
+| ------------------------- | ----------------------------------- | 
+| **Prioridade** | Desejável |
+| **Estimativa** | 3h | 
+| **Tempo Gasto (real):**   |          | 
+| **Tamanho Funcional** | 5 PF (pontos de função) |
+| **Analista**| Erick (responsável por especificar/detalhar). |
+| **Desenvolvedor** | Isa e Melque (responsáveis por implementar e realizar testes de unidade e testes de integração). |
+| **Revisor** | Manuelly (responsável por avaliar a implementação e executar os testes de unidade e testes de integração). |
+| **Testador** | Felipe (responsável por executar os Testes de Aceitação e fazer o relatório de testes). |
+
+| Testes de Aceitação (TA) |  |
+| ----------- | --------- |
+| **Código**      | **Descrição** |
+| **TA18.01** | O gerente informa ao sistema o mês que ele deseja saber quais produtos foram mais vendidos. |
+| **TA18.02** | Quando solicitado pelo gerente, o sistema gera um relatório dos produtos que mais foram vendidos no mês escolhido. |
+
