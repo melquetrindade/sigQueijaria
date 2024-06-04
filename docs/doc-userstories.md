@@ -553,3 +553,32 @@ Este documento descreve os User Stories criados a partir da Lista de Requisitos 
 | **TA16.01** | O gerente informa ao sistema o intervalo de tempo na qual quer que seja o recorte dos funcionários inativos, exemplo: "Nos últimos 3 meses".  |
 | **TA16.02** | O sistema gera um relatório dos funcionários inativos dentro do intervalo selecionado. |
 | **TA16.03** | Se o gerente não informar o intervalo, o sistema automaticamente gera um relatório com todos os funcionários inativos do sistema.  |
+
+### User Story US15 - Gerar Relatórios de Produtos Abaixo da Quantidade Mínima
+|               |                                                                |
+| ------------- | :------------------------------------------------------------- |
+| **Descrição** | Fazer a geração de relatórios sobre os produtos que estão abaixo da quantidade mínima, para assim haver reposições ao estoque e não haver falta no sistema. |
+
+| **Requisitos envolvidos** |                                                    |
+| ------------- | :------------------------------------------------------------- | 
+|RF03           | Consultar Produto |
+|RF02           | Alterar Produto |
+|RF09           | Realizar Entrada de Mercadoria |
+
+
+|                           |                                     |
+| ------------------------- | ----------------------------------- | 
+| **Prioridade** | Desejável |
+| **Estimativa** | 3h | 
+| **Tempo Gasto (real):**   |          | 
+| **Tamanho Funcional** | 5 PF (pontos de função) |
+| **Analista**| Erick (responsável por especificar/detalhar). |
+| **Desenvolvedor** | Isa e Melque (responsáveis por implementar e realizar testes de unidade e testes de integração). |
+| **Revisor** | Manuelly (responsável por avaliar a implementação e executar os testes de unidade e testes de integração). |
+| **Testador** | Felipe (responsável por executar os Testes de Aceitação e fazer o relatório de testes). |
+
+| Testes de Aceitação (TA) |  |
+| ----------- | --------- |
+| **Código**      | **Descrição** |
+| **TA16.01** | O gerente informa ao sistema o número mínimo de cada produto no sistema.  |
+| **TA16.02** | O sistema gera automaticamente um relatório dos produtos que estiverem abaixo do número mínimo. |
