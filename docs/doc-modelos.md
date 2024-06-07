@@ -123,15 +123,18 @@ class Produto {
     - venda: Venda
     - quantidade: int
     - valor: double
+    - status: boolean
     
     + setProduto(produto: Produto): void
     + setVenda(venda: Venda): void
     + setQuantidade(quant: int): void
     + setValor(valor: double): void
+    + setStatus(value: boolean): void
     + getProduto(): Produto
     + getVenda(): Venda
     + getQuantidade(): int
     + getValor(): double
+    + getStatus(): boolean
   }
 
   class Venda {
@@ -139,7 +142,7 @@ class Produto {
     - codigo: int
     - data: char
     - total: double
-  
+
     + setCliente(cliente: Pessoa): void
     + setCodigo(codigo: int): void
     + setData(data: char): void
@@ -330,7 +333,7 @@ Descrição sucinta das entidades presentes no sistema.
 | Bairro | Entidade que representa um Bairro e tem as informações: nome, código, ownerCidade, +set's() e +get's() |
 | NotaFiscal | Entidade que representa uma NotaFiscal no sistema, e tem as seguintes informações: dataEmissao, listVendaProduto, ownerVenda, +set's(), +get's() e +valorTotal() |
 | Venda | Entidade que representa uma Venda no sistema, e tem as seguintes informações: cliente, código, data, total, +set's(), +get's(), +registrarVenda(), +consultarVenda(), +calcularValor(), +gerarNotaFiscal(), +gerarConta() e +gerarRelatorioVendasMensais() |
-| Venda_Produto | Entidade que representa a Venda_Produto e tem como informações: produto, venda, quantidade, valor, +set's() e +get's() |
+| Venda_Produto | Entidade que representa a Venda_Produto e tem como informações: produto, venda, quantidade, valor, status, +set's() e +get's() |
 | Venda_MetodoPagamento | Entidade que representa o método de pagamento da venda e tem as informações: venda, metodoPagamento e valor |
 | MetodoPagamento | Entidade que representa o MetodoPagamento e tem as seguintes informações: codigo, descricao, +set's() e +get's() |
 | Pessoa | Entidade que representa a Pessoa e tem as seguintes informações: nome, email, numTelefone, status, dataNascimento, +set's(), +get's(), +incluirPessoa(), +alterarPessoa(), +desativarPessoa(), +listarPessoa() |
@@ -533,6 +536,7 @@ Descrição sucinta das entidades presentes no sistema.
 | venda        | Informações de uma venda                 | Venda        | ---     | FK / Not Null         |
 | quantidade   | Quantidade do produto                    | INT          | ---     | Not Null              |
 | valor        | Valor do produto                         | DOUBLE       | ---     | Not Null              |
+| status       | Identificador do status de Venda_Produto | BOOLEAN      | ---     | Not Null              |
 
 * Venda_MetodoPagamento
   
