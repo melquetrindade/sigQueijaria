@@ -2,7 +2,6 @@ import { useState, useEffect } from "react";
 
 export default function InputNewProduct() {
     const [supplier, setSupplier] = useState([]);
-    // const [productData, setProductData] = useState("");
     const [inputNewProduct, setInputNewProduct] = useState({
         nome: "",
         tipo: "",
@@ -30,18 +29,6 @@ export default function InputNewProduct() {
         setInputNewProduct({ ...inputNewProduct, [name]: value });
     };
 
-    // const handleQuantity = (e) => {
-    //     const value = e.target.value;
-
-    //     const newProduct = (e) => {
-    //         setInputNewProduct({ ...inputNewProduct, quantidade: value });
-    //     }
-
-    //     const newMerchandise = (e) => {
-    //         setInputMerchandise({ ...inputMerchandise, quantidade: value });
-    //     }
-        
-    // };
 
     // PUXANDO OS FORNECEDORES, PARA SEREM SELECIONADOS NO SELECT
     useEffect(() => {
@@ -59,42 +46,12 @@ export default function InputNewProduct() {
         fetchData();
     }, []);
 
-    // PUXANDO OS DADOS DOS PRODUTOS
-    // useEffect(() => {
-    //     // Carregando os dados dos produtos pelo ID para atualizar a quantidade
-    //     async function fetchDataProduct() {
-    //         try {
-    //             const getProductDataById = await fetch(
-    //                 `http://127.0.0.1:8000/produtos/${productId}/`
-    //             );
-    //             const productDataById = await getProductDataById.json();
-    //             setProductData(productDataById);
-    //         } catch (error) {
-    //             console.error("Erro ao carregar:", error);
-    //         }
-    //     }
-
-    //     fetchDataProduct();
-    // }, []);
-
     // SUBMETENDO
     const handleSubmit = async (e) => {
         // Esta função envia os dados do inputMerchandise para o back usando o método POST
         e.preventDefault();
 
         try {
-            const registerInputMerchandise = await fetch(
-                "http://127.0.0.1:8000/entradasMercadorias/",
-                {
-                    method: "POST",
-                    headers: {
-                        "Content-Type": "application/json",
-                    },
-                    body: JSON.stringify(inputMerchandise),
-                }
-            );
-
-            // Essa parte atualiza na tabela de Produtos o atributo "quantidade"
             const registerNewProduct = await fetch(
                 `http://127.0.0.1:8000/produtos/`,
                 {
@@ -103,6 +60,18 @@ export default function InputNewProduct() {
                         "Content-Type": "application/json",
                     },
                     body: JSON.stringify(inputNewProduct),
+                }
+            );
+
+            const merchandiseQuantity = {...inputMerchandise, quantidade: inputNewProduct.quantidade};
+            const registerInputMerchandise = await fetch(
+                "http://127.0.0.1:8000/entradasMercadorias/",
+                {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json",
+                    },
+                    body: JSON.stringify(merchandiseQuantity),
                 }
             );
 
@@ -219,7 +188,6 @@ export default function InputNewProduct() {
                             required
                         />
                     </div>
-
                     <div className="flex flex-col justify-center gap-1">
                         <label className="font-semibold">Fornecedor: </label>
                         <select
@@ -253,7 +221,7 @@ export default function InputNewProduct() {
                     </div>
                     <div className="flex flex-col justify-center gap-1">
                         <label className="font-semibold">
-                            Preço de Custo:{" "}
+                            Valor a pagar:{" "}
                         </label>
                         <input
                             className="border-0 border-b-2 shadow-sm shadow-slate-400"
