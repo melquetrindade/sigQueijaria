@@ -32,14 +32,18 @@ export default function NavMerchandise() {
                 </Link>
             </nav> */}
             {!productId && (
-                <div className="bg-slate-900 text-white">
-                    {produtos.map((product) => (
-                    <div key={product.id} className="flex gap-5 justify-between items-center w-80 mb-5">
-                        <div>{product.nome} ------ {product.quantidade}</div>
-                        <button onClick={() => setProductId(product.id)}>ola</button>
-                    </div>
-                    ))}
-                </div> 
+                <div className="flex-col justify-center items-center gap-5">
+                    <button className="bg-white font-bold shadow-md cursor-pointer p-4 w-52 rounded-xl 
+                    flex justify-evenly items-center">Novo Produto</button>
+                    <div className="bg-slate-900 text-white">
+                        {produtos.map((product) => (
+                        <div key={product.id} className="flex gap-5 justify-between items-center w-80 mb-5">
+                            <div>{product.nome} ------ {product.quantidade}</div>
+                            <button onClick={() => setProductId(product.id)}>add +</button>
+                        </div>
+                        ))}
+                    </div> 
+                </div>
             )}
             {productId && <InputMerchandise productId={productId}/>}
         </div>
