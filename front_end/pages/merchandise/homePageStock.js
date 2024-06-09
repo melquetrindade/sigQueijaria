@@ -4,7 +4,7 @@ import Link from "next/link";
 export default function HomePageStock({produtos}) {
     return (
         <div className="flex flex-col justify-center items-cente h-96 gap-20">
-            <Link>
+            <Link href={"/merchandise/inputNewProduct"}>
                 <div
                     className="bg-white font-bold shadow-md cursor-pointer p-4 w-52 rounded-xl 
                         flex justify-evenly items-center"
