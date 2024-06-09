@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { useState, useEffect } from "react";
 import InputMerchandise from "./inputMerchandise";
+import HomePageStock from "./homePageStock";
 
 
 
@@ -25,22 +26,13 @@ export default function NavMerchandise() {
 
     console.log(productId);
     return(
-        <div className="flex justify-center items-center ">
+        <div className="flex justify-center items-center">
             {/* <nav>
                 <Link href={"/merchandise/inputMerchandise"}>
                     <p>Entrada de Mercadoria</p>
                 </Link>
             </nav> */}
-            {!productId && (
-                <div className="bg-slate-900 text-white">
-                    {produtos.map((product) => (
-                    <div key={product.id} className="flex gap-5 justify-between items-center w-80 mb-5">
-                        <div>{product.nome} ------ {product.quantidade}</div>
-                        <button onClick={() => setProductId(product.id)}>ola</button>
-                    </div>
-                    ))}
-                </div> 
-            )}
+            {!productId && <HomePageStock produtos={produtos} setProductId={setProductId}/>}
             {productId && <InputMerchandise productId={productId}/>}
         </div>
     );
