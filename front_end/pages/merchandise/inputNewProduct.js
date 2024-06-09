@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 export default function InputNewProduct() {
     const [supplier, setSupplier] = useState([]);
     const [inputNewProduct, setInputNewProduct] = useState({
+        codigoBarras: "",
         nome: "",
         tipo: "",
         dataValidade: "",
@@ -81,6 +82,7 @@ export default function InputNewProduct() {
             console.log(dataUpdated);
 
             setInputNewProduct({
+                codigoBarras: "",
                 nome: "",
                 tipo: "",
                 dataValidade: "",
@@ -110,6 +112,18 @@ export default function InputNewProduct() {
                     onSubmit={handleSubmit}
                     className="bg-white px-6 py-5 flex flex-col w-[470px] max-w-full gap-2"
                 >
+                    <div className="flex flex-col justify-center gap-1">
+                        <label className="font-semibold">Código de Barras: </label>
+                        <input
+                            className="border-0 border-b-2 shadow-sm shadow-slate-400"
+                            placeholder="Ex: 100"
+                            type="text"
+                            name="codigoBarras"
+                            value={inputNewProduct.codigoBarras}
+                            onChange={handleChangeNewProduct}
+                            required
+                        />
+                    </div>
                     <div className="flex flex-col justify-center gap-1">
                         <label className="font-semibold">Nome: </label>
                         <input
