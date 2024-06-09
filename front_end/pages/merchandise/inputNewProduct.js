@@ -213,7 +213,7 @@ export default function InputNewProduct() {
                             <option value="" disabled>
                                 Escolha o Fornecedor
                             </option>
-                            {supplier.map((supplier) => (
+                            {supplier.filter((supplier) => supplier.status !== false).map((supplier) => (
                                 <option key={supplier.id} value={supplier.id}>
                                     {supplier.nome}
                                 </option>

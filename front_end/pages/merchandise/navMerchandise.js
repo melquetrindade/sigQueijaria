@@ -32,7 +32,7 @@ export default function NavMerchandise() {
                     <p>Entrada de Mercadoria</p>
                 </Link>
             </nav> */}
-            {!productId && <HomePageStock produtos={produtos}/>}
+            {!productId && <HomePageStock produtos={produtos} setProductId={setProductId}/>}
             {productId && <InputMerchandise productId={productId}/>}
         </div>
     );
