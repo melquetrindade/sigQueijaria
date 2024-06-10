@@ -611,3 +611,29 @@ Este documento descreve os User Stories criados a partir da Lista de Requisitos 
 | **TA18.01** | O gerente informa ao sistema o mês que ele deseja saber quais produtos foram mais vendidos. |
 | **TA18.02** | Quando solicitado pelo gerente, o sistema gera um relatório dos produtos que mais foram vendidos no mês escolhido. |
 
+### User Story US16 - Gerar Relatórios de Fornecedores Ativos
+|               |                                                                |
+| ------------- | :------------------------------------------------------------- |
+| **Descrição** | Fazer a geração de relatórios sobre a quantidade de fornecedores ativos no sistema que possam ser visualizados em determinados intervalos de tempo. |
+
+| **Requisitos envolvidos** |                                                    |
+| ------------- | :------------------------------------------------------------- | 
+|RF23           | Consultar Fornecedor |
+
+|                           |                                     |
+| ------------------------- | ----------------------------------- | 
+| **Prioridade** | Desejável |
+| **Estimativa** | 3h | 
+| **Tempo Gasto (real):**   |          | 
+| **Tamanho Funcional** | 5 PF (pontos de função) |
+| **Analista**| Erick (responsável por especificar/detalhar). |
+| **Desenvolvedor** | Isa e Melque (responsáveis por implementar e realizar testes de unidade e testes de integração). |
+| **Revisor** | Manuelly (responsável por avaliar a implementação e executar os testes de unidade e testes de integração). |
+| **Testador** | Felipe (responsável por executar os Testes de Aceitação e fazer o relatório de testes). |
+
+| Testes de Aceitação (TA) |  |
+| ----------- | --------- |
+| **Código**      | **Descrição** |
+| **TA19.01** | O gerente informa ao sistema o intervalo de tempo na qual quer que seja o recorte dos fornecedores ativos, exemplo: "Nos últimos 3 meses".  |
+| **TA19.02** | O sistema gera um relatório dos fornecedores ativos dentro do intervalo selecionado. |
+| **TA19.03** | Se o gerente não informar o intervalo, o sistema automaticamente gera um relatório com todos os fornecedores ativos do sistema.  |
