@@ -550,9 +550,9 @@ Este documento descreve os User Stories criados a partir da Lista de Requisitos 
 | Testes de Aceitação (TA) |  |
 | ----------- | --------- |
 | **Código**      | **Descrição** |
-| **TA16.01** | O gerente informa ao sistema o intervalo de tempo na qual quer que seja o recorte dos funcionários inativos, exemplo: "Nos últimos 3 meses".  |
-| **TA16.02** | O sistema gera um relatório dos funcionários inativos dentro do intervalo selecionado. |
-| **TA16.03** | Se o gerente não informar o intervalo, o sistema automaticamente gera um relatório com todos os funcionários inativos do sistema.  |
+| **TA16.01** | O gerente informa ao sistema o intervalo de tempo na qual quer que seja o recorte dos funcionários ativos, exemplo: "Nos últimos 3 meses".  |
+| **TA16.02** | O sistema gera um relatório dos funcionários ativos dentro do intervalo selecionado. |
+| **TA16.03** | Se o gerente não informar o intervalo, o sistema automaticamente gera um relatório com todos os funcionários ativos do sistema.  |
 
 ### User Story US15 - Gerar Relatórios de Produtos Abaixo da Quantidade Mínima
 |               |                                                                |
@@ -591,7 +591,7 @@ Este documento descreve os User Stories criados a partir da Lista de Requisitos 
 | **Requisitos envolvidos** |                                                    |
 | ------------- | :------------------------------------------------------------- | 
 |RF03           | Consultar Produto |
-|RF10           | RF10 - Realizar Vendas	 |
+|RF10           | Realizar Vendas	 |
 
 
 |                           |                                     |
