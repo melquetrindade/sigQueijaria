@@ -52,6 +52,7 @@ class Funcionario(Pessoa):
     
 class Estado(models.Model):
     owner = models.OneToOneField(Pessoa, on_delete=models.CASCADE)
+    typeOwner = models.CharField(max_length=55)
     nome = models.CharField(max_length=105)
 
     def __str__(self):

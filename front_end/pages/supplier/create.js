@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useRouter } from "next/router";
 
 export default function AddSupplier() {
     const [supplier, setSupplier] = useState({
@@ -8,6 +9,7 @@ export default function AddSupplier() {
         numTelefone: "",
         dataNascimento:"",
     });
+    const router = useRouter()
 
     const handleChange = (e) => {
         const { name, value } = e.target;
@@ -29,18 +31,25 @@ export default function AddSupplier() {
                     body: JSON.stringify(supplier),
                 }
             );
-
-            const data = await response.json(); // transforma a resposta em JSON
-            console.log(data);
-
-            setSupplier({
-                cnpj: "",
-                nome: "",
-                email: "",
-                numTelefone: "",
-                dataNascimento:"",
-    
-            });
+            if(response.status == 200 || response.status == 201){
+                const data = await response.json(); // transforma a resposta em JSON
+                console.log(data);
+                router.push({
+                    pathname: '../address/create',
+                    query: {idOwner: data.id, typeOwner: "fornecedores"}
+                })
+                setSupplier({
+                    cnpj: "",
+                    nome: "",
+                    email: "",
+                    numTelefone: "",
+                    dataNascimento:"",
+        
+                });
+            } else {
+                console.log(response)
+            }
+            
         } catch (error) {
             console.error("Erro ao inserir fornecedor!", error);
         }

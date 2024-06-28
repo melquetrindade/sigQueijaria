@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useRouter } from "next/router";
 
 export default function AddEmployee() {
     const [employee, setEmployee] = useState({
@@ -11,7 +12,7 @@ export default function AddEmployee() {
         numTelefone: "",
         dataNascimento: "",
     });
-
+    const router = useRouter()
     const handleChange = (e) => {
         const { name, value } = e.target;
         setEmployee({ ...employee, [name]: value });
@@ -32,20 +33,26 @@ export default function AddEmployee() {
                     body: JSON.stringify(employee),
                 }
             );
-
-            const data = await response.json(); // transforma a resposta em JSON
-            console.log(data);
-
-            setEmployee({
-                cpf: "",
-                cargo: "",
-                salario: "",
-                cargaHoraria: "",
-                nome: "",
-                email: "",
-                numTelefone: "",
-                dataNascimento: "",
-            });
+            if(response.status == 200 || response.status == 201){
+                const data = await response.json(); // transforma a resposta em JSON
+                console.log(data);
+                router.push({
+                    pathname: '../address/create',
+                    query: {idOwner: data.id, typeOwner: "funcionarios"}
+                })
+                setEmployee({
+                    cpf: "",
+                    cargo: "",
+                    salario: "",
+                    cargaHoraria: "",
+                    nome: "",
+                    email: "",
+                    numTelefone: "",
+                    dataNascimento: "",
+                });
+            } else{
+                console.log(response)
+            }
         } catch (error) {
             console.error("Erro ao inserir employee!", error);
         }
@@ -78,6 +85,7 @@ export default function AddEmployee() {
                         <label className="font-semibold">Cargo: </label>
                         <input
                             className="border-0 border-b-2 shadow-sm shadow-slate-400"
+                            placeholder="Ex: Balconista"
                             type="text"
                             name="cargo"
                             value={employee.cargo}

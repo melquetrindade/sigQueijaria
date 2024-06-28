@@ -31,12 +31,12 @@ class ClienteSerializer(serializers.ModelSerializer):
 class FornecedorSerializer(serializers.ModelSerializer):
     class Meta:
         model = Fornecedor
-        fields = ['id', 'cnpj', 'nome', 'email', 'numTelefone', 'status', 'dataNascimento']
+        fields = ['id', 'cnpj', 'nome', 'email', 'numTelefone', 'status', 'dataNascimento', 'dataDoDesativo']
 
 class FuncionarioSerializer(serializers.ModelSerializer):
     class Meta:
         model = Funcionario
-        fields = ['id', 'cpf', 'cargo', 'salario', 'cargaHoraria', 'nome', 'email', 'numTelefone', 'status', 'dataNascimento']
+        fields = ['id', 'cpf', 'cargo', 'salario', 'cargaHoraria', 'nome', 'email', 'numTelefone', 'status', 'dataNascimento', 'dataDoDesativo']
 
 class VendaSerializer(serializers.ModelSerializer):
     class Meta:
@@ -112,7 +112,7 @@ class MetodoPagamentoSerializer(serializers.ModelSerializer):
 class EstadoSerializer(serializers.ModelSerializer):
     class Meta:
         model = Estado
-        fields = ['id', 'owner', 'nome']
+        fields = ['id', 'owner', 'nome', 'typeOwner']
 
 class CidadeSerializer(serializers.ModelSerializer):
     class Meta:

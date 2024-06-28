@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useRouter } from "next/router";
 
 export default function AddClient() {
     const [cliente, setCliente] = useState({
@@ -9,6 +10,7 @@ export default function AddClient() {
         numTelefone: "",
         dataNascimento: "",
     });
+    const router = useRouter()
 
     const handleChange = (e) => {
         const { name, value } = e.target;
@@ -27,18 +29,25 @@ export default function AddClient() {
                 },
                 body: JSON.stringify(cliente),
             });
-
-            const data = await response.json(); // transforma a resposta em JSON
-            console.log(data);
-
-            setCliente({
-                cpf: "",
-                rg: "",
-                nome: "",
-                email: "",
-                numTelefone: "",
-                dataNascimento: "",
-            });
+            if(response.status == 200 || response.status == 201){
+                const data = await response.json(); // transforma a resposta em JSON
+                console.log(data);
+                router.push({
+                    pathname: '../address/create',
+                    query: {idOwner: data.id, typeOwner: "clientes"}
+                })
+                setCliente({
+                    cpf: "",
+                    rg: "",
+                    nome: "",
+                    email: "",
+                    numTelefone: "",
+                    dataNascimento: "",
+                });
+            } else{
+                console.log(response)
+            }
+            
         } catch (error) {
             console.error("Erro ao inserir cliente!", error);
         }
