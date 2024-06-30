@@ -59,7 +59,7 @@ export default function SideBar() {
                             <AiOutlineHome className="size-7" /> Página Inicial
                         </li>
                     </Link>
-                    <Link href={"/client/nav"}>
+                    <Link href={"/Client/nav"}>
                         <li className="flex gap-2 cursor-pointer">
                             <BsPerson className="size-7" /> Clientes
                         </li>
