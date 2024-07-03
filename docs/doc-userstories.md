@@ -637,3 +637,31 @@ Este documento descreve os User Stories criados a partir da Lista de Requisitos 
 | **TA19.01** | O gerente informa ao sistema o intervalo de tempo na qual quer que seja o recorte dos fornecedores ativos, exemplo: "Nos últimos 3 meses".  |
 | **TA19.02** | O sistema gera um relatório dos fornecedores ativos dentro do intervalo selecionado. |
 | **TA19.03** | Se o gerente não informar o intervalo, o sistema automaticamente gera um relatório com todos os fornecedores ativos do sistema.  |
+
+### User Story US17 - Relatório de Vendas do Mês
+|               |                                                                |
+| ------------- | :------------------------------------------------------------- |
+| **Descrição** | O sistema deve ser capaz de gerar relatórios nos setores de vendas |
+=======
+| **TA15.01** | O gerente informa ao sistema que deseja visualizar o relatório dos produtos disponíveis naquela data em questão.  |
+| **TA15.02** | O sistema gera um relatório dos produtos disponíveis na data indicada, listando nome do produto e quantidade disponível. |
+
+### User Story US18 - Relatório de Lucros Mensais
+|               |                                                                |
+| ------------- | :------------------------------------------------------------- |
+| **Descrição** | O sistema deve ser capaz de gerar relatórios no setor financeiro baseado no lucro da empresa daquele mês |
+
+| **Requisitos envolvidos** |                                                    |
+| ------------- | :------------------------------------------------------------- | 
+|RF13           | Gerar Conta |
+|RF14           | Pagar Conta |
+
+### User Story US19 - Relatório de Despesas Mensais
+|               |                                                                |
+| ------------- | :------------------------------------------------------------- |
+| **Descrição** | O sistema deve ser capaz de gerar relatórios no setor financeiro baseado nas despesas do mês |
+
+| **Requisitos envolvidos** |                                                    |
+| ------------- | :------------------------------------------------------------- | 
+|RF13           | Gerar Conta |
+|RF14           | Pagar Conta |
