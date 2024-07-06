@@ -1,4 +1,4 @@
-## 🚀 Como rodar o projeto
+## 🚀 Como rodar o projeto no Windows
 
 ## 1° Passo: Clonar o repositório
 Crie uma pasta e dentro dela execute: ```git clone https://github.com/melquetrindade/sigQueijaria.git```

@@ -33,4 +33,5 @@ Este projeto é licenciado sob a licença [MIT](LICENSE).
 
 ## Tutorial
 
-- [Link do tutorial para executar o projeto sigQueijaria](docs/doc-tutorial.md)
+- [Link do tutorial para executar o projeto sigQueijaria no Windows](docs/doc-tutorial-windows.md)
+- [Link do tutorial para executar o projeto sigQueijaria no Linux](docs/doc-tutorial-linux.md)
