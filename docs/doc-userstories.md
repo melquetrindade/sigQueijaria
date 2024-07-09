@@ -527,7 +527,7 @@ Este documento descreve os User Stories criados a partir da Lista de Requisitos 
 | **TA15.01** | O gerente informa ao sistema que deseja visualizar o relatório dos produtos disponíveis naquela data em questão.  |
 | **TA15.02** | O sistema gera um relatório dos produtos disponíveis na data indicada, listando nome do produto e quantidade disponível. |
 
-### User Story US14 - Gerar Relatórios de Funcionários Ativos
+### User Story US16 - Gerar Relatórios de Funcionários Ativos
 |               |                                                                |
 | ------------- | :------------------------------------------------------------- |
 | **Descrição** | Fazer a geração de relatórios sobre a quantidade funcionários ativos no sistema que possam ser visualizados em determinados intervalos de tempo. |
@@ -554,7 +554,7 @@ Este documento descreve os User Stories criados a partir da Lista de Requisitos 
 | **TA16.02** | O sistema gera um relatório dos funcionários ativos dentro do intervalo selecionado. |
 | **TA16.03** | Se o gerente não informar o intervalo, o sistema automaticamente gera um relatório com todos os funcionários ativos do sistema.  |
 
-### User Story US15 - Gerar Relatórios de Produtos Abaixo da Quantidade Mínima
+### User Story US17 - Gerar Relatórios de Produtos Abaixo da Quantidade Mínima
 |               |                                                                |
 | ------------- | :------------------------------------------------------------- |
 | **Descrição** | Fazer a geração de relatórios sobre os produtos que estão abaixo da quantidade mínima, para assim haver reposições ao estoque e não haver falta no sistema. |
@@ -583,7 +583,7 @@ Este documento descreve os User Stories criados a partir da Lista de Requisitos 
 | **TA17.01** | O gerente informa ao sistema o número mínimo de cada produto no sistema.  |
 | **TA17.02** | O sistema gera automaticamente um relatório dos produtos que estiverem abaixo do número mínimo. |
 
-### User Story US15 - Gerar Relatórios de Produtos Mais Vendidos no Mês
+### User Story US18 - Gerar Relatórios de Produtos Mais Vendidos no Mês
 |               |                                                                |
 | ------------- | :------------------------------------------------------------- |
 | **Descrição** | Fazer a geração de relatórios sobre os produtos que mais foram vendidos em cada mês. |
@@ -611,7 +611,7 @@ Este documento descreve os User Stories criados a partir da Lista de Requisitos 
 | **TA18.01** | O gerente informa ao sistema o mês que ele deseja saber quais produtos foram mais vendidos. |
 | **TA18.02** | Quando solicitado pelo gerente, o sistema gera um relatório dos produtos que mais foram vendidos no mês escolhido. |
 
-### User Story US16 - Gerar Relatórios de Fornecedores Ativos
+### User Story US19 - Gerar Relatórios de Fornecedores Ativos
 |               |                                                                |
 | ------------- | :------------------------------------------------------------- |
 | **Descrição** | Fazer a geração de relatórios sobre a quantidade de fornecedores ativos no sistema que possam ser visualizados em determinados intervalos de tempo. |
@@ -638,7 +638,7 @@ Este documento descreve os User Stories criados a partir da Lista de Requisitos 
 | **TA19.02** | O sistema gera um relatório dos fornecedores ativos dentro do intervalo selecionado. |
 | **TA19.03** | Se o gerente não informar o intervalo, o sistema automaticamente gera um relatório com todos os fornecedores ativos do sistema.  |
 
-### User Story US14 - Relatório de Lucros Mensais
+### User Story US20 - Relatório de Lucros Mensais
 |               |                                                                |
 | ------------- | :------------------------------------------------------------- |
 | **Descrição** | O sistema deve ser capaz de gerar relatórios no setor financeiro baseado no lucro da empresa daquele mês |
@@ -676,7 +676,7 @@ Este documento descreve os User Stories criados a partir da Lista de Requisitos 
 | **TA14.12** | Se o gerente não especificar o mês desejado, o sistema gera automaticamente um relatório do mês corrente.  |
 
 
-### User Story US15 - Relatório de Despesas Mensais
+### User Story US21 - Relatório de Despesas Mensais
 |               |                                                                |
 | ------------- | :------------------------------------------------------------- |
 | **Descrição** | O sistema deve ser capaz de gerar relatórios no setor financeiro baseado nas despesas do mês |
@@ -706,7 +706,7 @@ Este documento descreve os User Stories criados a partir da Lista de Requisitos 
 | **TA15.04** | O sistema registra a conta como paga e atualiza o relatório de despesas do mês corrente. |
 | **TA15.05** | Se o gerente não especificar o mês desejado, o sistema gera automaticamente um relatório do mês corrente. |
 
-### User Story US16 - Relatório de Vendas do Mês
+### User Story US22 - Relatório de Vendas do Mês
 |               |                                                                |
 | ------------- | :------------------------------------------------------------- |
 | **Descrição** | O sistema deve ser capaz de gerar relatórios nos setores de vendas |
