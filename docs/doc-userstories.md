@@ -527,7 +527,7 @@ Este documento descreve os User Stories criados a partir da Lista de Requisitos 
 | **TA15.01** | O gerente informa ao sistema que deseja visualizar o relatório dos produtos disponíveis naquela data em questão.  |
 | **TA15.02** | O sistema gera um relatório dos produtos disponíveis na data indicada, listando nome do produto e quantidade disponível. |
 
-### User Story US14 - Gerar Relatórios de Funcionários Ativos
+### User Story US16 - Gerar Relatórios de Funcionários Ativos
 |               |                                                                |
 | ------------- | :------------------------------------------------------------- |
 | **Descrição** | Fazer a geração de relatórios sobre a quantidade funcionários ativos no sistema que possam ser visualizados em determinados intervalos de tempo. |
@@ -554,7 +554,7 @@ Este documento descreve os User Stories criados a partir da Lista de Requisitos 
 | **TA16.02** | O sistema gera um relatório dos funcionários ativos dentro do intervalo selecionado. |
 | **TA16.03** | Se o gerente não informar o intervalo, o sistema automaticamente gera um relatório com todos os funcionários ativos do sistema.  |
 
-### User Story US15 - Gerar Relatórios de Produtos Abaixo da Quantidade Mínima
+### User Story US17 - Gerar Relatórios de Produtos Abaixo da Quantidade Mínima
 |               |                                                                |
 | ------------- | :------------------------------------------------------------- |
 | **Descrição** | Fazer a geração de relatórios sobre os produtos que estão abaixo da quantidade mínima, para assim haver reposições ao estoque e não haver falta no sistema. |
@@ -583,7 +583,7 @@ Este documento descreve os User Stories criados a partir da Lista de Requisitos 
 | **TA17.01** | O gerente informa ao sistema o número mínimo de cada produto no sistema.  |
 | **TA17.02** | O sistema gera automaticamente um relatório dos produtos que estiverem abaixo do número mínimo. |
 
-### User Story US15 - Gerar Relatórios de Produtos Mais Vendidos no Mês
+### User Story US18 - Gerar Relatórios de Produtos Mais Vendidos no Mês
 |               |                                                                |
 | ------------- | :------------------------------------------------------------- |
 | **Descrição** | Fazer a geração de relatórios sobre os produtos que mais foram vendidos em cada mês. |
@@ -611,7 +611,7 @@ Este documento descreve os User Stories criados a partir da Lista de Requisitos 
 | **TA18.01** | O gerente informa ao sistema o mês que ele deseja saber quais produtos foram mais vendidos. |
 | **TA18.02** | Quando solicitado pelo gerente, o sistema gera um relatório dos produtos que mais foram vendidos no mês escolhido. |
 
-### User Story US16 - Gerar Relatórios de Fornecedores Ativos
+### User Story US19 - Gerar Relatórios de Fornecedores Ativos
 |               |                                                                |
 | ------------- | :------------------------------------------------------------- |
 | **Descrição** | Fazer a geração de relatórios sobre a quantidade de fornecedores ativos no sistema que possam ser visualizados em determinados intervalos de tempo. |
@@ -637,3 +637,103 @@ Este documento descreve os User Stories criados a partir da Lista de Requisitos 
 | **TA19.01** | O gerente informa ao sistema o intervalo de tempo na qual quer que seja o recorte dos fornecedores ativos, exemplo: "Nos últimos 3 meses".  |
 | **TA19.02** | O sistema gera um relatório dos fornecedores ativos dentro do intervalo selecionado. |
 | **TA19.03** | Se o gerente não informar o intervalo, o sistema automaticamente gera um relatório com todos os fornecedores ativos do sistema.  |
+
+### User Story US20 - Relatório de Lucros Mensais
+|               |                                                                |
+| ------------- | :------------------------------------------------------------- |
+| **Descrição** | O sistema deve ser capaz de gerar relatórios no setor financeiro baseado no lucro da empresa daquele mês |
+
+| **Requisitos envolvidos** |                                                    |
+| ------------- | :------------------------------------------------------------- | 
+|RF13           | Gerar Conta |
+|RF14           | Pagar Conta |
+
+|                           |                                     |
+| ------------------------- | ----------------------------------- | 
+| **Prioridade** | Desejável |
+| **Estimativa** | 3h | 
+| **Tempo Gasto (real):**   |          | 
+| **Tamanho Funcional** | 5 PF (pontos de função) |
+| **Analista**| Erick (responsável por especificar/detalhar). |
+| **Desenvolvedor** | Isa e Melque (responsáveis por implementar e realizar testes de unidade e testes de integração). |
+| **Revisor** | Manuelly (responsável por avaliar a implementação e executar os testes de unidade e testes de integração). |
+| **Testador** | Felipe (responsável por executar os Testes de Aceitação e fazer o relatório de testes). |
+
+| Testes de Aceitação (TA) |  |
+| ----------- | --------- |
+| **Código**      | **Descrição** |
+| **TA14.01** | O gerente seleciona no sistema a opção de relatório “Lucros Mensais” | 
+| **TA14.02** | O sistema elabora um relatório detalhado dos lucros obtidos com as vendas realizadas no mês corrente. |
+| **TA14.03** | O gerente seleciona no sistema a opção de relatório “Despesas Mensais”. |
+| **TA14.04** | O sistema compila um relatório contendo todas as despesas a serem pagas referentes ao mês corrente. |
+| **TA14.05** | O gerente seleciona no sistema a opção de relatório “Relatório de Vendas”. |
+| **TA14.06** | O gerente especifica ao sistema o mês desejado para a geração do relatório.  |
+| **TA14.07** | O sistema elabora um relatório das vendas realizadas no mês especificado. |
+| **TA14.08** | O gerente seleciona no sistema a opção de relatório “Estoque Disponível”. |
+| **TA14.09** | O sistema elabora um relatório detalhado de todos os produtos disponíveis para venda no estoque. |
+| **TA14.10** | O gerente seleciona no sistema a opção de relatório “Produtos em Quantidade Crítica”. |
+| **TA14.11** | O sistema gera um relatório dos produtos no estoque que estão abaixo da quantidade mínima definida no cadastro. |
+| **TA14.12** | Se o gerente não especificar o mês desejado, o sistema gera automaticamente um relatório do mês corrente.  |
+
+
+### User Story US21 - Relatório de Despesas Mensais
+|               |                                                                |
+| ------------- | :------------------------------------------------------------- |
+| **Descrição** | O sistema deve ser capaz de gerar relatórios no setor financeiro baseado nas despesas do mês |
+
+| **Requisitos envolvidos** |                                                    |
+| ------------- | :------------------------------------------------------------- | 
+|RF13           | Gerar Conta |
+|RF14           | Pagar Conta |
+
+|                           |                                     |
+| ------------------------- | ----------------------------------- | 
+| **Prioridade** | Desejável |
+| **Estimativa** | 3h | 
+| **Tempo Gasto (real):**   |          | 
+| **Tamanho Funcional** | 5 PF (pontos de função) |
+| **Analista**| Erick (responsável por especificar/detalhar). |
+| **Desenvolvedor** | Isa e Melque (responsáveis por implementar e realizar testes de unidade e testes de integração). |
+| **Revisor** | Manuelly (responsável por avaliar a implementação e executar os testes de unidade e testes de integração). |
+| **Testador** | Felipe (responsável por executar os Testes de Aceitação e fazer o relatório de testes). |
+
+| Testes de Aceitação (TA) |  |
+| ----------- | --------- |
+| **Código**      | **Descrição** |
+| **TA15.01** | O gerente seleciona no sistema a opção de relatório “Despesas Mensais” | 
+| **TA15.02** | O sistema elabora um relatório detalhado das despesas a pagar no mês corrente. |
+| **TA15.03** | O gerente seleciona no sistema a opção “Pagar Conta”. |
+| **TA15.04** | O sistema registra a conta como paga e atualiza o relatório de despesas do mês corrente. |
+| **TA15.05** | Se o gerente não especificar o mês desejado, o sistema gera automaticamente um relatório do mês corrente. |
+
+### User Story US22 - Relatório de Vendas do Mês
+|               |                                                                |
+| ------------- | :------------------------------------------------------------- |
+| **Descrição** | O sistema deve ser capaz de gerar relatórios nos setores de vendas |
+
+| **Requisitos envolvidos** |                                                    |
+| ------------- | :------------------------------------------------------------- | 
+|RF03           | Consultar Produto |
+|RF07           | Consultar Cliente |
+|RF19           | Consultar Funcionário |
+|RF14           | Pagar Conta |
+|RF15           | Receber Conta |
+|RF10           | Realizar Vendas |
+
+|                           |                                     |
+| ------------------------- | ----------------------------------- | 
+| **Prioridade** | Desejável |
+| **Estimativa** | 3h | 
+| **Tempo Gasto (real):**   |          | 
+| **Tamanho Funcional** | 5 PF (pontos de função) |
+| **Analista**| Erick (responsável por especificar/detalhar). |
+| **Desenvolvedor** | Isa e Melque (responsáveis por implementar e realizar testes de unidade e testes de integração). |
+| **Revisor** | Manuelly (responsável por avaliar a implementação e executar os testes de unidade e testes de integração). |
+| **Testador** | Felipe (responsável por executar os Testes de Aceitação e fazer o relatório de testes). |
+
+| Testes de Aceitação (TA) |  |
+| ----------- | --------- |
+| **Código**      | **Descrição** |
+| **TA16.01** | O gerente seleciona no sistema a opção de relatório "Vendas do mês" | 
+| **TA16.02** | O sistema elabora um relatório detalhado das vendas no mês corrente. |
+| **TA16.03** | Se o gerente não especificar o mês desejado, o sistema gera automaticamente um relatório do mês corrente. |
