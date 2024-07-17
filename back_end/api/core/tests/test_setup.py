@@ -1,5 +1,10 @@
 from rest_framework.test import APITestCase
 from django.urls import reverse
+import os
+from dotenv import load_dotenv
+
+# Carrega variáveis de ambiente do arquivo .env
+load_dotenv()
 
 class TestSetUp(APITestCase):
 
@@ -10,13 +15,11 @@ class TestSetUp(APITestCase):
         self.user_data={
             "email": "maria@gmail.com",
             "username": "Maria",
-            "password": "12345678",
-            "password2": "12345678"
+            "password": os.getenv('PASSWORD'),
+            "password2": os.getenv('PASSWORD2')
         }
 
         return super().setUp()
     
     def tearDown(self):
         return super().tearDown()
-
-    
