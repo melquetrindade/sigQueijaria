@@ -664,16 +664,8 @@ Este documento descreve os User Stories criados a partir da Lista de Requisitos 
 | **Código**      | **Descrição** |
 | **TA14.01** | O gerente seleciona no sistema a opção de relatório “Lucros Mensais” | 
 | **TA14.02** | O sistema elabora um relatório detalhado dos lucros obtidos com as vendas realizadas no mês corrente. |
-| **TA14.03** | O gerente seleciona no sistema a opção de relatório “Despesas Mensais”. |
-| **TA14.04** | O sistema compila um relatório contendo todas as despesas a serem pagas referentes ao mês corrente. |
-| **TA14.05** | O gerente seleciona no sistema a opção de relatório “Relatório de Vendas”. |
-| **TA14.06** | O gerente especifica ao sistema o mês desejado para a geração do relatório.  |
-| **TA14.07** | O sistema elabora um relatório das vendas realizadas no mês especificado. |
-| **TA14.08** | O gerente seleciona no sistema a opção de relatório “Estoque Disponível”. |
-| **TA14.09** | O sistema elabora um relatório detalhado de todos os produtos disponíveis para venda no estoque. |
-| **TA14.10** | O gerente seleciona no sistema a opção de relatório “Produtos em Quantidade Crítica”. |
-| **TA14.11** | O sistema gera um relatório dos produtos no estoque que estão abaixo da quantidade mínima definida no cadastro. |
-| **TA14.12** | Se o gerente não especificar o mês desejado, o sistema gera automaticamente um relatório do mês corrente.  |
+| **TA15.03** | O gerente seleciona no sistema a opção “Receber Conta”. |
+| **TA15.04** | O sistema registra a conta como recebida e atualiza o relatório de lucros do mês corrente. |
 
 
 ### User Story US21 - Relatório de Despesas Mensais
