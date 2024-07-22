@@ -5,7 +5,7 @@ from core.views import CreateUserView
 from core.views import  ClienteViewSet, FornecedorViewSet, FuncionarioViewSet, Caixa_DiaCaixaViewSet, PagamentoViewSet,  NotaFiscalViewSet,  ContaViewSet, CaixaViewSet, DiaCaixaViewSet, VendaViewSet, VendaProdutoViewSet, VendaMetodoPagamentoViewSet, EntradaMercadoriaMetodoPagamentoViewSet, ProdutoViewSet, EntradaMercadoriaViewSet, EntradaMercadoria_ProdutoViewSet, MetodoPagamentoViewSet, EstadoViewSet, CidadeViewSet, BairroViewSet, EnderecoViewSet
 
 router = routers.DefaultRouter()
-router.register(r'clientes', ClienteViewSet)
+router.register(r'clientes', ClienteViewSet, basename="clientes")
 router.register(r'fornecedores', FornecedorViewSet)
 router.register(r'funcionarios', FuncionarioViewSet)
 router.register(r'vendas', VendaViewSet)
