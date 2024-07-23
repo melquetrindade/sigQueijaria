@@ -159,3 +159,62 @@ class TestViews(TestSetUp):
         response = self.client.get(f"{self.cliente_url}{invalid_id}/")
         self.assertEqual(response.status_code, 404)
 
+    # by: Felipe (post)
+    def teste_adicionar_mercadoria_com_dados_validos(self):
+        valid_merchandise_data = {
+            "ownerFornecedor": 9,
+            "quantidade": 300,
+            "data": "22/07/2024",
+            "valor": 600.0,
+        }
+
+        res = self.client.post(self.entradasMercadorias_url, valid_merchandise_data)
+        self.assertEqual(res.status_code, 201)
+
+    # by: Felipe (post)
+    def teste_adicionar_mercadoria_com_dados_incompletos(self):
+        incomplete_merchandise_data = {
+            "ownerFornecedor": 1,
+            "quantidade": 300,
+            "data": "",
+            "valor": 0,
+        }
+
+        res = self.client.post(self.entradasMercadorias_url, incomplete_merchandise_data)
+        self.assertEqual(res.status_code, 400)
+
+    # by: Felipe (post)
+    def teste_cadastrar_produtos_com_dados_validos(self):
+        valid_product_data = {
+            "codigoBarras": "1231241231243",
+            "tipo": "Azul",
+            "nome": "Queijo Gorgonzola",
+            "dataValidade": "27/08/2024",
+            "qtdMinima": 15,
+            "quantidade": 300,
+            "valor": 5,
+            "ownerFornecedor": 9,
+            "data": "22/07/2024",
+            "valor": 600,
+        }
+
+        res = self.client.post(self.produtos_url, valid_product_data)
+        self.assertEqual(res.status_code, 201)
+
+    # by: Felipe (post)
+    def teste_cadastrar_produtos_com_dados_incompletos(self):
+        incomplete_product_data = {
+            "codigoBarras": "",
+            "tipo": "Azul",
+            "nome": "Queijo Gorgonzola",
+            "dataValidade": "27/08/2024",
+            "qtdMinima": 15,
+            "quantidade": 300,
+            "valor": 5,
+            "ownerFornecedor": "",
+            "data": "22/07/2024",
+            "valor": 600,
+        }
+
+        res = self.client.post(self.produtos_url, incomplete_product_data)
+        self.assertEqual(res.status_code, 400)
