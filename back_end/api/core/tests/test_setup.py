@@ -12,6 +12,8 @@ class TestSetUp(APITestCase):
         self.register_url = reverse("register")
         self.login_url = reverse("token_obtain_pair")
         self.cliente_url = reverse("clientes-list")
+        self.entradasMercadorias_url = reverse("entradasMercadorias-list")
+        self.produtos_url = reverse("produtos-list")
 
         self.user_data={
             "email": "maria@gmail.com",
@@ -27,6 +29,26 @@ class TestSetUp(APITestCase):
             "email": "maria@gmail.com",
             "numTelefone": "84998114363",
             "dataNascimento": "12/06/2002"
+        }
+
+        self.merchandise_data={
+            "ownerFornecedor": 9,
+            "quantidade": 300,
+            "data": "22/07/2024",
+            "valor": 600,
+        }
+
+        self.product_data={
+            "codigoBarras": "1231241232278",
+            "tipo": "Branco",
+            "nome": "Queijo de Ricota",
+            "dataValidade": "27/08/2024",
+            "qtdMinima": 15,
+            "quantidade": 200,
+            "valor": 7,
+            "ownerFornecedor": 9,
+            "data": "22/07/2024",
+            "valor": 250,
         }
 
         return super().setUp()
