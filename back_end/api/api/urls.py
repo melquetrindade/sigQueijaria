@@ -6,7 +6,7 @@ from core.views import  ClienteViewSet, FornecedorViewSet, FuncionarioViewSet, C
 
 router = routers.DefaultRouter()
 router.register(r'clientes', ClienteViewSet, basename="clientes")
-router.register(r'fornecedores', FornecedorViewSet)
+router.register(r'fornecedores', FornecedorViewSet, basename="fornecedores")
 router.register(r'funcionarios', FuncionarioViewSet, basename="funcionarios")
 router.register(r'vendas', VendaViewSet)
 router.register(r'vendasProdutos', VendaProdutoViewSet)
