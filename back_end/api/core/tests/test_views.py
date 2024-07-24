@@ -302,3 +302,79 @@ class TestViews(TestSetUp):
 
         response_get = self.client.get(f"{self.funcionario_url}{id}/")
         self.assertEqual(response_get.status_code, 200)
+
+    
+    # by: Thamiris (patch/update)
+    def teste_update_de_dados_do_fornecedor_valido(self):
+        resp = self.client.post(self.fornecedor_url, self.supplier_data)
+
+        response = resp.json()
+        id = response['id']
+        data_update = {
+            "nome": "José",
+        }
+
+        resp = self.client.patch(f"{self.fornecedor_url}{id}/", data_update)
+        self.assertEqual(resp.status_code, 200)
+
+    # by: Thamiris (delete)
+    def teste_deletar_fornecedor_com_id_valido(self):
+        resp = self.client.post(self.fornecedor_url, self.supplier_data)
+
+        response = resp.json()
+        id = response['id']
+
+        resp = self.client.delete(f"{self.fornecedor_url}{id}/")
+        self.assertEqual(resp.status_code, 204)
+
+    # by: Thamiris (post)
+    def teste_criar_fornecedor_com_dados_validos(self):
+        valid_supplier_data = {
+            "cnpj": "12345678999999",
+            "nome": "Jorge",
+            "email": "jorge@gmail.com",
+            "numTelefone": "84998114443",
+            "dataNascimento": "12/07/1999"
+        }
+
+        res = self.client.post(self.fornecedor_url, valid_supplier_data)
+        self.assertEqual(res.status_code, 201)
+
+    # by: Thamiris (post)
+    def teste_criar_fornecedor_com_dados_incompletos(self):
+        incomplete_supplier_data = {
+            "cnpj": "12345678998888",
+            "nome": "Pedro",
+            "email": "",
+            "numTelefone": "84998214443",
+            "dataNascimento": "22/10/1999"
+        }
+
+        res = self.client.post(self.fornecedor_url, incomplete_supplier_data)
+        self.assertEqual(res.status_code, 400)
+
+    # by: Thamiris (post)
+    def teste_obter_todos_os_fornecedor(self):
+        res = self.client.post(self.fornecedor_url, self.supplier_data)
+
+        response = self.client.get(self.fornecedor_url)
+        self.assertEqual(response.status_code, 200)
+
+    # by: Thamiris (get) - fiz pelo id inválido, pois Melque já havia implementado pelo válido antes
+    def teste_obter_fornecedor_com_id_invalido(self):
+        invalid_id = 9899
+
+        response = self.client.get(f"{self.fornecedor_url}{invalid_id}/")
+        self.assertEqual(response.status_code, 404)
+
+    # by: Thamiris (get)
+    def teste_get_fornecedor_por_id(self):
+        res = self.client.post(self.fornecedor_url, self.supplier_data)
+
+        response = res.json()
+        id = response['id']
+
+        response_get = self.client.get(f"{self.fornecedor_url}{id}/")
+        self.assertEqual(response_get.status_code, 200)
+
+
