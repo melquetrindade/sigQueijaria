@@ -302,3 +302,103 @@ class TestViews(TestSetUp):
 
         response_get = self.client.get(f"{self.funcionario_url}{id}/")
         self.assertEqual(response_get.status_code, 200)
+
+def teste_cadastrar_produtos_com_dados_invalidos(self):
+        invalid_product_data = {
+            "codigoBarras": "1231241231243",
+            "tipo": "Azul",
+            "nome": "Queijo Gorgonzola",
+            "dataValidade": "27/08/2024",
+            "qtdMinima": 15,
+            "quantidade": 300,
+            "valor": '',
+            "ownerFornecedor": 9,
+            "data": "22/07/2024",
+            "valor": 600,
+        }
+
+        res = self.client.post(self.produtos_url, invalid_product_data)
+        self.assertEqual(res.status_code, 400)
+
+def teste_get_produto_por_id(self):
+        product_data1 = {
+            "codigoBarras": "1231241231243",
+            "tipo": "Azul",
+            "nome": "Queijo Gorgonzola",
+            "dataValidade": "27/08/2024",
+            "qtdMinima": 15,
+            "quantidade": 300,
+            "valor": 9,
+            "ownerFornecedor": 9,
+            "data": "22/07/2024",
+            "valor": 600,
+        }
+
+        product_data2 = {
+            "codigoBarras": "123124123124",
+            "tipo": "Azul",
+            "nome": "Queijo Parmesao",
+            "dataValidade": "28/08/2024",
+            "qtdMinima": 15,
+            "quantidade": 30,
+            "valor": 100,
+            "ownerFornecedor": 9,
+            "data": "22/07/2024",
+            "valor": 20,
+        }
+        self.client.post(self.produtos_url, product_data1)
+        res = self.client.post(self.produtos_url, product_data2)
+        
+        resposta = res.json()
+        id = resposta['id']
+
+        responseGet = self.client.get(f"{self.produtos_url}{id}/")
+        # print(responseGet.data)
+        # import pdb
+        # pdb.set_trace()
+        self.assertEqual(responseGet.status_code, 400)
+
+def teste_update_de_dados_do_produto_invalido(self):
+        product_data2 = {
+            "codigoBarras": "123124123124",
+            "tipo": "Azul",
+            "nome": "Queijo Parmesao",
+            "dataValidade": "28/08/2024",
+            "qtdMinima": 15,
+            "quantidade": 30,
+            "valor": 100,
+            "ownerFornecedor": 9,
+            "data": "22/07/2024",
+            "valor": 20,
+        }
+        resp = self.client.post(self.produtos_url, product_data2)
+
+        response = resp.json()
+        id = response['id']
+        data_update = {
+            "valor": 50,
+        }
+
+        resp = self.client.patch(f"{self.produtos_url}{id}/", data_update)
+        self.assertEqual(resp.status_code, 400)
+
+def teste_nao_pode_deletar_produto_com_id_invalido(self):
+    product_data2 = {
+            "codigoBarras": "123124123124",
+            "tipo": "Azul",
+            "nome": "Queijo Parmesao",
+            "dataValidade": "28/08/2024",
+            "qtdMinima": 15,
+            "quantidade": 30,
+            "valor": 100,
+            "ownerFornecedor": 9,
+            "data": "22/07/2024",
+            "valor": 20,
+        }
+    resp = self.client.post(self.produtos_url, product_data2)
+
+    response = resp.json()
+    id = response['id']
+
+    resp = self.client.delete(f"{self.product_url}{id+1}/")
+    self.assertEqual(resp.status_code, 404)
