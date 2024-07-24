@@ -303,6 +303,7 @@ class TestViews(TestSetUp):
         response_get = self.client.get(f"{self.funcionario_url}{id}/")
         self.assertEqual(response_get.status_code, 200)
 
+#By: Erick
 def teste_cadastrar_produtos_com_dados_invalidos(self):
         invalid_product_data = {
             "codigoBarras": "1231241231243",
@@ -320,6 +321,7 @@ def teste_cadastrar_produtos_com_dados_invalidos(self):
         res = self.client.post(self.produtos_url, invalid_product_data)
         self.assertEqual(res.status_code, 400)
 
+#By: Erick
 def teste_get_produto_por_id(self):
         product_data1 = {
             "codigoBarras": "1231241231243",
@@ -357,7 +359,8 @@ def teste_get_produto_por_id(self):
         # import pdb
         # pdb.set_trace()
         self.assertEqual(responseGet.status_code, 400)
-
+        
+#By: Erick
 def teste_update_de_dados_do_produto_invalido(self):
         product_data2 = {
             "codigoBarras": "123124123124",
@@ -382,6 +385,7 @@ def teste_update_de_dados_do_produto_invalido(self):
         resp = self.client.patch(f"{self.produtos_url}{id}/", data_update)
         self.assertEqual(resp.status_code, 400)
 
+#By: Erick
 def teste_nao_pode_deletar_produto_com_id_invalido(self):
     product_data2 = {
             "codigoBarras": "123124123124",
