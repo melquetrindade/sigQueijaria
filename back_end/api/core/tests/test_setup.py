@@ -16,6 +16,8 @@ class TestSetUp(APITestCase):
         self.entradasMercadorias_url = reverse("entradasMercadorias-list")
         self.produtos_url = reverse("produtos-list")
         self.funcionario_url = reverse("funcionarios-list")
+        self.fornecedor_url = reverse("fornecedores-list")
+
 
         self.user_data = {
             "email": "maria@gmail.com",
@@ -63,6 +65,15 @@ class TestSetUp(APITestCase):
             "numTelefone": "84998114363",
             "dataNascimento": "12/06/2000"
         }
+
+        self.supplier_data = {
+            "cnpj": "12345678900000",
+            "nome": "João",
+            "email": "joao@gmail.com",
+            "numTelefone": "84998114363",
+            "dataNascimento": "12/06/2000",
+        }
+
 
         return super().setUp()
 
