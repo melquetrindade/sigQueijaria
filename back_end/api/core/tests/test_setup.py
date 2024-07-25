@@ -17,7 +17,11 @@ class TestSetUp(APITestCase):
         self.produtos_url = reverse("produtos-list")
         self.funcionario_url = reverse("funcionarios-list")
         self.fornecedor_url = reverse("fornecedores-list")
-
+        self.vendas_url = reverse("vendas-list")
+        self.vendasProdutos_url = reverse("vendasProdutos-list")
+        self.vendasMetodosPagamentos_url = reverse("vendasMetodosPagamentos-list")
+        self.notasFiscais_url = reverse("notasFiscais-list")
+        self.metodosPagamentos_url = reverse("metodosPagamentos-list")
 
         self.user_data = {
             "email": "maria@gmail.com",
@@ -33,6 +37,17 @@ class TestSetUp(APITestCase):
             "email": "maria@gmail.com",
             "numTelefone": "84998114363",
             "dataNascimento": "12/06/2002"
+        }
+
+        self.venda_data = {
+            "cliente": "",
+            "data": "10/10/2024",
+            "total": 1.99
+        }
+
+        self.metodosPagamentos_data = {
+            "metodo": "",
+            "valor": 44.25
         }
 
         self.merchandise_data = {
@@ -73,7 +88,6 @@ class TestSetUp(APITestCase):
             "numTelefone": "84998114363",
             "dataNascimento": "12/06/2000",
         }
-
 
         return super().setUp()
 

@@ -1,7 +1,6 @@
 from .test_setup import TestSetUp
 from ..models import CustomUser
 
-
 class TestViews(TestSetUp):
 
     # by: Melque
@@ -97,6 +96,108 @@ class TestViews(TestSetUp):
         resp = self.client.post(self.cliente_url, new_client_data)
         self.assertEqual(resp.status_code, 400)
 
+    # by: Melque
+    def teste_nao_pode_realizar_venda_sem_cliente(self):
+        res = self.client.post(self.vendas_url, self.venda_data)
+
+        self.assertEqual(res.status_code, 400)
+    
+    # by: Melque
+    def teste_nao_pode_realizar_venda_com_produtos_invalidos(self):
+        res0 = self.client.post(self.cliente_url, self.client_data)
+        response = res0.json()
+        id = response['id']
+
+        venda_data = {
+            "cliente": id,
+            "data": "10/10/2024 - 10:34:45",
+            "total": 1.99
+        }
+
+        res1 = self.client.post(self.vendas_url, venda_data)
+        response = res1.json()
+        id = response['id']
+
+        vendaProduto_data = {
+            "ownerVenda": id,
+            "ownerProduto": 100,
+            "quantidade": 7,
+            "valor": 28.50
+        }
+
+        res2 = self.client.post(self.vendasProdutos_url, vendaProduto_data)
+        self.assertEqual(res2.status_code, 400)
+
+    # by: Melque
+    def teste_nao_pode_gerar_nota_fiscal_sem_lista_de_itens(self):
+        res0 = self.client.post(self.cliente_url, self.client_data)
+        response0 = res0.json()
+        id = response0['id']
+
+        venda_data = {
+            "cliente": id,
+            "data": "10/10/2024 - 10:34:45",
+            "total": 1.99
+        }
+
+        res1 = self.client.post(self.vendas_url, venda_data)
+        response1 = res1.json()
+        idVenda = response1['id']
+
+        notaFiscal_data = {
+            "ownerVenda": idVenda,
+            "data": "10/10/2024 - 10:38:45",
+            "listVendaProduto": []
+        }
+
+        res2 = self.client.post(self.notasFiscais_url, notaFiscal_data)
+        self.assertEqual(res2.status_code, 400)
+
+    # by: Melque
+    def teste_nao_pode_registrar_forma_de_pagamento_sem_informar_metodo(self):
+        res = self.client.post(self.metodosPagamentos_url, self.metodosPagamentos_data)
+        self.assertEqual(res.status_code, 400)
+
+    # by: Melque
+    def teste_get_forma_de_pagamento_de_uma_venda_especifica(self):
+        res0 = self.client.post(self.cliente_url, self.client_data)
+        response0 = res0.json()
+        id = response0['id']
+
+        venda_data = {
+            "cliente": id,
+            "data": "10/10/2024 - 10:34:45",
+            "total": 1.99
+        }
+
+        res1 = self.client.post(self.vendas_url, venda_data)
+        response1 = res1.json()
+        idVenda = response1['id']
+
+        metodoPagamento_data = {
+            "metodo": "Pix",
+            "valor": 55.25
+        }
+        res2 = self.client.post(self.metodosPagamentos_url, metodoPagamento_data)
+        response2 = res2.json()
+        idMetodoPagamento = response2['id']
+
+        vendaMetodoPagamento_data = {
+            "ownerVenda": idVenda,
+            "ownerMetodoPagamento": [idMetodoPagamento]
+        }
+        self.client.post(self.vendasMetodosPagamentos_url, vendaMetodoPagamento_data)
+
+        vendaSelecionada = idVenda
+        res3 = self.client.get(self.vendasMetodosPagamentos_url)
+        response3 = res3.json()
+        objt = next((obj for obj in response3 if obj['id'] == vendaSelecionada), None)
+        
+        res4 = self.client.get(f"{self.metodosPagamentos_url}{objt['ownerMetodoPagamento'][0]}/")
+        #response4 = res4.json()
+        #print(response4)
+        self.assertEqual(res4.status_code, 200)
+    
     # by: Manu (patch/update)
     def teste_update_de_dados_do_usuario_valido(self):
         resp = self.client.post(self.cliente_url, self.client_data)
@@ -377,8 +478,8 @@ class TestViews(TestSetUp):
         self.assertEqual(response_get.status_code, 200)
 
 
-#By: Erick
-def teste_cadastrar_produtos_com_dados_invalidos(self):
+    #By: Erick
+    def teste_cadastrar_produtos_com_dados_invalidos(self):
         invalid_product_data = {
             "codigoBarras": "1231241231243",
             "tipo": "Azul",
@@ -395,8 +496,8 @@ def teste_cadastrar_produtos_com_dados_invalidos(self):
         res = self.client.post(self.produtos_url, invalid_product_data)
         self.assertEqual(res.status_code, 400)
 
-#By: Erick
-def teste_get_produto_por_id(self):
+    #By: Erick
+    def teste_get_produto_por_id(self):
         product_data1 = {
             "codigoBarras": "1231241231243",
             "tipo": "Azul",
@@ -434,8 +535,8 @@ def teste_get_produto_por_id(self):
         # pdb.set_trace()
         self.assertEqual(responseGet.status_code, 400)
         
-#By: Erick
-def teste_update_de_dados_do_produto_invalido(self):
+    #By: Erick
+    def teste_update_de_dados_do_produto_invalido(self):
         product_data2 = {
             "codigoBarras": "123124123124",
             "tipo": "Azul",
@@ -459,9 +560,9 @@ def teste_update_de_dados_do_produto_invalido(self):
         resp = self.client.patch(f"{self.produtos_url}{id}/", data_update)
         self.assertEqual(resp.status_code, 400)
 
-#By: Erick
-def teste_nao_pode_deletar_produto_com_id_invalido(self):
-    product_data2 = {
+    #By: Erick
+    def teste_nao_pode_deletar_produto_com_id_invalido(self):
+        product_data2 = {
             "codigoBarras": "123124123124",
             "tipo": "Azul",
             "nome": "Queijo Parmesao",
@@ -473,10 +574,10 @@ def teste_nao_pode_deletar_produto_com_id_invalido(self):
             "data": "22/07/2024",
             "valor": 20,
         }
-    resp = self.client.post(self.produtos_url, product_data2)
+        resp = self.client.post(self.produtos_url, product_data2)
 
-    response = resp.json()
-    id = response['id']
+        response = resp.json()
+        id = response['id']
 
-    resp = self.client.delete(f"{self.product_url}{id+1}/")
-    self.assertEqual(resp.status_code, 404)
+        resp = self.client.delete(f"{self.product_url}{id+1}/")
+        self.assertEqual(resp.status_code, 404)
