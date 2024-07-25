@@ -1,0 +1,52 @@
+@charset "UTF-8";
+
+.contTable{
+    margin-bottom: 4%;
+}
+
+.table{
+    border-collapse: collapse;
+    border: 1px solid black;
+    width: 100%;
+    max-height: 100%;
+}
+
+.table thead{
+    background-color: red;
+    color: white;
+}
+
+.table td{
+    padding: 10px;
+    text-align: center;
+    font-weight: 500;
+}
+
+.table th{
+    padding: 10px;
+    text-align: center;
+    background-color: gray;
+    color: white;
+}
+
+.table tr:nth-child(odd){
+    background-color: rgb(243, 242, 242);
+}
+.table tr:nth-child(even){
+    background-color: gainsboro;
+}
+
+.buttonCart{
+    background-color: green;
+    text-align: center;
+    padding: 5px;
+    width: 35%;
+    margin: auto;
+    color: white;
+    cursor: pointer;
+}
+
+.buttonCart > h1{
+    font-size: 1rem;
+    font-weight: bolder;
+}
