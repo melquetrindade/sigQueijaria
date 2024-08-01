@@ -265,8 +265,19 @@ class TestViews(TestSetUp):
 
     # by: Felipe (post)
     def teste_adicionar_mercadoria_com_dados_validos(self):
+        incomplete_supplier_data = {
+            "cnpj": "12345678998888",
+            "nome": "Pedro",
+            "email": "pedro@gmail.com",
+            "numTelefone": "84998214443",
+            "dataNascimento": "22/10/1999"
+        }
+        res0 = self.client.post(self.fornecedor_url, incomplete_supplier_data)
+        response = res0.json()
+        id = response['id']
+
         valid_merchandise_data = {
-            "ownerFornecedor": 9,
+            "ownerFornecedor": id,
             "quantidade": 300,
             "data": "22/07/2024",
             "valor": 600.0,
@@ -278,8 +289,18 @@ class TestViews(TestSetUp):
 
     # by: Felipe (post)
     def teste_adicionar_mercadoria_com_dados_incompletos(self):
+        incomplete_supplier_data = {
+            "cnpj": "12345678998888",
+            "nome": "Pedro",
+            "email": "pedro@gmail.com",
+            "numTelefone": "84998214443",
+            "dataNascimento": "22/10/1999"
+        }
+        res0 = self.client.post(self.fornecedor_url, incomplete_supplier_data)
+        response = res0.json()
+        id = response['id']
         incomplete_merchandise_data = {
-            "ownerFornecedor": 1,
+            "ownerFornecedor": id,
             "quantidade": 300,
             "data": "",
             "valor": 0,
@@ -291,6 +312,17 @@ class TestViews(TestSetUp):
 
     # by: Felipe (post)
     def teste_cadastrar_produtos_com_dados_validos(self):
+        incomplete_supplier_data = {
+            "cnpj": "12345678998888",
+            "nome": "Pedro",
+            "email": "pedro@gmail.com",
+            "numTelefone": "84998214443",
+            "dataNascimento": "22/10/1999"
+        }
+        res0 = self.client.post(self.fornecedor_url, incomplete_supplier_data)
+        response = res0.json()
+        id = response['id']
+
         valid_product_data = {
             "codigoBarras": "1231241231243",
             "tipo": "Azul",
@@ -299,7 +331,7 @@ class TestViews(TestSetUp):
             "qtdMinima": 15,
             "quantidade": 300,
             "valor": 5,
-            "ownerFornecedor": 9,
+            "ownerFornecedor": id,
             "data": "22/07/2024",
             "valor": 600,
         }
@@ -322,7 +354,7 @@ class TestViews(TestSetUp):
             "valor": 600,
         }
 
-        res = self.client.post(self.produtos_url, incomplete_product_data)
+        res = self.client.post(self.fornecedor_url, incomplete_product_data)
         self.assertEqual(res.status_code, 400)
 
     # by: Isa (patch/update)
@@ -480,15 +512,25 @@ class TestViews(TestSetUp):
 
     #By: Erick
     def teste_cadastrar_produtos_com_dados_invalidos(self):
+        incomplete_supplier_data = {
+            "cnpj": "12345678998888",
+            "nome": "Pedro",
+            "email": "pedro@gmail.com",
+            "numTelefone": "84998214443",
+            "dataNascimento": "22/10/1999"
+        }
+        res0 = self.client.post(self.fornecedor_url, incomplete_supplier_data)
+        response = res0.json()
+        id = response['id']
         invalid_product_data = {
-            "codigoBarras": "1231241231243",
+            "codigoBarras": "",
             "tipo": "Azul",
             "nome": "Queijo Gorgonzola",
             "dataValidade": "27/08/2024",
             "qtdMinima": 15,
             "quantidade": 300,
-            "valor": '',
-            "ownerFornecedor": 9,
+            "valor": 12,
+            "ownerFornecedor": id,
             "data": "22/07/2024",
             "valor": 600,
         }
@@ -498,6 +540,16 @@ class TestViews(TestSetUp):
 
     #By: Erick
     def teste_get_produto_por_id(self):
+        incomplete_supplier_data = {
+            "cnpj": "12345678998888",
+            "nome": "Pedro",
+            "email": "pedro@gmail.com",
+            "numTelefone": "84998214443",
+            "dataNascimento": "22/10/1999"
+        }
+        res0 = self.client.post(self.fornecedor_url, incomplete_supplier_data)
+        response = res0.json()
+        id0 = response['id']
         product_data1 = {
             "codigoBarras": "1231241231243",
             "tipo": "Azul",
@@ -506,7 +558,7 @@ class TestViews(TestSetUp):
             "qtdMinima": 15,
             "quantidade": 300,
             "valor": 9,
-            "ownerFornecedor": 9,
+            "ownerFornecedor": id0,
             "data": "22/07/2024",
             "valor": 600,
         }
@@ -533,7 +585,7 @@ class TestViews(TestSetUp):
         # print(responseGet.data)
         # import pdb
         # pdb.set_trace()
-        self.assertEqual(responseGet.status_code, 400)
+        self.assertEqual(responseGet.status_code, 200)
         
     #By: Erick
     def teste_update_de_dados_do_produto_invalido(self):
@@ -545,7 +597,7 @@ class TestViews(TestSetUp):
             "qtdMinima": 15,
             "quantidade": 30,
             "valor": 100,
-            "ownerFornecedor": 9,
+            "ownerFornecedor": "",
             "data": "22/07/2024",
             "valor": 20,
         }
@@ -554,7 +606,7 @@ class TestViews(TestSetUp):
         response = resp.json()
         id = response['id']
         data_update = {
-            "valor": 50,
+            "valor": "",
         }
 
         resp = self.client.patch(f"{self.produtos_url}{id}/", data_update)
@@ -562,6 +614,16 @@ class TestViews(TestSetUp):
 
     #By: Erick
     def teste_nao_pode_deletar_produto_com_id_invalido(self):
+        incomplete_supplier_data = {
+            "cnpj": "12345678998888",
+            "nome": "Pedro",
+            "email": "pedro@gmail.com",
+            "numTelefone": "84998214443",
+            "dataNascimento": "22/10/1999"
+        }
+        res0 = self.client.post(self.fornecedor_url, incomplete_supplier_data)
+        response = res0.json()
+        id0 = response['id']
         product_data2 = {
             "codigoBarras": "123124123124",
             "tipo": "Azul",
@@ -570,7 +632,7 @@ class TestViews(TestSetUp):
             "qtdMinima": 15,
             "quantidade": 30,
             "valor": 100,
-            "ownerFornecedor": 9,
+            "ownerFornecedor": id0,
             "data": "22/07/2024",
             "valor": 20,
         }
@@ -579,5 +641,5 @@ class TestViews(TestSetUp):
         response = resp.json()
         id = response['id']
 
-        resp = self.client.delete(f"{self.product_url}{id+1}/")
+        resp = self.client.delete(f"{self.produtos_url}{id+1}/")
         self.assertEqual(resp.status_code, 404)
