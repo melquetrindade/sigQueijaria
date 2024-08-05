@@ -72,7 +72,7 @@ class NotaFiscalSerializer(serializers.ModelSerializer):
 class ContaSerializer(serializers.ModelSerializer):
     class Meta:
         model = Conta
-        fields = ['id', 'ownerVenda', 'valor', 'dataVencimento', 'tipoReceber', 'ownerEntradaMercadoria']
+        fields = ['id', 'ownerVenda', 'valor', 'dataVencimento', 'tipoReceber', 'resolvida', 'ownerEntradaMercadoria']
 
 class CaixaSerializer(serializers.ModelSerializer):
     class Meta:

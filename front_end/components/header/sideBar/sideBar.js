@@ -83,6 +83,12 @@ export default function SideBar() {
                         <IoCartOutline className="size-7" />
                         Vendas
                     </li>
+                    <Link href={"/box/nav"}>
+                        <li className="flex gap-2 cursor-pointer">
+                            <IoCartOutline className="size-7" />
+                            Caixa
+                        </li>
+                    </Link>
                     <li className="flex gap-2 cursor-pointer">
                         <HiOutlineCurrencyDollar className="size-7" />
                         Financeiro
