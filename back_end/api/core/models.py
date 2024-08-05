@@ -164,6 +164,7 @@ class Conta(models.Model):
     valor = models.FloatField()
     dataVencimento = models.CharField(max_length=55)
     tipoReceber = models.BooleanField()
+    resolvida = models.BooleanField()
     ownerEntradaMercadoria = models.OneToOneField(EntradaMercadoria, on_delete=models.SET_NULL, null=True)
 
     def __str__(self):
