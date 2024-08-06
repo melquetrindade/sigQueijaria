@@ -22,6 +22,8 @@ classDiagram
     + setEmail(value: char): void
     + setNumTelefone(value: char): void
     + setStatus(value: boolean): void
+    + setDataDoDesativo(value: char): void
+    + getDataDoDesativo(): char
     + getNome(): char
     + getEmail(): char
     + getNumTelefone(): char
