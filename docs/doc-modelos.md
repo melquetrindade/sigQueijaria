@@ -16,6 +16,7 @@ classDiagram
     - numTelefone: char
     - status: boolean
     - dataNascimento: char
+    - dataDoDesativo: char
     
     + setNome(value: char): void
     + setEmail(value: char): void
@@ -64,6 +65,7 @@ classDiagram
     - nome: char
     - numCasa: int
     - complemento: char
+    - ownerBairro: Bairro
     
     + set(): void
     + get(): void
@@ -93,6 +95,7 @@ classDiagram
     - codigo: int
     - ownerPessoa: Pessoa
     - ownerBairro: Bairro
+    - typeOwner: char
     
     + set(): void
     + get(): void
@@ -105,7 +108,8 @@ class Produto {
     - quantMinima: int
     - valor : double
     - status: boolean
-    - ownerPessoa: char
+    - nome: char
+    - quantidade: int
     
     + set(): void
     + get(): void
@@ -119,11 +123,13 @@ class Produto {
   }
 
   class Venda_Produto {
+    - codigo: int
     - produto: Produto
     - venda: Venda
     - quantidade: int
     - valor: double
     - status: boolean
+    - dataDoDesativo: char
     
     + setProduto(produto: Produto): void
     + setVenda(venda: Venda): void
@@ -162,7 +168,6 @@ class Produto {
   class Venda_MetodoPagamento {
     - venda: Venda
     - metodoPagamento: MetodoPagamento
-    - valor: double
   }
 
   class NotaFiscal {
@@ -201,6 +206,7 @@ class Produto {
   class MetodoPagamento {
     - codigo: int
     - descricao: char
+    - valor: double
   
     + setCodigo(codigo: int): void
     + setDescricao(descricao: char): void
@@ -215,6 +221,7 @@ class Produto {
     - dataVencimento: char
     - tipoReceber: boolean
     - entradaMercadoria: EntradaMercadoria
+    - resolvida: boolean
     
     + sets(): void
     + gets(): void
