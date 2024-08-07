@@ -369,6 +369,9 @@ export default function Cart(){
                 }),
             });
             if(response.status == 201){
+                /*
+                CHAMAR A FUNÇÃO DE CRIAR CONTA AQUI
+                */
                 // Volta para a página inicial de produtos
                 router.push({
                     pathname: './nav',

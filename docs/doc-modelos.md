@@ -16,15 +16,10 @@ classDiagram
     - numTelefone: char
     - status: boolean
     - dataNascimento: char
+    - dataDoDesativo: char
     
-    + setNome(value: char): void
-    + setEmail(value: char): void
-    + setNumTelefone(value: char): void
-    + setStatus(value: boolean): void
-    + getNome(): char
-    + getEmail(): char
-    + getNumTelefone(): char
-    + getStatus(): boolean
+    + sets(): void
+    + gets(): void
     + incluirPessoa(pes: Pessoa): void
     + alterarPessoa(pes: Pessoa): void
     + desativarPessoa(pes: Pessoa): void
@@ -35,16 +30,16 @@ classDiagram
     - cpf: char
     - rg: char
     
-    + set(): void
-    + get(): void
+    + sets(): void
+    + gets(): void
     + consultarCliente(cpf: char): Cliente
   }
 
     class Fornecedor {
     - cnpj: char
     
-    + set(): void
-    + get(): void
+    + sets(): void
+    + gets(): void
     + consultarFornecedor(cnpj: char): Fornecedor
   }
     class Funcionario {
@@ -53,8 +48,8 @@ classDiagram
     - salario: double
     - cargaHoraria: double
     
-    + set(): void
-    + get(): void
+    + sets(): void
+    + gets(): void
     + consultarFuncionario(cpf: char): Funcionario
     + selecionarCargo(cargo: char): void
     + calcularSalario(salario: double, cargaHoraria: double): double
@@ -64,9 +59,10 @@ classDiagram
     - nome: char
     - numCasa: int
     - complemento: char
+    - ownerBairro: Bairro
     
-    + set(): void
-    + get(): void
+    + sets(): void
+    + gets(): void
   }
   
   class Bairro {
@@ -74,8 +70,8 @@ classDiagram
     - codigo: int
     - ownerCidade: Cidade
     
-    + set(): void
-    + get(): void
+    + sets(): void
+    + gets(): void
   }
   
   class Cidade {
@@ -84,8 +80,8 @@ classDiagram
     - codigo: int
     - ownerEstado: Estado
     
-    + set(): void
-    + get(): void
+    + sets(): void
+    + gets(): void
   }
   
   class Estado {
@@ -93,9 +89,10 @@ classDiagram
     - codigo: int
     - ownerPessoa: Pessoa
     - ownerBairro: Bairro
+    - typeOwner: char
     
-    + set(): void
-    + get(): void
+    + sets(): void
+    + gets(): void
   }
 
 class Produto {
@@ -105,10 +102,11 @@ class Produto {
     - quantMinima: int
     - valor : double
     - status: boolean
-    - ownerPessoa: char
+    - nome: char
+    - quantidade: int
     
-    + set(): void
-    + get(): void
+    + sets(): void
+    + gets(): void
     + incluirProduto(prod: Produto) : void
     + consultarProduto(codigoBarras: char) : Produto
     + desativarProduto(prod: Produto) : void
@@ -119,22 +117,16 @@ class Produto {
   }
 
   class Venda_Produto {
+    - codigo: int
     - produto: Produto
     - venda: Venda
     - quantidade: int
     - valor: double
     - status: boolean
+    - dataDoDesativo: char
     
-    + setProduto(produto: Produto): void
-    + setVenda(venda: Venda): void
-    + setQuantidade(quant: int): void
-    + setValor(valor: double): void
-    + setStatus(value: boolean): void
-    + getProduto(): Produto
-    + getVenda(): Venda
-    + getQuantidade(): int
-    + getValor(): double
-    + getStatus(): boolean
+    + sets(): void
+    + gets(): void
   }
 
   class Venda {
@@ -143,14 +135,8 @@ class Produto {
     - data: char
     - total: double
 
-    + setCliente(cliente: Pessoa): void
-    + setCodigo(codigo: int): void
-    + setData(data: char): void
-    + setMetodoPagamento(metodo_pagamento: char): void
-    + getCliente(): Pessoa
-    + getCodigo(): int
-    + getData(): char
-    + getMetodoPagamento(): char
+    + sets(): void
+    + gets(): void
     + registrarVenda(venda: Venda): void
     + consultarVenda(venda: Venda): void
     + calcularValor(venda: Venda): double
@@ -162,7 +148,6 @@ class Produto {
   class Venda_MetodoPagamento {
     - venda: Venda
     - metodoPagamento: MetodoPagamento
-    - valor: double
   }
 
   class NotaFiscal {
@@ -170,8 +155,8 @@ class Produto {
     - listVendaProduto: char
     - ownerVenda: char
     
-    + set(): void
-    + get(): void
+    + sets(): void
+    + gets(): void
     + valorTotal(valorBase: double, impostos: double, valorProduto: double): void
   }
   
@@ -201,11 +186,10 @@ class Produto {
   class MetodoPagamento {
     - codigo: int
     - descricao: char
+    - valor: double
   
-    + setCodigo(codigo: int): void
-    + setDescricao(descricao: char): void
-    + getCodigo(): int
-    + getDescricao(): char
+    + sets(): void
+    + gets(): void
   }
   
   class Conta {
@@ -215,6 +199,7 @@ class Produto {
     - dataVencimento: char
     - tipoReceber: boolean
     - entradaMercadoria: EntradaMercadoria
+    - resolvida: boolean
     
     + sets(): void
     + gets(): void
@@ -233,16 +218,8 @@ class Produto {
     - valorAtual: double
     - isOpen: boolean
   
-    + setDataHoraAberturaAtual(value: char): void
-    + setIdCaixa(value: int): void
-    + setValorInicial(value: double): void
-    + setValorAtual(value: double): void
-    + setIsOpen(value: boolean): void
-    + getDataHoraAbertura(): char
-    + getIdCaixa(): int
-    + getValorInicial(): double
-    + getValorAtual(): double
-    + getIsOpen(): boolean
+    + sets(): void
+    + gets(): void
     + entrada(valor: double): void
     + saida(valor: double): void
   }
@@ -258,14 +235,8 @@ class Produto {
     - valorInicial: double
     - valorFinal: double
 
-    + setDataHoraAbertura(value: char): void
-    + setDataHoraEncerramento(value: char): void
-    + setValorInicial(value: double): void
-    + setValorFinal(value: double): void
-    + getDataHoraAbertura(): char
-    + getDataHoraEncerramento(): char
-    + getValorInicial(): double
-    + getValorFinal(): double
+    + sets(): void
+    + gets(): void
   }
   
   class Pagamento {
@@ -274,14 +245,8 @@ class Produto {
     - valor: double
     - data: char
   
-    + setConta(value: Conta): void
-    + setCaixa(value: Caixa): void
-    + setValor(value: double): void
-    + setData(value: char): void
-    + getConta(): Conta
-    + getCaixa(): Caixa
-    + getValor(): double
-    + getData(): char
+    + sets(): void
+    + gets(): void
     + incluirConta(conta: Conta): void
     + alterarConta(conta: Conta): void
     + consultarConta(cod: int): Conta
@@ -365,6 +330,7 @@ Descrição sucinta das entidades presentes no sistema.
 | ownerVenda              | Identificador da venda realizada  | Venda      | ---     | FK         |
 | valor              | Valor referente a conta           | DOUBLE     | ---     | Not Null      |
 | dataVencimento     | Data de vencimento da conta       | CHAR       | 55      | Not Null      |
+| resolvida     | Campo identificador para saber se a conta já foi paga       | BOOLEAN       | ---      | Not Null      |
 | tipoReceber        | Campo identificador para saber se é entrada ou saída      | BOOLEAN      | ---     | Not Null    |
 | ownerEntradaMercadoria  | Identificador da entradaMercadoria realizada    | EntradaMercadoria      | ---      | FK       |
 
@@ -438,6 +404,7 @@ Descrição sucinta das entidades presentes no sistema.
 | codigo       | Identificador gerado automaticamente     | INT          | ---     | PK / Identity         |
 | owner        | Identificador da Pessoa na qual o Estado está vinculado | Pessoa  | ---  | FK / Not Null  |
 | nome         | Identificador do nome do estado          | CHAR         | 105     | Not Null              |
+| typeOwner    | Campo identificador para saber se o owner é cliente, fornecedor ou funcionário | CHAR  | 105     | Not Null  |
 
 * Cidade
   
@@ -476,7 +443,7 @@ Descrição sucinta das entidades presentes no sistema.
 | Nome         | Descrição                                | Tipo de Dado | Tamanho | Restrições de Domínio |
 | ------------ | ---------------------------------------- | ------------ | ------- | --------------------- |
 | codigo       | Identificador gerado automaticamente     | INT          | ---     | PK / Identity         |
-| owner        | Identificador do Bairro na qual o Endereço está vinculado | Pessoa | ---  | FK / Not Null |
+| ownerBairro  | Identificador do Bairro na qual o Endereço está vinculado | Bairro | ---  | FK / Not Null |
 | rua          | Identificador do nome da rua             | CHAR         | 55      | Not Null              |
 | numCasa      | Identificador do número da casa          | INT          | 10      | Not Null              |
 | complemento  | Identificador de um ponto de referência  | CHAR         | 55      | Not Null              |
@@ -537,6 +504,7 @@ Descrição sucinta das entidades presentes no sistema.
 | quantidade   | Quantidade do produto                    | INT          | ---     | Not Null              |
 | valor        | Valor do produto                         | DOUBLE       | ---     | Not Null              |
 | status       | Identificador do status de Venda_Produto | BOOLEAN      | ---     | Not Null              |
+| dataDoDesativo | Data no qual foi feito o desativo      | CHAR         | 15      | Not Null              |
 
 * Venda_MetodoPagamento
   
@@ -626,6 +594,7 @@ Descrição sucinta das entidades presentes no sistema.
 | numTelefone   | Número do telefone do usuário    | CHAR         | 11      | Not Null              |
 | status        | Status sobre o usuário ativo ou desativado  | BOOLEAN | ---   | Not Null          |
 | dataNascimento| Data de nascimento do usuário    | CHAR         | 15      | Not Null              |
+| dataDoDesativo | Data no qual foi feito o desativo | CHAR       | 15      | Not Null              |
 
 * Cliente
 

@@ -1,0 +1,112 @@
+@charset "UTF-8";
+
+.main{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.main > div{
+    width: 80%;
+}
+
+.title{
+    text-align: center;
+    font-size: 1.5rem;
+    margin-top: 1%;
+    margin-bottom: 1%;
+    font-weight: 600;
+}
+
+.table{
+    border-collapse: collapse;
+    border: 1px solid black;
+    width: 100%;
+    max-height: 100%;
+}
+
+.table thead{
+    background-color: red;
+    color: white;
+}
+
+.table td{
+    padding: 10px;
+    text-align: center;
+    font-weight: 500;
+}
+
+.table th{
+    padding: 10px;
+    text-align: center;
+    background-color: gray;
+    color: white;
+}
+
+.table tr:nth-child(odd){
+    background-color: rgb(243, 242, 242);
+}
+.table tr:nth-child(even){
+    background-color: gainsboro;
+}
+
+.buttonReceber > p{
+    background-color: green;
+    color: white;
+    padding: 5px;
+    border-radius: 3px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.buttonReceber > p:hover{
+    background-color: chartreuse;
+}
+
+.buttonPagar > p{
+    padding: 5px;
+    background-color: red;
+    color: white;
+    border-radius: 3px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.buttonPagar > p:hover{
+    background-color: rgb(255, 94, 94);
+}
+
+.contCaixa{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 2%;
+}
+
+.contCaixa > div{
+    background-color: rgb(116, 190, 255);
+    padding: 10px;
+    text-align: center;
+    font-weight: 600;
+    border-radius: 5px;
+    color: rgb(61, 61, 61);
+}
+
+.buttonVoltar{
+    background-color: blue;
+    width: 10%;
+    margin: 3% auto;
+    text-align: center;
+    color: white;
+    font-weight: 600;
+    font-size: 1rem;
+    padding: 7px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.buttonVoltar:hover{
+    background-color: rgb(81, 81, 255);
+}
