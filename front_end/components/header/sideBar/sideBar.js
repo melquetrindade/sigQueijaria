@@ -93,10 +93,12 @@ export default function SideBar() {
                         <HiOutlineCurrencyDollar className="size-7" />
                         Financeiro
                     </li>
-                    <li className="flex gap-2 cursor-pointer">
-                        <HiOutlineClipboardDocumentList className="size-7" />
-                        Relatórios
-                    </li>
+                    <Link href={"/report/reportPage"}>
+                        <li className="flex gap-2 cursor-pointer">
+                            <HiOutlineClipboardDocumentList className="size-7" />
+                            Relatórios
+                        </li>
+                    </Link>
                     <Link href={"/merchandise/navMerchandise"}>
                         <li className="flex gap-2 cursor-pointer">
                             <BsBoxes className="size-7" /> Estoque
