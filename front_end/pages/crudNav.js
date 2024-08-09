@@ -17,7 +17,7 @@ export default function CrudNav({ actions, placeholder, TableFunction, searchSta
                     </div>
                 ))}
             </div>
-            <div className="bg-white h-96 w-full flex flex-col rounded-xl shadow-md my-2 ">
+            <div className="bg-white h-96 w-full flex flex-col rounded-md shadow-md my-2 overflow-y-scroll">
                 <div className="flex justify-between items-center p-4 text-black">
                     <div className="flex justify-end items-center relative">
                         <input
