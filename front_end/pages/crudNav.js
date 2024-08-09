@@ -29,6 +29,67 @@ export default function CrudNav({ actions, placeholder }) {
                     <SlOptionsVertical className="size-4 cursor-pointer" />
                 </div>
                 {/* TABLE COM OS DADOS */}
+                <div className="bg-cyan-700 pt-2 h-72">
+                    {/* <table>
+                        <thead>
+                            <tr>
+                                <th>id</th>
+                                <th>nome</th>
+                                <th>idade</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>1</td>
+                                <td>lucas</td>
+                                <td>12</td>
+                            </tr>
+                            <tr>
+                                <td>1</td>
+                                <td>matheus</td>
+                                <td>12</td>
+                            </tr>
+                        </tbody>
+                    </table> */}
+                    <table className="min-w-full border-collapse bg-white shadow-md overflow-hidden">
+                        <thead>
+                            <tr>
+                                <th className="bg-gray-100 border-b-2 border-gray-300 px-4 py-3 text-left text-gray-600 font-semibold">
+                                    ID
+                                </th>
+                                <th className="bg-gray-100 border-b-2 border-gray-300 px-4 py-3 text-left text-gray-600 font-semibold">
+                                    Name
+                                </th>
+                                <th className="bg-gray-100 border-b-2 border-gray-300 px-4 py-3 text-left text-gray-600 font-semibold">
+                                    Age
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {/* {data.map((item, index) => (
+                                <tr
+                                    key={item.id}
+                                    className={
+                                        index % 2 === 0
+                                            ? "bg-gray-50"
+                                            : "bg-gray-100"
+                                    }
+                                >
+                                    <td className="border-b border-gray-200 px-4 py-3 text-gray-700">
+                                        {item.id}
+                                    </td>
+                                    <td className="border-b border-gray-200 px-4 py-3 text-gray-700">
+                                        {item.name}
+                                    </td>
+                                    <td className="border-b border-gray-200 px-4 py-3 text-gray-700">
+                                        {item.age}
+                                    </td>
+                                </tr>
+                            ))} */}
+                        </tbody>
+                    </table>
+                    {/* <p>aaaa</p> */}
+                </div>
             </div>
         </div>
     );
