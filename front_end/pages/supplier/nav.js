@@ -82,6 +82,6 @@ export default function SupplierCrud() {
         { icon: RiDeleteBin6Line, label: "Excluir Fornecedor", color: "text-red-500", onClick: () => window.location.href = "/supplier/delete" },
     ];
 
-    return <CrudNav actions={actions} placeholder="Digite o nome ou CNPJ..." TableFunction={Table} searchState={setSearch}/>;
+    return <CrudNav actions={actions} placeholder="Pesquise pelo CNPJ..." TableFunction={Table} searchState={setSearch}/>;
 };
 

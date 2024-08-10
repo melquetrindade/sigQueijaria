@@ -8,15 +8,17 @@ import { useRouter } from 'next/router'
 import styles from '../styles/navProduct.module.css'
 
 export default function ProductCrud() {
+    const router = useRouter()
+    const [products, setProducts] = useState([])
+    const [idProducts, setIdProducts] = useState([])
+    // const [search, setSearch] = useState("");
+
     const actions = [
         // { icon: FaPlus, label: "Novo Produto", color: "text-sky-400", onClick: () => window.location.href = "/product/create"},
         { icon: IoIosList, label: "Consultar Dados", color: "text-[#01CBBF]", onClick: () => window.location.href = "/product/read" },
         { icon: RxUpdate, label: "Atualizar Dados", color: "text-[#01CBBF]", onClick: () => window.location.href = "/product/update" },
         { icon: RiDeleteBin6Line, label: "Excluir Produto", color: "text-red-500", onClick: () => window.location.href = "/product/delete" },
     ];
-    const router = useRouter()
-    const [products, setProducts] = useState([])
-    const [idProducts, setIdProducts] = useState([])
 
     // Carrega todo os produtos no estoque
     const loadProducts = async () => {
@@ -82,9 +84,69 @@ export default function ProductCrud() {
         return price.toFixed(2).replace('.', ',');
     }
 
+    const Table = () => {
+        const filteredEmployee = employee.filter(
+            (employee) =>
+                employee.cpf.toLowerCase().includes(search.toLowerCase())
+        );
+
+        return (
+            <table className="w-full">
+                <thead>
+                    <tr>
+                        {tHead.map((tHead) => (
+                            <th className="bg-gray-100 border-b-2 border-gray-300 px-4 py-3 text-left text-gray-600 font-semibold">
+                                {tHead}
+                            </th>
+                        ))}
+                    </tr>
+                </thead>
+                <tbody>
+                    {filteredEmployee.map((employee, index) => (
+                        <tr key={index}
+                            className={
+                                index % 2 === 0
+                                    ? "bg-gray-50"
+                                    : "bg-gray-100"
+                            }
+                        >
+                            <td className="border-b border-gray-200 px-4 py-3 text-gray-700">
+                                {employee.id}
+                            </td>
+                            <td className="border-b border-gray-200 px-4 py-3 text-gray-700">
+                                {employee.nome}
+                            </td>
+                            <td className="border-b border-gray-200 px-4 py-3 text-gray-700">
+                                {employee.cpf}
+                            </td>
+                            <td className="border-b border-gray-200 px-4 py-3 text-gray-700">
+                                {employee.email}
+                            </td>
+                            <td className="border-b border-gray-200 px-4 py-3 text-gray-700">
+                                {employee.cargo}
+                            </td>
+                            <td className="border-b border-gray-200 px-4 py-3 text-gray-700">
+                                {employee.salario}
+                            </td>
+                            <td className="border-b border-gray-200 px-4 py-3 text-gray-700">
+                                {employee.cargaHoraria}
+                            </td>
+                            <td className="border-b border-gray-200 px-4 py-3 text-gray-700">
+                                {employee.numTelefone}
+                            </td>
+                            <td className="border-b border-gray-200 px-4 py-3 text-gray-700">
+                                {employee.status ? "Ativo" : "Inativo"}
+                            </td>
+                        </tr>
+                    ))}
+                </tbody>
+            </table>
+        );
+    }
+
     return(
         <div>
-            <CrudNav actions={actions} placeholder="Digite o nome ou CNPJ..." />
+            {/* <CrudNav actions={actions} placeholder="Digite o nome ou CNPJ..." /> */}
             <div className={styles.contTable}>
                 {
                     products.length != 0

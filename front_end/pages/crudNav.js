@@ -19,13 +19,13 @@ export default function CrudNav({ actions, placeholder, TableFunction, searchSta
             </div>
             <div className="bg-white h-96 w-full flex flex-col rounded-md shadow-md my-2 overflow-y-scroll">
                 <div className="flex justify-between items-center p-4 text-black">
-                    <div className="flex justify-end items-center relative">
+                    <div className="flex justify-end items-center">
                         <input
                             className="w-48 border-0 border-b-2 border-slate-300 bg-transparent focus:outline-none focus:border-slate-400 placeholder:text-sm"
                             placeholder={placeholder}
                             onChange={(e) => searchState(e.target.value)}
                         />
-                        <FaSearch className="size-4 absolute right-2" />
+                        <FaSearch className="size-4 right-2" />
                     </div>
                     <SlOptionsVertical className="size-4 cursor-pointer" />
                 </div>

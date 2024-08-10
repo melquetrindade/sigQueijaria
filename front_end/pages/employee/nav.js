@@ -66,10 +66,10 @@ export default function EmployeeCrud() {
                                 {employee.cargo}
                             </td>
                             <td className="border-b border-gray-200 px-4 py-3 text-gray-700">
-                                {employee.salario}
+                                {`R$ ${employee.salario}`}
                             </td>
                             <td className="border-b border-gray-200 px-4 py-3 text-gray-700">
-                                {employee.cargaHoraria}
+                                {`${employee.cargaHoraria}h`}
                             </td>
                             <td className="border-b border-gray-200 px-4 py-3 text-gray-700">
                                 {employee.numTelefone}
@@ -91,6 +91,6 @@ export default function EmployeeCrud() {
         { icon: RiDeleteBin6Line, label: "Excluir Funcionário", color: "text-red-500", onClick: () => window.location.href = "/employee/delete" },
     ];
 
-    return <CrudNav actions={actions} placeholder="Digite o nome ou CNPJ..." TableFunction={Table} searchState={setSearch}/>;
+    return <CrudNav actions={actions} placeholder="Pesquise pelo CPF..." TableFunction={Table} searchState={setSearch}/>;
 };
 

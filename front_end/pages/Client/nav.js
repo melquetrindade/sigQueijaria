@@ -84,6 +84,6 @@ export default function ClientCrud() {
     ];
 
 
-    return <CrudNav actions={actions} placeholder="Digite o CPF..."  TableFunction={ClientTable} searchState={setSearch}/>;
+    return <CrudNav actions={actions} placeholder="Pesquise pelo CPF..."  TableFunction={ClientTable} searchState={setSearch}/>;
 };
 
