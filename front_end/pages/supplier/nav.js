@@ -27,7 +27,7 @@ export default function SupplierCrud() {
     const Table = () => {
         const filteredSupplier = supplier.filter(
             (supplier) =>
-                supplier.cnpj.toLowerCase().includes(search.toLowerCase())
+                supplier.cnpj.includes(search)
         );
 
         return (

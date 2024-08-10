@@ -28,7 +28,7 @@ export default function ClientCrud() {
     const ClientTable = () => {
         const filteredClients = clients.filter(
             (client) =>
-                client.cpf.toLowerCase().includes(search.toLowerCase())
+                client.cpf.includes(search)
         );
 
         return (

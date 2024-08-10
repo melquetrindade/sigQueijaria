@@ -27,7 +27,7 @@ export default function EmployeeCrud() {
     const Table = () => {
         const filteredEmployee = employee.filter(
             (employee) =>
-                employee.cpf.toLowerCase().includes(search.toLowerCase())
+                employee.cpf.includes(search)
         );
 
         return (
