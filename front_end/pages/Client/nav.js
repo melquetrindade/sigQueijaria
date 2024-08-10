@@ -4,6 +4,8 @@ import { RiDeleteBin6Line } from "react-icons/ri";
 import { IoIosList } from "react-icons/io";
 import CrudNav from "../crudNav";
 import { useState, useEffect } from "react";
+import { jsPDF } from 'jspdf'; 
+import 'jspdf-autotable'; 
 
 
 export default function ClientCrud() {
@@ -83,7 +85,25 @@ export default function ClientCrud() {
         { icon: RiDeleteBin6Line, label: "Excluir Cliente", color: "text-red-500", onClick: () => window.location.href = "/Client/delete" },
     ];
 
+    // Função de Gerar e Baixar os relatórios
+    const generateReport = () => {
+        const doc = new jsPDF();
 
-    return <CrudNav actions={actions} placeholder="Pesquise pelo CPF..."  TableFunction={ClientTable} searchState={setSearch}/>;
+        // Adicionar título
+        doc.text("Relatório de Clientes Ativos", 14, 16);
+
+        // Gerar a tabela com os dados dos clientes
+        doc.autoTable({
+            startY: 20,
+            head: [['ID', 'Nome', 'CPF', 'E-mail', 'Telefone', 'Atividade']], // Alterem aqui conforme o que voce quer que mostre
+            // Função de filtragem, de acordo com o seu relatório
+            body: clients.filter((client) => client.status === true).map(cliente => [cliente.id, cliente.nome, cliente.cpf, cliente.email, cliente.numTelefone, 'Ativo']),
+        });
+
+        // Baixar o documento
+        doc.save('relatorio_clientes.pdf');
+    };
+
+    return <CrudNav actions={actions} placeholder="Pesquise pelo CPF..."  TableFunction={ClientTable} searchState={setSearch} generateReports={generateReport}/>;
 };
 

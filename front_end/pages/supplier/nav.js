@@ -4,6 +4,8 @@ import { RiDeleteBin6Line } from "react-icons/ri";
 import { IoIosList } from "react-icons/io";
 import CrudNav from "../crudNav";
 import { useState, useEffect } from "react";
+import { jsPDF } from 'jspdf'; 
+import 'jspdf-autotable'; 
 
 export default function SupplierCrud() {
     const [supplier, setSupplier] = useState([]);

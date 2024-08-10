@@ -1,8 +1,20 @@
 import PropTypes from "prop-types";
 import { FaSearch } from "react-icons/fa";
 import { SlOptionsVertical } from "react-icons/sl";
+import { useState } from "react";
 
-export default function CrudNav({ actions, placeholder, TableFunction, searchState }) {
+export default function CrudNav({ actions, placeholder, TableFunction, searchState, generateReports }) {
+    const [selectedOption, setSelectedOption] = useState('');
+
+    const handleSelectChange = (e) => {
+        const value = e.target.value;
+        setSelectedOption(value);
+
+        if (value === 'option2') {
+            generateReports();
+        }
+    };
+
     return (
         <div className="flex flex-col justify-evenly items-center p-2 overflow-hidden">
             <div className="flex gap-6 flex-wrap items-center justify-center my-2">
@@ -27,7 +39,16 @@ export default function CrudNav({ actions, placeholder, TableFunction, searchSta
                         />
                         <FaSearch className="size-4 right-2" />
                     </div>
-                    <SlOptionsVertical className="size-4 cursor-pointer" />
+                    <select
+                        value={selectedOption}
+                        onChange={handleSelectChange}
+                        className="w-52 border-gray-300 text-gray-700 py-2 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+                    >
+                        <option value="" disabled>Selecione uma opção</option>
+                        <option value="option1">Opção 1</option>
+                        <option value="option2">Baixar Relatório</option>
+                        <option value="option3">Opção 3</option>
+                    </select>
                 </div>
                 {/* TABLE COM OS DADOS */}
                 
@@ -49,5 +70,6 @@ CrudNav.propTypes = {
     ).isRequired,
     placeholder: PropTypes.string.isRequired,
     TableFunction: PropTypes.func.isRequired,
-    searchState: PropTypes.elementType.isRequired
+    searchState: PropTypes.elementType.isRequired,
+    generateReports: PropTypes.func.isRequired
 };

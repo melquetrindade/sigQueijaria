@@ -6,6 +6,8 @@ import CrudNav from "../crudNav";
 import React, {useState, useEffect} from "react";
 import { useRouter } from 'next/router'
 import styles from '../styles/navProduct.module.css'
+import { jsPDF } from 'jspdf'; 
+import 'jspdf-autotable'; 
 
 export default function ProductCrud() {
     const router = useRouter()
