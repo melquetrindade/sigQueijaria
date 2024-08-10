@@ -7,6 +7,7 @@ import { useState, useEffect } from "react";
 import { jsPDF } from 'jspdf'; 
 import 'jspdf-autotable'; 
 
+
 export default function SupplierCrud() {
     const [supplier, setSupplier] = useState([]);
     const [search, setSearch] = useState("");
@@ -84,6 +85,27 @@ export default function SupplierCrud() {
         { icon: RiDeleteBin6Line, label: "Excluir Fornecedor", color: "text-red-500", onClick: () => window.location.href = "/supplier/delete" },
     ];
 
-    return <CrudNav actions={actions} placeholder="Pesquise pelo CNPJ..." TableFunction={Table} searchState={setSearch}/>;
+    // Função de gerar e baixar os relatórios
+    const generateReport = () => {
+        const doc = new jsPDF();
+
+        // Adicionar título
+        doc.text("Relatório de Fornecedores Ativos", 14, 16);
+
+        // Gerar a tabela com os dados dos fornecedores
+        doc.autoTable({
+            startY: 20,
+            head: [['ID', 'Nome', 'CNPJ', 'E-mail', 'Telefone', 'Atividade']], 
+            // Função de filtragem
+            body: supplier.filter((supplier) => supplier.status === true).map(supplier => [supplier.id, supplier.nome, supplier.cnpj, supplier.email, supplier.numTelefone, 'Ativo']),
+        });
+
+        // Baixar o documento
+        doc.save('relatorio_fornecedores.pdf');
+    };
+
+    return <CrudNav actions={actions} placeholder="Pesquise pelo CNPJ..." TableFunction={Table} searchState={setSearch} generateReports={generateReport}/>;
 };
+
+
 
