@@ -24,7 +24,7 @@ Na pasta 'api' dentro da pasta 'back_end' execute:
   > *  3º ```python3 -m pip install django-cors-headers```
 
 ## 6° Passo: Realizar a migração dos dados
-Na mesma pasta do passo 3, execute:
+Na pasta 'api' dentro da pasta 'back_end' execute:
   > *  1º ```python3 manage.py makemigrations```
   > *  2º ```python3 manage.py migrate```
   > *  3º ```python3 manage.py migrate --run-syncdb```

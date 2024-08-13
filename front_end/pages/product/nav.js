@@ -168,6 +168,26 @@ export default function ProductCrud() {
         );
     }
 
-    return(<CrudNav actions={actions} placeholder="Digite o código de barras..." TableFunction={Table} searchState={setSearch}/>)
+    // Função de gerar e baixar os relatórios
+    const generateReport = () => {
+        const doc = new jsPDF();
+
+        // Adicionar título
+        doc.text("Relatório de Produtos Ativos", 14, 16);
+
+        // Gerar a tabela com os dados dos produtos
+        doc.autoTable({
+            startY: 20,
+            head: [['ID', 'Código de Barras', 'Nome', 'Quantidade', 'Data de Validade', 'Valor']], 
+            // Função de filtragem
+            body: products.filter((product) => product.status === true).map(product => [product.id, product.codigoBarras, product.nome, product.quantidade, product.dataValidade, product.valor,  'Ativo']),
+        });
+
+        // Baixar o documento
+        doc.save('relatorio_produtos.pdf');
+    };
+
+
+    return(<CrudNav actions={actions} placeholder="Digite o código de barras..." TableFunction={Table} searchState={setSearch}generateReports={generateReport}/>)
 };
 
