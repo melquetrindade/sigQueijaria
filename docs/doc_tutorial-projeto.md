@@ -1,6 +1,6 @@
 ## 🚀 Como rodar o projeto no Windows ou Linux
  Primeiro é necessário seguir todos os passos de intalações para o seu determinado sistema operacional. Link disponível abaixo: </br>
- [Tutorial para Windows](docs/doc-tutorial-windows.md) | [Tutorial para Linux](docs/doc-tutorial-linux.md) 
+ [Tutorial para Windows](doc-tutorial-windows.md) | [Tutorial para Linux](doc-tutorial-linux.md) 
 
 ## Iniciar os servidores back-end e front-end
 Abra dois terminais, um para cada servidor.<br>
