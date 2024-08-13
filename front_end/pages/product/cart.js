@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from "react";
 import { useRouter } from "next/router";
 import styles from '../styles/cart.module.css'
+import { createBills } from "../bills/createBills";
 
 export default function Cart(){
     const router = useRouter()
@@ -369,9 +370,7 @@ export default function Cart(){
                 }),
             });
             if(response.status == 201){
-                /*
-                CHAMAR A FUNÇÃO DE CRIAR CONTA AQUI
-                */
+                createBills({ idBill: idDaVenda, billType: true });
                 // Volta para a página inicial de produtos
                 router.push({
                     pathname: './nav',
