@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import RegisterMerchProduct from "./registerMerchandiseProduct";
+import RegisterMerchPayment from "./registerMerchPayment";
 
 export default function InputMerchandise({ productId }) {
     const [supplier, setSupplier] = useState([]);
@@ -12,12 +13,21 @@ export default function InputMerchandise({ productId }) {
         data: "",
         valor: "",
     });
+    const [payment, setPayment] = useState({
+        metodo: "",
+        valor: "",
+    });
 
     // Pegando os valores "name" e "value" para formar o JSON
     const handleChange = (e) => {
         const { name, value } = e.target;
         setInputMerchandise({ ...inputMerchandise, [name]: value });
     };
+
+    // const handleRadioChange = (e) => {
+    //     const { name, value } = e.target;
+    //     setPayment({ ...payment, [name]: value });
+    // };
 
     useEffect(() => {
         // Carregando os dados dos fornecedores
@@ -58,7 +68,7 @@ export default function InputMerchandise({ productId }) {
     //         );
     //         const dataMerchandise = await dataMerch.json();
     //         console.log(dataMerchandise);
-            
+
     //         const lastMerchandise = dataMerchandise[dataMerchandise.length - 1];
     //         const lastMerchandiseId = lastMerchandise.id;
     //         setMerchandise(lastMerchandiseId);
@@ -71,7 +81,6 @@ export default function InputMerchandise({ productId }) {
     //         console.error("Erro ao carregar:", error);
     //     }
     // }
-    
 
     const handleSubmit = async (e) => {
         // Esta função envia os dados do inputMerchandise para o back usando o método POST
@@ -86,6 +95,18 @@ export default function InputMerchandise({ productId }) {
                         "Content-Type": "application/json",
                     },
                     body: JSON.stringify(inputMerchandise),
+                }
+            );
+
+            const newValue = parseInt(inputMerchandise.quantidade) * (parseInt(inputMerchandise.valor)/2);
+            const responsePayment = await fetch(
+                "http://127.0.0.1:8000/metodosPagamentos/",
+                {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json",
+                    },
+                    body: JSON.stringify({metodo: payment, valor: newValue}),
                 }
             );
 
@@ -113,16 +134,16 @@ export default function InputMerchandise({ productId }) {
 
             // const lastId = await fetchDataMerchandise();
 
-            
-
-            if (response.status == 200 || response.status == 201) {
+            if ((response.status == 200 || response.status == 201) && (responsePayment.status == 200 || responsePayment.status == 201)) {
                 // const dataSaved = await merchandiseProduct.json();
                 const data = await response.json(); // transforma a resposta em JSON
                 const dataUpdated = await updateResponse.json();
+                const dataPayment = await responsePayment.json();
                 RegisterMerchProduct(productId);
-
+                RegisterMerchPayment(payment);
                 console.log(data);
                 console.log(dataUpdated);
+                console.log(dataPayment);
                 // console.log(dataSaved);
 
                 setInputMerchandise({
@@ -207,6 +228,42 @@ export default function InputMerchandise({ productId }) {
                             onChange={handleChange}
                             required
                         />
+                    </div>
+                    <div className="flex justify-evenly items-center pt-5">
+                        <div>
+                            <input
+                                type="radio"
+                                id="pix"
+                                name="pagamento"
+                                value="pix"
+                                onChange={(e) => setPayment(e.target.value)}
+                                
+                            />
+                            <label for="pix" className="p-2">PIX</label>
+                        </div>
+
+                        <div>
+                            <input
+                                type="radio"
+                                id="especie"
+                                name="pagamento"
+                                value="especie"
+                                onChange={(e) => setPayment(e.target.value)}
+                                
+                            />
+                            <label for="especie" className="p-2">ESPÉCIE</label>
+                        </div>
+                        <div>
+                            <input
+                                type="radio"
+                                id="cartao"
+                                name="pagamento"
+                                value="cartao"
+                                onChange={(e) => setPayment(e.target.value)}
+                                
+                            />
+                            <label for="cartao" className="p-2">CARTÃO</label>
+                        </div>
                     </div>
                     <button
                         type="submit"

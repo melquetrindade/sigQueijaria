@@ -119,8 +119,8 @@ class MetodoPagamento(models.Model):
         return self.metodo
         
 class EntradaMercadoria_MetodoPagamento(models.Model):
-    ownerEntradaMercadoria = models.OneToOneField(EntradaMercadoria, on_delete=models.CASCADE)
-    ownerMetodoPagamento = models.ManyToManyField(MetodoPagamento)
+    ownerEntradaMercadoria = models.ForeignKey(EntradaMercadoria, on_delete=models.CASCADE)
+    ownerMetodoPagamento = models.CharField(max_length=55)
 
     def __str__(self):
         return self.ownerEntradaMercadoria

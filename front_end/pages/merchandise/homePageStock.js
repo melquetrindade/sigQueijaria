@@ -1,6 +1,5 @@
 import Link from "next/link";
 
-
 export default function HomePageStock({produtos, setProductId}) {
     return (
         <div className="flex flex-col justify-center items-cente h-96 gap-20">
