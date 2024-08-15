@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from "react";
+import RegisterMerchProduct from "./registerMerchandiseProduct";
 
 export default function InputMerchandise({ productId }) {
     const [supplier, setSupplier] = useState([]);
+    // const [merchandise, setMerchandise] = useState(null);
     const [productData, setProductData] = useState("");
     const [inputMerchandise, setInputMerchandise] = useState({
         quantidade: "",
@@ -49,6 +51,28 @@ export default function InputMerchandise({ productId }) {
         fetchDataProduct();
     }, []);
 
+    // async function fetchDataMerchandise() {
+    //     try {
+    //         const dataMerch = await fetch(
+    //             "http://127.0.0.1:8000/entradasMercadorias/"
+    //         );
+    //         const dataMerchandise = await dataMerch.json();
+    //         console.log(dataMerchandise);
+            
+    //         const lastMerchandise = dataMerchandise[dataMerchandise.length - 1];
+    //         const lastMerchandiseId = lastMerchandise.id;
+    //         setMerchandise(lastMerchandiseId);
+    //         console.log("ID da última entrada:", merchandise);
+    //         // if (dataMerchandise.length > 0) {
+    //         //     // Encontra a entrada de mercadoria com o maior ID
+    //         //     // console.log("ID da última entrada:", lastMerchandise.id);
+    //         // }
+    //     } catch (error) {
+    //         console.error("Erro ao carregar:", error);
+    //     }
+    // }
+    
+
     const handleSubmit = async (e) => {
         // Esta função envia os dados do inputMerchandise para o back usando o método POST
         e.preventDefault();
@@ -64,10 +88,12 @@ export default function InputMerchandise({ productId }) {
                     body: JSON.stringify(inputMerchandise),
                 }
             );
-            
+
             // console.log(inputMerchandise.quantidade);
             // newQuantity vai somar a quantidade já existente no banco de dados com a nova quantidade a ser inserida
-            const newQuantity = parseInt(productData.quantidade) + parseInt(inputMerchandise.quantidade);
+            const newQuantity =
+                parseInt(productData.quantidade) +
+                parseInt(inputMerchandise.quantidade);
             const updatedProductQuantity = {
                 ...productData,
                 quantidade: newQuantity,
@@ -85,18 +111,30 @@ export default function InputMerchandise({ productId }) {
                 }
             );
 
-            const data = await response.json(); // transforma a resposta em JSON
-            const dataUpdated = await updateResponse.json();
-            console.log(data);
-            console.log(dataUpdated);
+            // const lastId = await fetchDataMerchandise();
 
-            setInputMerchandise({
-                quantidade: "",
-                codigo: "",
-                ownerFornecedor: "",
-                data: "",
-                valor: "",
-            });
+            
+
+            if (response.status == 200 || response.status == 201) {
+                // const dataSaved = await merchandiseProduct.json();
+                const data = await response.json(); // transforma a resposta em JSON
+                const dataUpdated = await updateResponse.json();
+                RegisterMerchProduct(productId);
+
+                console.log(data);
+                console.log(dataUpdated);
+                // console.log(dataSaved);
+
+                setInputMerchandise({
+                    quantidade: "",
+                    codigo: "",
+                    ownerFornecedor: "",
+                    data: "",
+                    valor: "",
+                });
+            } else {
+                console.log(response);
+            }
         } catch (error) {
             console.error("Erro ao inserir inputMerchandise!", error);
         }
@@ -135,11 +173,16 @@ export default function InputMerchandise({ productId }) {
                             <option value="" disabled>
                                 Escolha o Fornecedor
                             </option>
-                            {supplier.filter((supplier) => supplier.status !== false).map((supplier) => (
-                                <option key={supplier.id} value={supplier.id}>
-                                    {supplier.nome}
-                                </option>
-                            ))}
+                            {supplier
+                                .filter((supplier) => supplier.status !== false)
+                                .map((supplier) => (
+                                    <option
+                                        key={supplier.id}
+                                        value={supplier.id}
+                                    >
+                                        {supplier.nome}
+                                    </option>
+                                ))}
                         </select>
                     </div>
                     <div className="flex flex-col justify-center gap-1">
