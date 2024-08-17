@@ -1,3 +1,5 @@
+import { createBills } from "../bills/createBills";
+
 export default async function RegisterMerchPayment(paymentType) {
     try {
         // Carregando os dados dos fornecedores (entradas de mercadorias)
@@ -26,6 +28,11 @@ export default async function RegisterMerchPayment(paymentType) {
                 }),
             }
         );
+
+        if (merchandisePayment.status == 200 || merchandisePayment.status == 201) {
+            createBills({ idBill: lastMerchandiseId, billType: false });
+        }
+
 
         const merchandisePaymentData = await merchandisePayment.json();
         console.log("Resposta da criação do produto:", merchandisePaymentData);
