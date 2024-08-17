@@ -114,22 +114,118 @@ export default function Caixa(){
     }
 
     // monta o objeto utilizado para fazer update de um caixa
-    const createObjtUpdateBox = (id, isClosed) => {
+    const createObjtUpdateBox = (id) => {
         var caixa = caixas.find(objt => objt.id === id);
         const newData = {
             valorInicial: caixa.valorInicial,
             valorAtual: caixa.valorAtual,
             dataHoraAberturaAtual: obterDataHoraAtual(),
-            isOpen: isClosed == 'closed' ? false : true
+            isOpen: true
         }
         return newData
     }
 
-    // atualiza um caixa específico
+    // verifica se é uma operação de fechar ou abrir caixa
     const updateBox = async (id, isClosed) => {
-        const newCaixa = createObjtUpdateBox(id, isClosed)
+        if(isClosed == 'closed'){
+            var caixa = caixas.find(objt => objt.id === id);
+            if(caixa.valorAtual >= 100){
+                registerDayBox(caixa)
+            } else{
+                console.log('o caixa precisar ter no mínimo R$ 100 reais para poder fechar')
+            }
+        } else{
+            openBox(id)
+        }
+    }
+
+    // Abre o Caixa
+    const openBox = async (id) => {
+        const newCaixa = createObjtUpdateBox(id)
         try{
             const response = await fetch(`http://127.0.0.1:8000/caixas/${id}/`, {
+                method: "PATCH",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify(newCaixa),
+            });
+            if(response.status == 200){
+                setUpdateState(!updatestate)
+            }
+        } catch(error){
+            console.error('Erro ao adicionar dado:', error);
+        }
+    }
+
+    // Cria o objeto utilizado para criar a tabela de DiaCaixa
+    const createDayBox = (caixa) => {
+        const dayBox = {
+            dataHoraAbertura: caixa.dataHoraAberturaAtual,
+            dataHoraEncerramento: obterDataHoraAtual(),
+            valorInicial: caixa.valorInicial,
+            valorFinal: caixa.valorAtual
+        }
+        return dayBox
+    }
+
+    // Cria a Tabela de DiaCaixa
+    const registerDayBox = async (caixa) => {
+        const objtDayBox = createDayBox(caixa)
+        try{
+            const response = await fetch(`http://127.0.0.1:8000/diasCaixas/`, {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify(objtDayBox),
+            });
+            if(response.status == 201){
+                const data = await response.json()
+                createCaixaDiaCaixa(caixa, data.id)
+            }
+        } catch(error){
+            console.error('Erro ao adicionar dado:', error);
+        }
+    }
+
+    // Cria a tabela de CaixaDiaCaixa
+    const createCaixaDiaCaixa = async (caixa, idDiaCaixa) => {
+        try{
+            const response = await fetch(`http://127.0.0.1:8000/caixasDiasCaixas/`, {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify({
+                    ownerCaixa: caixa.id,
+                    ownerDiaCaixa: idDiaCaixa
+                }),
+            });
+            if(response.status == 201){
+                finishClosed(caixa)
+            }
+        } catch(error){
+            console.error('Erro ao adicionar dado:', error);
+        }
+    }
+
+    // Cria o objeto para finalizar a operação de fechar o caixa
+    const objtFinish = () => {
+        const objt = {
+            valorInicial: 100,
+            valorAtual: 100,
+            dataHoraAberturaAtual: obterDataHoraAtual(),
+            isOpen: false
+        }
+        return objt
+    }
+
+    // Finaliza a operação de fechar caixa, prepara o caixa para a próxima abertura
+    const finishClosed = async (caixa) => {
+        const newCaixa = objtFinish(caixa)
+        try{
+            const response = await fetch(`http://127.0.0.1:8000/caixas/${caixa.id}/`, {
                 method: "PATCH",
                 headers: {
                     "Content-Type": "application/json",
