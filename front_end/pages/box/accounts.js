@@ -199,42 +199,60 @@ export default function Acconunts(){
     }
 
     // desenvolver a função de pagar conta
-    const pagarConta = () => {
-        // if (caixa.valor >= contas.valor) {
-        //     // try {
-        //     //     const responsePayment = await fetch("http://127.0.0.1:8000/clientes/", {
-        //     //         method: "POST",
-        //     //         headers: {
-        //     //             "Content-Type": "application/json",
-        //     //         },
-        //     //         body: JSON.stringify(cliente),
-        //     //     });
-        //     //     if(response.status == 200 || response.status == 201){
-        //     //         const data = await response.json(); // transforma a resposta em JSON
-        //     //         console.log(data);
-        //     //         router.push({
-        //     //             pathname: '../address/create',
-        //     //             query: {idOwner: data.id, typeOwner: "clientes"}
-        //     //         })
-        //     //         setCliente({
-        //     //             cpf: "",
-        //     //             rg: "",
-        //     //             nome: "",
-        //     //             email: "",
-        //     //             numTelefone: "",
-        //     //             dataNascimento: "",
-        //     //         });
-        //     //     } else{
-        //     //         console.log(response)
-        //     //     }
+    const pagarConta = async (item) => {
+        // Só executa de o valor atual do caixa for maior do que o valor da conta a ser paga
+        if (caixa.valorAtual >= item.valor) {
+            // Define o novo valor do caixa
+            const newValue = caixa.valor - item.valor;
+            try {
+                // Adiciona os valores id do caixa selecionado, id da conta, data de abertura do caixa e valor da conta a ser paga à pagamentos
+                const responsePayment = await fetch("http://127.0.0.1:8000/pagamentos/", {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json",
+                    },
+                    body: JSON.stringify({ownerCaixa: id, ownerConta: item.id, data: caixa.dataHoraAberturaAtual, valor: item.valor}),
+                });
+
+                // Se o método POST for concluído, executrá mais algumas funções
+                if(responsePayment.status == 200 || responsePayment.status == 201){
+                    const data = await responsePayment.json(); // transforma a resposta em JSON
+                    console.log('Deu certoooo', data);
+
+                    // Atualiza o valor do caixa após fazer o pagamento de uma conta
+                    const newValueCaixa = await fetch(`http://127.0.0.1:8000/caixas/${id}`, {
+                        method: "PUT",
+                        headers: {
+                            "Content-Type": "application/json",
+                        },
+                        body: JSON.stringify({valorAtual: newValue}),
+                    });
+
+                    // Atualiza o status de resolvida da conta para true, para indicar que ela já foi paga
+                    const billsResolved = await fetch(`http://127.0.0.1:8000/contas/${item.id}`, {
+                        method: "PUT",
+                        headers: {
+                            "Content-Type": "application/json",
+                        },
+                        body: JSON.stringify({resolvida: true}),
+                    });
+
+                    const newDataCashier = await newValueCaixa.json();
+                    const newDataBills = await billsResolved.json();
+                    console.log(newDataCashier);
+                    console.log(newDataBills);
+                } else{
+                    console.log(responsePayment);
+                }
                 
-        //     // } catch (error) {
-        //     //     console.error("Erro ao inserir cliente!", error);
-        //     // }
-        // } else {
-        //     console.log('Não há dinheiro suficiente no caixa');
-        // }
-        console.log('pagar conta aqui')
+            } catch (error) {
+                console.error("Erro ao inserir cliente!", error);
+            }
+        } else {
+            // console.log(caixa.valor);
+            console.log('Não há dinheiro suficiente no caixa');
+        }
+        // console.log('pagar conta aqui')
     }
 
     // desenvolver a função de receber conta
@@ -284,7 +302,7 @@ export default function Acconunts(){
                                         <td>{`R$ ${item.valor.toFixed(2).replace('.', ',')}`}</td>
                                         <td 
                                             className={item.tipo == 'venda' ? styles.buttonReceber : styles.buttonPagar}
-                                            onClick={item.tipo == 'venda' ? receberConta : pagarConta}
+                                            onClick={() => item.tipo === 'venda' ? receberConta() : pagarConta(item)}
                                         >
                                             <p>{item.tipo == 'venda' ? 'RECEBER' : 'PAGAR'}</p>
                                         </td>
