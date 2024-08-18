@@ -89,10 +89,12 @@ export default function SideBar() {
                             Caixa
                         </li>
                     </Link>
-                    <li className="flex gap-2 cursor-pointer">
-                        <HiOutlineCurrencyDollar className="size-7" />
-                        Financeiro
-                    </li>
+                    <Link href={"/financial/financialPage"}>
+                        <li className="flex gap-2 cursor-pointer">
+                            <HiOutlineCurrencyDollar className="size-7" />
+                            Financeiro
+                        </li>
+                    </Link>
                     <Link href={"/report/reportPage"}>
                         <li className="flex gap-2 cursor-pointer">
                             <HiOutlineClipboardDocumentList className="size-7" />

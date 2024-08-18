@@ -200,6 +200,40 @@ export default function Acconunts(){
 
     // desenvolver a função de pagar conta
     const pagarConta = () => {
+        // if (caixa.valor >= contas.valor) {
+        //     // try {
+        //     //     const responsePayment = await fetch("http://127.0.0.1:8000/clientes/", {
+        //     //         method: "POST",
+        //     //         headers: {
+        //     //             "Content-Type": "application/json",
+        //     //         },
+        //     //         body: JSON.stringify(cliente),
+        //     //     });
+        //     //     if(response.status == 200 || response.status == 201){
+        //     //         const data = await response.json(); // transforma a resposta em JSON
+        //     //         console.log(data);
+        //     //         router.push({
+        //     //             pathname: '../address/create',
+        //     //             query: {idOwner: data.id, typeOwner: "clientes"}
+        //     //         })
+        //     //         setCliente({
+        //     //             cpf: "",
+        //     //             rg: "",
+        //     //             nome: "",
+        //     //             email: "",
+        //     //             numTelefone: "",
+        //     //             dataNascimento: "",
+        //     //         });
+        //     //     } else{
+        //     //         console.log(response)
+        //     //     }
+                
+        //     // } catch (error) {
+        //     //     console.error("Erro ao inserir cliente!", error);
+        //     // }
+        // } else {
+        //     console.log('Não há dinheiro suficiente no caixa');
+        // }
         console.log('pagar conta aqui')
     }
 
