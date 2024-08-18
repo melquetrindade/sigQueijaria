@@ -205,13 +205,16 @@ export default function Acconunts(){
             // Define o novo valor do caixa
             const newValue = caixa.valor - item.valor;
             try {
+                const postPaymentData = {ownerCaixa: id, ownerConta: item.idConta, data: caixa.dataHoraAberturaAtual, valor: item.valor}
+                console.log(item);
+                console.log(postPaymentData);
                 // Adiciona os valores id do caixa selecionado, id da conta, data de abertura do caixa e valor da conta a ser paga à pagamentos
                 const responsePayment = await fetch("http://127.0.0.1:8000/pagamentos/", {
                     method: "POST",
                     headers: {
                         "Content-Type": "application/json",
                     },
-                    body: JSON.stringify({ownerCaixa: id, ownerConta: item.id, data: caixa.dataHoraAberturaAtual, valor: item.valor}),
+                    body: JSON.stringify(postPaymentData),
                 });
 
                 // Se o método POST for concluído, executrá mais algumas funções
