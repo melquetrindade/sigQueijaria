@@ -89,18 +89,6 @@ export default function SideBar() {
                             Caixa
                         </li>
                     </Link>
-                    <Link href={"/financial/financialPage"}>
-                        <li className="flex gap-2 cursor-pointer">
-                            <HiOutlineCurrencyDollar className="size-7" />
-                            Financeiro
-                        </li>
-                    </Link>
-                    <Link href={"/report/reportPage"}>
-                        <li className="flex gap-2 cursor-pointer">
-                            <HiOutlineClipboardDocumentList className="size-7" />
-                            Relatórios
-                        </li>
-                    </Link>
                     <Link href={"/merchandise/navMerchandise"}>
                         <li className="flex gap-2 cursor-pointer">
                             <BsBoxes className="size-7" /> Estoque
